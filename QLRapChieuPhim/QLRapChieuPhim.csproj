@@ -97,5 +97,8 @@
   <ItemGroup>
     <Folder Include="Img\" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Film-festivals-and-the-hybrid-future.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
