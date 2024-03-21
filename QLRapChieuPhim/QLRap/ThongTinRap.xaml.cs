@@ -12,18 +12,16 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace QLRapChieuPhim
+namespace QLRapChieuPhim.QLRap
 {
     /// <summary>
-    /// Interaction logic for HomePage.xaml
+    /// Interaction logic for ThongTinRap.xaml
     /// </summary>
-    public partial class HomePage : Window
+    public partial class ThongTinRap : Window
     {
-        public HomePage()
+        public ThongTinRap()
         {
             InitializeComponent();
         }
-
-        
     }
 }
