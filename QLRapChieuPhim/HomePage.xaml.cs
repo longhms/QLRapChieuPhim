@@ -22,8 +22,16 @@ namespace QLRapChieuPhim
         public HomePage()
         {
             InitializeComponent();
+
+            this.WindowStyle = WindowStyle.None;
         }
 
-        
+        private void btnExit_Click(object sender, RoutedEventArgs e)
+        {
+            if (MessageBox.Show("Bạn chắc chắn muốn thoát ứng dụng?", "Thong bao", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                App.Current.Shutdown();
+            }
+        }
     }
 }
