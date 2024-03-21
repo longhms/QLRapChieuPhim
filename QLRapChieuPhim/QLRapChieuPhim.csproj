@@ -133,22 +133,19 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Img\" />
+    <Resource Include="Img\Film-festivals-and-the-hybrid-future.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Film-festivals-and-the-hybrid-future.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Premium Photo _ Flat lay composition of cinema objects.jpg" />
+    <Resource Include="Img\Premium Photo _ Flat lay composition of cinema objects.jpg" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\icon_menu.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Home_page-1-img.jpg" />
+    <Resource Include="Img\Home_page-1-img.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="image-exit.png" />
+    <Resource Include="Img\image-exit.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.4.4.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.4.0\build\MaterialDesignThemes.targets')" />

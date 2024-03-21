@@ -8,9 +8,9 @@
         Title="HomePage" Height="450" Width="800">
     <Grid Margin="0,21,0,0">
         <Grid.Background>
-            <ImageBrush ImageSource="/Home_page-1-img.jpg"/>
+            <ImageBrush ImageSource="Img/Home_page-1-img.jpg"/>
         </Grid.Background>
-        <Menu x:Name="mnuHomepage" Margin="-1,-26,0,371" RenderTransformOrigin="0.5,0.5">
+        <Menu x:Name="mnuHomepage" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,-25,0,0" RenderTransformOrigin="0.5,0.5" Height="30">
             <Menu.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -19,7 +19,7 @@
                     <TranslateTransform/>
                 </TransformGroup>
             </Menu.RenderTransform>
-            <MenuItem FontSize="14" Header="Quản lí rạp" Height="25">
+            <MenuItem x:Name="mnuQLRap" FontSize="14" Header="Quản lí rạp">
                 <MenuItem.BorderBrush>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="Black"/>
@@ -32,13 +32,17 @@
                 <MenuItem Header="Giờ chiếu"/>
                 <MenuItem Header="Vé"/>
             </MenuItem>
-            <MenuItem FontSize="14" Header="Quản lí phim" Height="25" BorderBrush="Black">
+            <MenuItem x:Name="mnuQLPhim" FontSize="14" Header="Quản lí phim" BorderBrush="Black">
                 <MenuItem Header="Phim"/>
                 <MenuItem Header="Thể loại"/>
                 <MenuItem Header="Hãng sản xuất"/>
-                <MenuItem Header="Nước sản xuất"/>
+                <MenuItem Header="Quốc gia sản xuất"/>
             </MenuItem>
-            <MenuItem FontSize="14" Header="Báo cáo" Height="25">
+            <MenuItem x:Name="mnuFind" FontSize="14" Header="Tìm kiếm" BorderBrush="Black">
+                <MenuItem Header="Phim"/>
+                <MenuItem Header="Lịch chiếu"/>
+            </MenuItem>
+            <MenuItem x:Name="mnuBaoCao" FontSize="14" Header="Báo cáo">
                 <MenuItem.BorderBrush>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="Black"/>
@@ -46,19 +50,16 @@
                     </LinearGradientBrush>
                 </MenuItem.BorderBrush>
                 <MenuItem Header="Doanh thu">
-                    <MenuItem Header="Phim "/>
+                    <MenuItem Header="Phim"/>
                     <MenuItem Header="Rạp"/>
                 </MenuItem>
                 <MenuItem Header="Phim đang chiếu"/>
             </MenuItem>
-            <MenuItem FontSize="14" Header="Tìm kiếm" Height="25" BorderBrush="Black">
-                <MenuItem Header="Phim"/>
-                <MenuItem Header="Lịch chiếu"/>
-            </MenuItem>
+            <MenuItem Header="Bán vé" FontSize="14" BorderBrush="Black" Height="30"/>
         </Menu>
-        <Button x:Name="btnExit" Content="" HorizontalAlignment="Left" Margin="758,269,0,0" VerticalAlignment="Top" RenderTransformOrigin="2.25,0.47">
+        <Button x:Name="btnExit" Content="" HorizontalAlignment="Right" Margin="0,0,0,0" VerticalAlignment="Bottom" RenderTransformOrigin="2.25,0.47">
             <Button.Background>
-                <ImageBrush ImageSource="/image-exit.png"/>
+                <ImageBrush ImageSource="Img/image-exit.png"/>
             </Button.Background>
         </Button>
     </Grid>
