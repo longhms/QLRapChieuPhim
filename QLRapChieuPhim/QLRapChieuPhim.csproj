@@ -67,7 +67,7 @@
     <Compile Include="QLPhim\Phim.xaml.cs">
       <DependentUpon>Phim.xaml</DependentUpon>
     </Compile>
-    <Compile Include="QLRap\Phong_chieu.xaml.cs">
+    <Compile Include="QLRap\Phong_Chieu\Phong_chieu.xaml.cs">
       <DependentUpon>Phong_chieu.xaml</DependentUpon>
     </Compile>
     <Compile Include="QLRap\ThongTinRap.xaml.cs">
@@ -96,7 +96,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="QLRap\Phong_chieu.xaml">
+    <Page Include="QLRap\Phong_Chieu\Phong_chieu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
