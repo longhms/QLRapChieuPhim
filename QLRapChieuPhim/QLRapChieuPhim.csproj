@@ -64,6 +64,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="QLRap\Phong_chieu.xaml.cs">
+      <DependentUpon>Phong_chieu.xaml</DependentUpon>
+    </Compile>
     <Compile Include="QLRap\ThongTinRap.xaml.cs">
       <DependentUpon>ThongTinRap.xaml</DependentUpon>
     </Compile>
@@ -86,6 +89,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="QLRap\Phong_chieu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="QLRap\ThongTinRap.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
