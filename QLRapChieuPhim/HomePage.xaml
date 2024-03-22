@@ -10,7 +10,7 @@
         <Grid.Background>
             <ImageBrush ImageSource="Img/Home_page-1-img.jpg"/>
         </Grid.Background>
-        <Menu x:Name="mnuHomepage" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,-25,0,0" RenderTransformOrigin="0.5,0.5" Height="25" Cursor="Hand">
+        <Menu x:Name="mnuHomepage" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,-35,0,0" RenderTransformOrigin="0.5,0.5" Height="35" Cursor="Hand">
             <Menu.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -55,7 +55,7 @@
                 </MenuItem>
                 <MenuItem Header="Phim đang chiếu"/>
             </MenuItem>
-            <MenuItem Header="Bán vé" FontSize="14" BorderBrush="Black" Height="25"/>
+            <MenuItem Header="Bán vé" FontSize="14" BorderBrush="Black"/>
         </Menu>
         <Button x:Name="btnExit" Content="" HorizontalAlignment="Right" Margin="0,0,0,0" VerticalAlignment="Bottom" RenderTransformOrigin="2.25,0.47" Click="btnExit_Click">
             <Button.Background>
