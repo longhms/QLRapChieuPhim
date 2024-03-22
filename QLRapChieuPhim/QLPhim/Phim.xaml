@@ -6,7 +6,18 @@
         xmlns:local="clr-namespace:QLRapChieuPhim.QLPhim"
         mc:Ignorable="d"
         Title="Phim" Height="450" Width="800">
-    <Grid>
-        
+
+    <Grid x:Name="GrdBoder" Background="#FF030B2B" >
+        <Grid x:Name="GrdMain" Margin="10,62,10,10" Background="White">
+            <TextBox x:Name="txtFind" HorizontalAlignment="Left" Margin="10,14,0,0" TextWrapping="Wrap" Text="Tìm kiếm" VerticalAlignment="Top" Width="214"/>
+            <Button x:Name="btnFind"  HorizontalAlignment="Left" Margin="242,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.013,0.001">
+                <StackPanel Orientation="Horizontal">
+                    
+                </StackPanel>
+            </Button>
+            <DataGrid Margin="10,54,10,10" RenderTransformOrigin="0.472,0.5"/>
+
+        </Grid>
+
     </Grid>
 </Window>
