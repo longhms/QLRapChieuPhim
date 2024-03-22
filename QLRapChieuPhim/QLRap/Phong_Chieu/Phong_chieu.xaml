@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:QLRapChieuPhim.QLRap"
         mc:Ignorable="d"
         Title="Phong_chieu" Height="450" Width="800">
-    <Grid>
+    <Grid Name="mainGrid">
         
     </Grid>
 </Window>

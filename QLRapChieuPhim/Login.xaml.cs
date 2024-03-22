@@ -23,7 +23,7 @@ namespace QLRapChieuPhim
     {
         Classes.DataProcessor dtBase = new Classes.DataProcessor();
         Classes.Common cm = new Classes.Common();
-        public static string userName = "", mk;
+        public static string userName = "", mk, cinemaID;
         
         public Login()
         {
@@ -50,6 +50,8 @@ namespace QLRapChieuPhim
             }
             /*mk = cm.CreatePassword(psbPassword.Password);*/
             mk = psbPassword.Password;
+            userName = txtName.Text;
+            cinemaID = cboRapCP.SelectedValue.ToString();
             sql = "Select * from tblRap where userName = '" + txtName.Text + "' and password = '" + mk + "' and maRap = '"+ cboRapCP.SelectedValue.ToString() +"' ";
             DataTable dtTaiKhoan = dtBase.ReadData(sql);
             if (dtTaiKhoan.Rows.Count == 0)

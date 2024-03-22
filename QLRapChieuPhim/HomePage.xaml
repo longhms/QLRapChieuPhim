@@ -27,7 +27,7 @@
                     </LinearGradientBrush>
                 </MenuItem.BorderBrush>
                 <MenuItem Header="Rạp"/>
-                <MenuItem Header="Phòng chiếu"/>
+                <MenuItem x:Name="mnuPhongChieu" Header="Phòng chiếu" Click="mnuPhongChieu_Click"/>
                 <MenuItem Header="Lịch chiếu"/>
                 <MenuItem Header="Giờ chiếu"/>
                 <MenuItem Header="Vé"/>

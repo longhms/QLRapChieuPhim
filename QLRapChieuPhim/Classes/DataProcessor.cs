@@ -10,7 +10,7 @@ namespace QLRapChieuPhim.Classes
 {
     internal class DataProcessor
     {
-        string strConnect = "Data Source = QLRap.db";
+        string strConnect = "Data Source = QLRappp.db";
         SQLiteConnection sqliteConn = null;
 
         void OpenConnect()

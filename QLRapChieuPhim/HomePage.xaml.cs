@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QLRapChieuPhim.QLRap;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -32,6 +33,13 @@ namespace QLRapChieuPhim
             {
                 App.Current.Shutdown();
             }
+        }
+
+
+        private void mnuPhongChieu_Click(object sender, RoutedEventArgs e)
+        {
+            Phong_chieu phong_Chieu = new Phong_chieu();
+            phong_Chieu.ShowDialog();
         }
     }
 }
