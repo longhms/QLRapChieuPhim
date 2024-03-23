@@ -21,14 +21,13 @@ namespace QLRapChieuPhim.QLRap
     /// </summary>
     public partial class Phong_chieu : Window
     {
-        Classes.DataProcessor dataProcessor = new DataProcessor();
+        Classes.DataProcessor dataProcessor = new DataProcessor(Login.cinemaID);
         const int numRows = 5;
         const int numSeatsPerRow = 6;
-        string cS = Login.cinemaID + "chairStatus";
+        string cS = "";
         public Phong_chieu()
         {
             InitializeComponent();
-            DrawSeats();
         }
 
         private void DrawSeats()
@@ -58,33 +57,62 @@ namespace QLRapChieuPhim.QLRap
             {
                 for (int j = 0; j < numSeatsPerRow; j++)
                 {
-                    Button seatButton = new Button();
+                    
                     DataRow row = dt.Rows[i * numSeatsPerRow + j];
                     string chairStatus = row[cS].ToString();
                     string chairID = row["ID"].ToString();
 
-                    // Set button properties
-                    seatButton.Width = 50;
-                    seatButton.Height = 50;
-                    seatButton.Margin = new Thickness(5);
-                    seatButton.Content = chairID;
-                    seatButton.Tag = chairID; // Set Tag to chair ID for later reference
+                    StackPanel stackPanel = new StackPanel();
+                    stackPanel.Orientation = Orientation.Vertical;
+
+
+                    MaterialDesignThemes.Wpf.PackIcon seatIcon = new MaterialDesignThemes.Wpf.PackIcon();
+                    seatIcon.Kind = MaterialDesignThemes.Wpf.PackIconKind.Seat;
+                    seatIcon.Width = 50;
+                    seatIcon.Height = 50;
+                    seatIcon.Margin = new Thickness(5);
+                    /*seatIcon.Content = chairID;*/
+                    seatIcon.Tag = chairID; // Set Tag to chair ID for later reference
 
                     // Set color based on chairStatus
                     if (chairStatus == "empty")
-                        seatButton.Background = Brushes.LightGreen;
+                        seatIcon.Background = Brushes.LightGreen;
                     else if (chairStatus == "booked")
-                        seatButton.Background = Brushes.Red;
+                        seatIcon.Background = Brushes.Red;
+
+                    TextBlock textBlock = new TextBlock();
+                    textBlock.Text = chairID;
+                    textBlock.HorizontalAlignment = HorizontalAlignment.Center;
+                    textBlock.VerticalAlignment = VerticalAlignment.Center;
+
+                    stackPanel.Children.Add(textBlock);
+                    stackPanel.Children.Add(seatIcon);
+                    
 
                     // Add button to grid
-                    Grid.SetColumn(seatButton, j);
-                    Grid.SetRow(seatButton, i);
-                    grid.Children.Add(seatButton);
+                    Grid.SetColumn(stackPanel, j);
+                    Grid.SetRow(stackPanel, i);
+                    grid.Children.Add(stackPanel);
                 }
             }
 
+
             // Add the grid to the main window
             mainGrid.Children.Add(grid);
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            DataTable dataTable = dataProcessor.ReadData("SELECT * FROM tblPhongChieu");
+            cboPhongchieu.ItemsSource = dataTable.AsDataView();
+            cboPhongchieu.DisplayMemberPath = "tenPhong";
+            cboPhongchieu.SelectedValuePath = "maPhong";
+        }
+
+        private void cboPhongchieu_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            cS = cboPhongchieu.SelectedValue.ToString() + "chairStatus";
+            DrawSeats();
         }
     }
 }

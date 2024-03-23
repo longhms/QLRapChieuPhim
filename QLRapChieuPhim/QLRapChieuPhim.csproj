@@ -84,6 +84,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Classes\CinemaHall.cs" />
     <Compile Include="Classes\Common.cs" />
     <Compile Include="Classes\DataProcessor.cs" />
     <Compile Include="QLPhim\Phim.xaml.cs">

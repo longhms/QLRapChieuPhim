@@ -5,8 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QLRapChieuPhim.QLRap"
         mc:Ignorable="d"
-        Title="Phong_chieu" Height="450" Width="800">
-    <Grid Name="mainGrid">
-        
+        Title="Phong_chieu" Height="450" Width="800" Loaded="Window_Loaded">
+    <Grid>
+        <Grid x:Name="mainGrid" Margin="20,60,0,0" Height="300" Width="600" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cboPhongchieu" Margin="0,60,20,0" Width="120" HorizontalAlignment="Right" VerticalAlignment="Top" SelectionChanged="cboPhongchieu_SelectionChanged"/>
     </Grid>
 </Window>

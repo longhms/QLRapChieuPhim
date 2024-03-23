@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QLRapChieuPhim.Classes;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -21,29 +22,47 @@ namespace QLRapChieuPhim
     /// </summary>
     public partial class Login : Window
     {
-        Classes.DataProcessor dtBase = new Classes.DataProcessor();
+        Classes.DataProcessor dtBase = new DataProcessor(cinemaID);
         Classes.Common cm = new Classes.Common();
-        public static string userName = "", mk, cinemaID;
+        public static string userName = "", mk;
+        public static string cinemaID = "";
+
+        Classes.CinemaHall[] cinemaHalls = new CinemaHall[3];
         
+        
+
         public Login()
         {
             InitializeComponent();
+            cinemaHalls[0] = new CinemaHall("1", "KMC Thái Bình");
+            cinemaHalls[2] = new CinemaHall("3", "KMC Vĩnh Phúc");
+            cinemaHalls[1] = new CinemaHall("2", "KMC Lào Cai");
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            DataTable dtRap = dtBase.ReadData("Select maRap,tenRap from tblRap");
+            /*DataTable dtRap = dtBase.ReadData("Select maRap,tenRap from tblRap");
             cboRapCP.ItemsSource = dtRap.AsDataView();
-            /*cboRapCP.Items.Add("Chọn Rạp");*/
+            *//*cboRapCP.Items.Add("Chọn Rạp");*//*
             cboRapCP.DisplayMemberPath = "tenRap";
-            cboRapCP.SelectedValuePath = "maRap";
+            cboRapCP.SelectedValuePath = "maRap";*/
+
+            
+            cboRapCP.DisplayMemberPath = "cinemaHallName";
+            cboRapCP.SelectedValuePath = "cinemaHallID";
+            cboRapCP.ItemsSource = cinemaHalls;
+
+            /*cinemaID = cboRapCP.SelectedValue.ToString();*/
+
         }
 
         private void btnDangnhap_Click(object sender, RoutedEventArgs e)
         {
             string sql = "";
 
-            if(txtName.Text.Trim() == "" || psbPassword.Password == "" || cboRapCP.Text.Trim() == "")
+            
+
+            if (txtName.Text.Trim() == "" || psbPassword.Password == "" || cboRapCP.Text.Trim() == "")
             {
                 MessageBox.Show("Bạn phải nhập tài khoản và mật khẩu!");
                 return;
@@ -52,7 +71,10 @@ namespace QLRapChieuPhim
             mk = psbPassword.Password;
             userName = txtName.Text;
             cinemaID = cboRapCP.SelectedValue.ToString();
-            sql = "Select * from tblRap where userName = '" + txtName.Text + "' and password = '" + mk + "' and maRap = '"+ cboRapCP.SelectedValue.ToString() +"' ";
+
+            Classes.DataProcessor dtBase = new DataProcessor(cinemaID);
+
+            sql = "Select * from tblRap where userName = '" + txtName.Text + "' and password = '" + mk + "'";
             DataTable dtTaiKhoan = dtBase.ReadData(sql);
             if (dtTaiKhoan.Rows.Count == 0)
             {

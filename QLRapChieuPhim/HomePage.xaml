@@ -6,58 +6,42 @@
         xmlns:local="clr-namespace:QLRapChieuPhim"
         mc:Ignorable="d"
         Title="HomePage" Height="600" Width="1000">
-    <Grid Margin="0,21,0,0">
+    <Grid Margin="0,0,0,0">
         <Grid.Background>
             <ImageBrush ImageSource="Img/Home_page-1-img.jpg"/>
         </Grid.Background>
-        <Menu x:Name="mnuHomepage" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,-35,0,0" RenderTransformOrigin="0.5,0.5" Height="35" Cursor="Hand">
-            <Menu.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Menu.RenderTransform>
-            <MenuItem x:Name="mnuQLRap" FontSize="14" Header="Quản lí rạp">
-                <MenuItem.BorderBrush>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="Black"/>
-                        <GradientStop Color="#FF040404" Offset="1"/>
-                    </LinearGradientBrush>
-                </MenuItem.BorderBrush>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Menu x:Name="mnuHomepage" Grid.Row="0" Cursor="Hand" VerticalAlignment="Top" Background="White">
+            <MenuItem x:Name="mnuQLRap" FontSize="14" Header="Quản lí rạp" Height="30">
                 <MenuItem Header="Rạp"/>
                 <MenuItem x:Name="mnuPhongChieu" Header="Phòng chiếu" Click="mnuPhongChieu_Click"/>
                 <MenuItem Header="Lịch chiếu"/>
                 <MenuItem Header="Giờ chiếu"/>
                 <MenuItem Header="Vé"/>
             </MenuItem>
-            <MenuItem x:Name="mnuQLPhim" FontSize="14" Header="Quản lí phim" BorderBrush="Black">
+            <MenuItem x:Name="mnuQLPhim" FontSize="14" Header="Quản lí phim" Height="30">
                 <MenuItem Header="Phim"/>
                 <MenuItem Header="Thể loại"/>
                 <MenuItem Header="Hãng sản xuất"/>
                 <MenuItem Header="Quốc gia sản xuất"/>
             </MenuItem>
-            <MenuItem x:Name="mnuFind" FontSize="14" Header="Tìm kiếm" BorderBrush="Black">
+            <MenuItem x:Name="mnuFind" FontSize="14" Header="Tìm kiếm" Height="30">
                 <MenuItem Header="Phim"/>
                 <MenuItem Header="Lịch chiếu"/>
             </MenuItem>
-            <MenuItem x:Name="mnuBaoCao" FontSize="14" Header="Báo cáo">
-                <MenuItem.BorderBrush>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="Black"/>
-                        <GradientStop Color="#FF0E0D0D" Offset="1"/>
-                    </LinearGradientBrush>
-                </MenuItem.BorderBrush>
+            <MenuItem x:Name="mnuBaoCao" FontSize="14" Header="Báo cáo" Height="30">
                 <MenuItem Header="Doanh thu">
                     <MenuItem Header="Phim"/>
                     <MenuItem Header="Rạp"/>
                 </MenuItem>
                 <MenuItem Header="Phim đang chiếu"/>
             </MenuItem>
-            <MenuItem Header="Bán vé" FontSize="14" BorderBrush="Black"/>
+            <MenuItem Header="Bán vé" FontSize="14" Height="30"/>
         </Menu>
-        <Button x:Name="btnExit" Content="" HorizontalAlignment="Right" Margin="0,0,0,0" VerticalAlignment="Bottom" RenderTransformOrigin="2.25,0.47" Click="btnExit_Click">
+        <Button x:Name="btnExit" Content="" HorizontalAlignment="Right" Margin="0,0,0,0" VerticalAlignment="Bottom" RenderTransformOrigin="2.25,0.47" Click="btnExit_Click" Height="32" Width="32">
             <Button.Background>
                 <ImageBrush ImageSource="Img/image-exit.png"/>
             </Button.Background>
