@@ -3,16 +3,17 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:QLRapChieuPhim.QLPhim"
+        xmlns:local="clr-namespace:QLRapChieuPhim.QLPhim" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="Phim" Height="450" Width="800">
+        Title="Phim" Height="450" Width="800" Loaded="Window_Loaded">
 
     <Grid x:Name="GrdBoder" Background="#FF030B2B" >
         <Grid x:Name="GrdMain" Margin="10,62,10,10" Background="White">
             <TextBox x:Name="txtFind" HorizontalAlignment="Left" Margin="10,14,0,0" TextWrapping="Wrap" Text="Tìm kiếm" VerticalAlignment="Top" Width="214"/>
             <Button x:Name="btnFind"  HorizontalAlignment="Left" Margin="242,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.013,0.001">
                 <StackPanel Orientation="Horizontal">
-                    
+                    <materialDesign:PackIcon Kind="MagnifyPlusOutline" Height="20" Width="28" RenderTransformOrigin="-0.19,0.597" />
+                    <TextBlock></TextBlock>
                 </StackPanel>
             </Button>
             <DataGrid Margin="10,54,10,10" RenderTransformOrigin="0.472,0.5"/>
