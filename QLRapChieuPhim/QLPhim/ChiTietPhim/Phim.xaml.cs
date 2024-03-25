@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,6 +10,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+using System.Windows.Ink;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -31,6 +33,10 @@ namespace QLRapChieuPhim.QLPhim.ChiTietPhim
             // Gọi lại phương thức LoadData hoặc bất kỳ phương thức nào khác để tải lại dữ liệu từ cơ sở dữ liệu và cập nhật DataGrid
             LoadData();
         }
+        public void UpdateDataGrid()
+        {
+            LoadData(); // Gọi lại phương thức LoadData để cập nhật dữ liệu trên DataGrid
+        }
         private void LoadData()
         {
             try
@@ -52,15 +58,44 @@ namespace QLRapChieuPhim.QLPhim.ChiTietPhim
 
         private void btnSua_Click(object sender, RoutedEventArgs e)
         {
-            Them_phim them_Phim = new Them_phim();
-            them_Phim.ShowDialog();
+            if (dgPhim.SelectedItem != null)
+            {
+                // Lấy hàng được chọn từ DataGrid
+                DataRowView selectedRow = dgPhim.SelectedItem as DataRowView;
+
+                // Khởi tạo cửa sổ Them_phim và truyền dữ liệu từ hàng được chọn
+                Them_phim themPhim = new Them_phim(selectedRow);
+                themPhim.ShowDialog();
+
+                // Cập nhật lại DataGrid sau khi chỉnh sửa
+                RefreshDataGrid();
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn một phim để sửa.", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
         }
+    
 
         private void btnXoa_Click(object sender, RoutedEventArgs e)
         {
+            if (MessageBox.Show("Bạn có muốn xóa phim này không ?", "Thông báo", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                DataRowView selectedRow = dgPhim.SelectedItem as DataRowView;
+
+                if (selectedRow != null)
+                {
+                    string maPhim = selectedRow["maPhim"].ToString();
+                    dataProcessor.ChangeData("DELETE FROM tblPhim WHERE maPhim = '" + maPhim + "'");
+                    LoadData();
+                }
+                else
+                {
+                    MessageBox.Show("Vui lòng chọn một phim để xóa.", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+            }
 
         }
-
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             LoadData();
