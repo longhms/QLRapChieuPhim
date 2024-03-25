@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,6 +23,32 @@ namespace QLRapChieuPhim.QLRap
         public ThongTinRap()
         {
             InitializeComponent();
+        }
+
+        public void readIntro()
+        {
+            string filePath = Login.cinemaID + "QLRap";
+
+            try
+            {
+                
+                if (File.Exists(filePath))
+                {
+                    
+                    string content = File.ReadAllText(filePath);
+
+                    
+                    txtGioiThieu.Text = content;
+                }
+                else
+                {
+                    MessageBox.Show("Không tìm thấy tệp.");
+                }
+            }
+            catch (IOException ex)
+            {
+                MessageBox.Show("Lỗi khi đọc tệp: " + ex.Message);
+            }
         }
     }
 }

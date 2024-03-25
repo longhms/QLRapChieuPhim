@@ -19,8 +19,7 @@
                 <MenuItem Header="Rạp"/>
                 <MenuItem x:Name="mnuPhongChieu" Header="Phòng chiếu" Click="mnuPhongChieu_Click"/>
                 <MenuItem Header="Lịch chiếu"/>
-                <MenuItem Header="Giờ chiếu"/>
-                <MenuItem Header="Vé"/>
+                
             </MenuItem>
             <MenuItem x:Name="mnuQLPhim" FontSize="14" Header="Quản lí phim" Height="30">
                 <MenuItem Header="Phim"/>
