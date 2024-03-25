@@ -99,6 +99,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Classes\ChairRow.cs" />
     <Compile Include="Classes\CinemaHall.cs" />
     <Compile Include="Classes\Common.cs" />
     <Compile Include="Classes\DataProcessor.cs" />
