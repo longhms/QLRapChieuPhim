@@ -105,11 +105,11 @@
     <Compile Include="QLPhim\Hang_SX\Hang_sx.xaml.cs">
       <DependentUpon>Hang_sx.xaml</DependentUpon>
     </Compile>
-    <Compile Include="QLPhim\Phim\Them_phim.xaml.cs">
-      <DependentUpon>Them_phim.xaml</DependentUpon>
-    </Compile>
     <Compile Include="QLPhim\Phim\Phim.xaml.cs">
       <DependentUpon>Phim.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="QLPhim\Phim\Them_phim.xaml.cs">
+      <DependentUpon>Them_phim.xaml</DependentUpon>
     </Compile>
     <Compile Include="QLPhim\QuocGia_Sx\QuocGia_sx.xaml.cs">
       <DependentUpon>QuocGia_sx.xaml</DependentUpon>
@@ -155,11 +155,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="QLPhim\Phim\Them_phim.xaml">
+    <Page Include="QLPhim\Phim\Phim.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="QLPhim\Phim\Phim.xaml">
+    <Page Include="QLPhim\Phim\Them_phim.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
