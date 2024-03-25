@@ -8,7 +8,7 @@
     <ProjectGuid>{89D6AD9A-4491-4566-9E6D-214BDF5588C9}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>QLRapChieuPhim</RootNamespace>
-    <AssemblyName>QLRapChieuPhim</AssemblyName>
+    <AssemblyName>Phim</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -132,6 +132,9 @@
     <Compile Include="QLRap\ThongTinRap.xaml.cs">
       <DependentUpon>ThongTinRap.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TimKiem\TKPhim.xaml.cs">
+      <DependentUpon>TKPhim.xaml</DependentUpon>
+    </Compile>
     <Page Include="HomePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -188,6 +191,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="QLRap\ThongTinRap.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TimKiem\TKPhim.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

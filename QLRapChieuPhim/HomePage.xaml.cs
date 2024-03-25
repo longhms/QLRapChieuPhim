@@ -6,6 +6,7 @@ using QLRapChieuPhim.QLPhim.The_Loai;
 using QLRapChieuPhim.QLRap;
 using QLRapChieuPhim.QLRap.Gio_Chieu;
 using QLRapChieuPhim.QLRap.Lich_Chieu;
+using QLRapChieuPhim.TimKiem;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -85,6 +86,12 @@ namespace QLRapChieuPhim
         {
             Phim phim = new Phim();
             phim.ShowDialog();
+        }
+
+        private void mnuFind_Click(object sender, RoutedEventArgs e)
+        {
+            TKPhim tkphim = new TKPhim();
+            tkphim.ShowDialog();
         }
     }
 }
