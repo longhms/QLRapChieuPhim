@@ -26,6 +26,7 @@ namespace QLRapChieuPhim
     /// </summary>
     public partial class HomePage : Window
     {
+
         public HomePage()
         {
             InitializeComponent();
@@ -50,37 +51,37 @@ namespace QLRapChieuPhim
 
         private void mnuLichChieu_Click(object sender, RoutedEventArgs e)
         {
-            var Lich_chieu = new Lich_chieu();
+            Lich_chieu Lich_chieu = new Lich_chieu();
             Lich_chieu.ShowDialog();
         }
 
         private void mnuGioChieu_Click(object sender, RoutedEventArgs e)
         {
-            var Gio_chieu = new Gio_chieu();
+            Gio_chieu Gio_chieu = new Gio_chieu();
             Gio_chieu.ShowDialog();
         }
 
         private void mnuPhim_Click(object sender, RoutedEventArgs e)
         {
-            var Phim = new Phim();
+            Phim Phim = new Phim();
             Phim.ShowDialog();
         }
 
         private void mnuTheLoai_Click(object sender, RoutedEventArgs e)
         {
-            var The_loai = new The_loai();
+            The_loai The_loai = new The_loai();
             The_loai.ShowDialog();
         }
 
         private void mnuHangSX_Click(object sender, RoutedEventArgs e)
         {
-            var Hang_sx = new Hang_sx();
+            Hang_sx Hang_sx = new Hang_sx();
             Hang_sx.ShowDialog();
         }
 
         private void mnuQuocGiaSX_Click(object sender, RoutedEventArgs e)
         {
-            var QuocGia_sx = new QuocGia_sx();
+            QuocGia_sx QuocGia_sx = new QuocGia_sx();
             QuocGia_sx.ShowDialog();
         }
     }
