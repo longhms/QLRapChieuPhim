@@ -22,8 +22,9 @@ namespace QLRapChieuPhim.QLRap
     public partial class Phong_chieu : Window
     {
         Classes.DataProcessor dataProcessor = new DataProcessor(Login.cinemaID);
-        const int numRows = 5;
-        const int numSeatsPerRow = 6;
+        
+        int numRows;
+        int numSeatsPerRow = 6;
         string cS = "";
         public Phong_chieu()
         {
@@ -33,6 +34,11 @@ namespace QLRapChieuPhim.QLRap
         private void DrawSeats()
         {
             DataTable dt = dataProcessor.ReadData("SELECT * FROM tblChair");
+            int recordCount = dataProcessor.CountRecords("tblChair");
+            numRows = recordCount / 6;
+            int x = 65;
+            char y = (char)x;
+
             if (dt.Rows.Count != numRows * numSeatsPerRow)
             {
                 MessageBox.Show("Data from database doesn't match the expected number of seats.");
@@ -65,6 +71,7 @@ namespace QLRapChieuPhim.QLRap
                     StackPanel stackPanel = new StackPanel();
                     stackPanel.Orientation = Orientation.Vertical;
 
+                    
 
                     MaterialDesignThemes.Wpf.PackIcon seatIcon = new MaterialDesignThemes.Wpf.PackIcon();
                     seatIcon.Kind = MaterialDesignThemes.Wpf.PackIconKind.Seat;
@@ -76,9 +83,9 @@ namespace QLRapChieuPhim.QLRap
 
                     // Set color based on chairStatus
                     if (chairStatus == "empty")
-                        seatIcon.Background = Brushes.LightGreen;
+                        seatIcon.Background = Brushes.LawnGreen;
                     else if (chairStatus == "booked")
-                        seatIcon.Background = Brushes.Red;
+                        seatIcon.Background = Brushes.OrangeRed;
 
                     TextBlock textBlock = new TextBlock();
                     textBlock.Text = chairID;
@@ -87,7 +94,8 @@ namespace QLRapChieuPhim.QLRap
 
                     stackPanel.Children.Add(textBlock);
                     stackPanel.Children.Add(seatIcon);
-                    
+                    stackPanel.HorizontalAlignment = HorizontalAlignment.Center;
+                    stackPanel.VerticalAlignment = VerticalAlignment.Center;
 
                     // Add button to grid
                     Grid.SetColumn(stackPanel, j);
@@ -103,16 +111,65 @@ namespace QLRapChieuPhim.QLRap
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            DataTable dataTable = dataProcessor.ReadData("SELECT * FROM tblPhongChieu");
-            cboPhongchieu.ItemsSource = dataTable.AsDataView();
-            cboPhongchieu.DisplayMemberPath = "tenPhong";
-            cboPhongchieu.SelectedValuePath = "maPhong";
+            LoadData();
         }
 
         private void cboPhongchieu_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             cS = cboPhongchieu.SelectedValue.ToString() + "chairStatus";
             DrawSeats();
+        }
+
+        private void btnAddRoom_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                
+                if(MessageBox.Show("Bạn có chắc chắn muốn thêm phòng chiếu phim?","Thông báo",MessageBoxButton.YesNo,MessageBoxImage.Question) == MessageBoxResult.Yes)
+                {
+                    DataTable data = dataProcessor.ReadData("SELECT maPhong FROM tblPhongChieu");
+                    string maRap = "R" + Login.cinemaID;
+                    string maPhong = data.Rows[data.Rows.Count - 1]["maPhong"].ToString();
+                    int maPhongInt = int.Parse(maPhong) + 1;
+
+                    string tenPhong = "Phòng " + maPhongInt;
+                    int soGhe = 30;
+
+                    string column = maPhongInt + "chairStatus";
+                    string addColumn = $"ALTER TABLE tblChair ADD COLUMN [{column}] TEXT";
+                    string statusColumn = $"UPDATE tblChair SET [{column}] = 'empty'";
+
+                    dataProcessor.ChangeData($"INSERT into tblPhongChieu values('" + maRap + "','" + maPhongInt + "','" + tenPhong + "','" + soGhe + "')");
+                    dataProcessor.ChangeData(addColumn);
+                    dataProcessor.ChangeData(statusColumn);
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Có lỗi xảy ra: " + ex.Message);
+            }
+        }
+
+        void LoadData()
+        {
+            DataTable data = dataProcessor.ReadData("SELECT * FROM tblPhongChieu");
+            cboPhongchieu.ItemsSource = data.AsDataView();
+            cboPhongchieu.DisplayMemberPath = "tenPhong";
+            cboPhongchieu.SelectedValuePath = "maPhong";
+        }
+
+        private void btnRf_Click(object sender, RoutedEventArgs e)
+        {
+            Phong_chieu phong_Chieu = new Phong_chieu();
+            this.Close();
+            phong_Chieu.ShowDialog();
+        }
+
+        private void btnAddRow_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
