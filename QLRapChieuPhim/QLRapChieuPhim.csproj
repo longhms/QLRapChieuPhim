@@ -102,6 +102,9 @@
     <Compile Include="Classes\CinemaHall.cs" />
     <Compile Include="Classes\Common.cs" />
     <Compile Include="Classes\DataProcessor.cs" />
+    <Compile Include="QLPhim\ChiTietPhim\Phim.xaml.cs">
+      <DependentUpon>Phim.xaml</DependentUpon>
+    </Compile>
     <Compile Include="QLPhim\Hang_SX\Hang_sx.xaml.cs">
       <DependentUpon>Hang_sx.xaml</DependentUpon>
     </Compile>
@@ -145,6 +148,10 @@
       <DependentUpon>Login.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="QLPhim\ChiTietPhim\Phim.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="QLPhim\Hang_SX\Hang_sx.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

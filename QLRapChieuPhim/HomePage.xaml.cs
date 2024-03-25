@@ -1,4 +1,5 @@
 ﻿using QLRapChieuPhim.QLPhim;
+using QLRapChieuPhim.QLPhim.ChiTietPhim;
 using QLRapChieuPhim.QLPhim.Hang_SX;
 using QLRapChieuPhim.QLPhim.QuocGia_Sx;
 using QLRapChieuPhim.QLPhim.The_Loai;
@@ -78,6 +79,12 @@ namespace QLRapChieuPhim
         {
             QuocGia_sx QuocGia_sx = new QuocGia_sx();
             QuocGia_sx.ShowDialog();
+        }
+
+        private void mnuPhim_Click(object sender, RoutedEventArgs e)
+        {
+            Phim phim = new Phim();
+            phim.ShowDialog();
         }
     }
 }
