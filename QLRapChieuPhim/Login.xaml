@@ -42,7 +42,7 @@
                      x:Name="psbPassword" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="420,155,0,0" Width="120"/>
         <Button x:Name="btnExit" Content="Thoát" HorizontalAlignment="Left" Margin="420,275,0,0" VerticalAlignment="Top" Width="120" Height="50" Click="btnExit_Click"/>
         <ComboBox materialDesign:ColorZoneAssist.Mode="PrimaryMid" 
-                  materialDesign:HintAssist.HelperText="Select one OS" 
+                   
                   materialDesign:HintAssist.Hint="Chọn Rạp" 
                   x:Name="cboRapCP" HorizontalAlignment="Left" Margin="420,195,0,0" VerticalAlignment="Top" Width="120" Cursor="Hand"/>
     </Grid>

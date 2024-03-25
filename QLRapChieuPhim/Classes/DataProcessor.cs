@@ -56,5 +56,17 @@ namespace QLRapChieuPhim.Classes
             CloseConnect();
             command.Dispose();
         }
+
+        public int CountRecords(string tableName)
+        {
+            int count = 0;
+            OpenConnect();
+            using (SQLiteCommand command = new SQLiteCommand($"SELECT COUNT(*) FROM {tableName}", sqliteConn))
+            {
+                count = Convert.ToInt32(command.ExecuteScalar());
+            }
+            CloseConnect();
+            return count;
+        }
     }
 }
