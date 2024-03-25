@@ -22,7 +22,7 @@
                 <MenuItem x:Name="mnuGioChieu" Header="Giờ chiếu" Click="mnuGioChieu_Click"/>
             </MenuItem>
             <MenuItem x:Name="mnuQLPhim" FontSize="14" Header="Quản lí phim" Height="30">
-                <MenuItem x:Name="mnuPhim" Header="Phim" Click="mnuPhim_Click"/>
+                <MenuItem x:Name="mnuPhim" Header="Phim"/>
                 <MenuItem x:Name="mnuTheLoai" Header="Thể loại" Click="mnuTheLoai_Click"/>
                 <MenuItem x:Name="mnuHangSX" Header="Hãng sản xuất" Click="mnuHangSX_Click" />
                 <MenuItem x:Name="mnuQuocGiaSX" Header="Quốc gia sản xuất" Click="mnuQuocGiaSX_Click"/>

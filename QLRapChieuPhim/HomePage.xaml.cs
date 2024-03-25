@@ -61,11 +61,6 @@ namespace QLRapChieuPhim
             Gio_chieu.ShowDialog();
         }
 
-        private void mnuPhim_Click(object sender, RoutedEventArgs e)
-        {
-            Phim Phim = new Phim();
-            Phim.ShowDialog();
-        }
 
         private void mnuTheLoai_Click(object sender, RoutedEventArgs e)
         {
