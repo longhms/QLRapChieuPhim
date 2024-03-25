@@ -26,6 +26,11 @@ namespace QLRapChieuPhim.QLPhim.ChiTietPhim
         {
             InitializeComponent();
         }
+        public void RefreshDataGrid()
+        {
+            // Gọi lại phương thức LoadData hoặc bất kỳ phương thức nào khác để tải lại dữ liệu từ cơ sở dữ liệu và cập nhật DataGrid
+            LoadData();
+        }
         private void LoadData()
         {
             try
@@ -41,12 +46,14 @@ namespace QLRapChieuPhim.QLPhim.ChiTietPhim
 
         private void btnThem_Click(object sender, RoutedEventArgs e)
         {
-
+            Them_phim them_Phim = new Them_phim();
+            them_Phim.ShowDialog();
         }
 
         private void btnSua_Click(object sender, RoutedEventArgs e)
         {
-
+            Them_phim them_Phim = new Them_phim();
+            them_Phim.ShowDialog();
         }
 
         private void btnXoa_Click(object sender, RoutedEventArgs e)
