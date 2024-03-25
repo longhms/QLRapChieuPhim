@@ -1,4 +1,10 @@
-﻿using QLRapChieuPhim.QLRap;
+﻿using QLRapChieuPhim.QLPhim;
+using QLRapChieuPhim.QLPhim.Hang_SX;
+using QLRapChieuPhim.QLPhim.QuocGia_Sx;
+using QLRapChieuPhim.QLPhim.The_Loai;
+using QLRapChieuPhim.QLRap;
+using QLRapChieuPhim.QLRap.Gio_Chieu;
+using QLRapChieuPhim.QLRap.Lich_Chieu;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,6 +46,42 @@ namespace QLRapChieuPhim
         {
             Phong_chieu phong_Chieu = new Phong_chieu();
             phong_Chieu.ShowDialog();
+        }
+
+        private void mnuLichChieu_Click(object sender, RoutedEventArgs e)
+        {
+            var Lich_chieu = new Lich_chieu();
+            Lich_chieu.ShowDialog();
+        }
+
+        private void mnuGioChieu_Click(object sender, RoutedEventArgs e)
+        {
+            var Gio_chieu = new Gio_chieu();
+            Gio_chieu.ShowDialog();
+        }
+
+        private void mnuPhim_Click(object sender, RoutedEventArgs e)
+        {
+            var Phim = new Phim();
+            Phim.ShowDialog();
+        }
+
+        private void mnuTheLoai_Click(object sender, RoutedEventArgs e)
+        {
+            var The_loai = new The_loai();
+            The_loai.ShowDialog();
+        }
+
+        private void mnuHangSX_Click(object sender, RoutedEventArgs e)
+        {
+            var Hang_sx = new Hang_sx();
+            Hang_sx.ShowDialog();
+        }
+
+        private void mnuQuocGiaSX_Click(object sender, RoutedEventArgs e)
+        {
+            var QuocGia_sx = new QuocGia_sx();
+            QuocGia_sx.ShowDialog();
         }
     }
 }

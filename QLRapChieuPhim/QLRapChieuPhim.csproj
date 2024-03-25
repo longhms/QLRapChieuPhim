@@ -102,11 +102,29 @@
     <Compile Include="Classes\CinemaHall.cs" />
     <Compile Include="Classes\Common.cs" />
     <Compile Include="Classes\DataProcessor.cs" />
-    <Compile Include="QLPhim\Phim.xaml.cs">
+    <Compile Include="QLPhim\Hang_SX\Hang_sx.xaml.cs">
+      <DependentUpon>Hang_sx.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="QLPhim\Phim\Phim.xaml.cs">
       <DependentUpon>Phim.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="QLPhim\QuocGia_Sx\QuocGia_sx.xaml.cs">
+      <DependentUpon>QuocGia_sx.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="QLPhim\The_Loai\The_loai.xaml.cs">
+      <DependentUpon>The_loai.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="QLRap\Gio_Chieu\Gio_chieu.xaml.cs">
+      <DependentUpon>Gio_chieu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="QLRap\Lich_Chieu\Lich_chieu.xaml.cs">
+      <DependentUpon>Lich_chieu.xaml</DependentUpon>
     </Compile>
     <Compile Include="QLRap\Phong_Chieu\Phong_chieu.xaml.cs">
       <DependentUpon>Phong_chieu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="QLRap\Rap\Rap.xaml.cs">
+      <DependentUpon>Rap.xaml</DependentUpon>
     </Compile>
     <Compile Include="QLRap\ThongTinRap.xaml.cs">
       <DependentUpon>ThongTinRap.xaml</DependentUpon>
@@ -130,11 +148,35 @@
       <DependentUpon>Login.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="QLPhim\Phim.xaml">
+    <Page Include="QLPhim\Hang_SX\Hang_sx.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="QLPhim\Phim\Phim.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="QLPhim\QuocGia_Sx\QuocGia_sx.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="QLPhim\The_Loai\The_loai.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="QLRap\Gio_Chieu\Gio_chieu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="QLRap\Lich_Chieu\Lich_chieu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="QLRap\Phong_Chieu\Phong_chieu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="QLRap\Rap\Rap.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

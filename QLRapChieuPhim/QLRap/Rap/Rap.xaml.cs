@@ -12,28 +12,16 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-
-namespace QLRapChieuPhim.QLPhim
+namespace QLRapChieuPhim.QLRap.Rap
 {
     /// <summary>
-    /// Interaction logic for Phim.xaml
+    /// Interaction logic for Rap.xaml
     /// </summary>
-    public partial class Phim : Window
+    public partial class Rap : Window
     {
-        
-        public Phim()
+        public Rap()
         {
             InitializeComponent();
         }
-
-        void Loaddata()
-        {
-
-        }
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-
-        }
-
     }
 }

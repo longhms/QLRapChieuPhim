@@ -18,14 +18,14 @@
             <MenuItem x:Name="mnuQLRap" FontSize="14" Header="Quản lí rạp" Height="30">
                 <MenuItem Header="Rạp"/>
                 <MenuItem x:Name="mnuPhongChieu" Header="Phòng chiếu" Click="mnuPhongChieu_Click"/>
-                <MenuItem Header="Lịch chiếu"/>
-                
+                <MenuItem x:Name="mnuLichChieu" Header="Lịch chiếu" Click="mnuLichChieu_Click"/>
+                <MenuItem x:Name="mnuGioChieu" Header="Giờ chiếu" Click="mnuGioChieu_Click"/>
             </MenuItem>
             <MenuItem x:Name="mnuQLPhim" FontSize="14" Header="Quản lí phim" Height="30">
-                <MenuItem Header="Phim"/>
-                <MenuItem Header="Thể loại"/>
-                <MenuItem Header="Hãng sản xuất"/>
-                <MenuItem Header="Quốc gia sản xuất"/>
+                <MenuItem x:Name="mnuPhim" Header="Phim" Click="mnuPhim_Click"/>
+                <MenuItem x:Name="mnuTheLoai" Header="Thể loại" Click="mnuTheLoai_Click"/>
+                <MenuItem x:Name="mnuHangSX" Header="Hãng sản xuất" Click="mnuHangSX_Click" />
+                <MenuItem x:Name="mnuQuocGiaSX" Header="Quốc gia sản xuất" Click="mnuQuocGiaSX_Click"/>
             </MenuItem>
             <MenuItem x:Name="mnuFind" FontSize="14" Header="Tìm kiếm" Height="30">
                 <MenuItem Header="Phim"/>
