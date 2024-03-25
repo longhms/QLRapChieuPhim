@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.Common;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,6 +24,7 @@ namespace QLRapChieuPhim.QLRap
     public partial class Phong_chieu : Window
     {
         Classes.DataProcessor dataProcessor = new DataProcessor(Login.cinemaID);
+        
         
         int numRows;
         int numSeatsPerRow = 6;
@@ -116,6 +119,8 @@ namespace QLRapChieuPhim.QLRap
 
         private void cboPhongchieu_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            btnRefreshRoom.IsEnabled = true;
+            btnDeleteRoom.IsEnabled = true;
             cS = cboPhongchieu.SelectedValue.ToString() + "chairStatus";
             DrawSeats();
         }
@@ -142,6 +147,12 @@ namespace QLRapChieuPhim.QLRap
                     dataProcessor.ChangeData($"INSERT into tblPhongChieu values('" + maRap + "','" + maPhongInt + "','" + tenPhong + "','" + soGhe + "')");
                     dataProcessor.ChangeData(addColumn);
                     dataProcessor.ChangeData(statusColumn);
+                    /*dataProcessor.ChangeData($"UPDATE tblRap SET soPhong = soPhong + {1}");
+                    dataProcessor.ChangeData($"UPDATE tblRap SET tongSoGhe = tongSoGhe + {30}");*/
+
+                    this.Close();
+                    Phong_chieu phong_Chieu = new Phong_chieu();
+                    phong_Chieu.ShowDialog();
                 }
 
 
@@ -167,9 +178,36 @@ namespace QLRapChieuPhim.QLRap
             phong_Chieu.ShowDialog();
         }
 
-        private void btnAddRow_Click(object sender, RoutedEventArgs e)
+        private void btnRefreshRoom_Click(object sender, RoutedEventArgs e)
         {
+            if(MessageBox.Show("Bạn có muốn làm mới phòng?","Thông báo",MessageBoxButton.YesNo,MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                string statusColumn = $"UPDATE tblChair SET [{cS}] = 'empty'";
+                dataProcessor.ChangeData(statusColumn);
+                DrawSeats();
+            }
+        }
 
+        private void btnDeleteRoom_Click(object sender, RoutedEventArgs e)
+        {
+            if(MessageBox.Show("Bạn có chắc chắn xóa "+cS+" hay không? ", "Thông báo", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                
+                dataProcessor.ChangeData("Delete from tblPhongChieu WHERE maPhong = ('" + cboPhongchieu.SelectedValue + "')");
+                dataProcessor.ChangeData($"ALTER TABLE tblChair DROP COLUMN [{cS}]");
+                dataProcessor.ChangeData($"UPDATE tblRap SET soPhong = soPhong - {1}");
+                dataProcessor.ChangeData($"UPDATE tblRap SET tongSoGhe = tongSoGhe - {30}");
+
+                this.Close();
+                Phong_chieu phong_Chieu = new Phong_chieu();
+                phong_Chieu.ShowDialog();
+
+            }
+        }
+
+        private void btnExit_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }
