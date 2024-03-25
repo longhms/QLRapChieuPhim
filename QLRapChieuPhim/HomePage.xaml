@@ -27,7 +27,7 @@
                 <MenuItem x:Name="mnuHangSX" Header="Hãng sản xuất" Click="mnuHangSX_Click" />
                 <MenuItem x:Name="mnuQuocGiaSX" Header="Quốc gia sản xuất" Click="mnuQuocGiaSX_Click"/>
             </MenuItem>
-            <MenuItem x:Name="mnuFind" FontSize="14" Header="Tìm kiếm" Height="30">
+            <MenuItem x:Name="mnuFind" FontSize="14" Header="Tìm kiếm" Height="30" Click="mnuFind_Click">
                 <MenuItem Header="Phim"/>
                 <MenuItem Header="Lịch chiếu"/>
             </MenuItem>
