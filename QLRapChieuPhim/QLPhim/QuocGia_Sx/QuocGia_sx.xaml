@@ -3,17 +3,23 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:QLRapChieuPhim.QLPhim.QuocGia_Sx"
+        xmlns:local="clr-namespace:QLRapChieuPhim.QLPhim.QuocGia_Sx" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Title="QuocGia_sx" Height="600" Width="1000" Loaded="Window_Loaded">
     <Grid>
         <Grid x:Name="GrdBoder" Background="#FF030B2B" >
-            <TextBlock Text="Quốc gia sản xuất" Foreground="White" FontSize="32" HorizontalAlignment="Center" Margin="0,10,0,337" />
+            <TextBlock Text="Quốc gia sản xuất" Foreground="White" FontSize="32" HorizontalAlignment="Center" Margin="0,10,0,337" FontWeight="Bold" />
+            <Button x:Name="btnExit"
+                Width= "60" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,10,10,0"
+                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                Style="{StaticResource MaterialDesignRaisedButton}" Click="btnExit_Click" Height="49" RenderTransformOrigin="0.5,0.5">
+                <materialDesign:PackIcon Kind="ExitToApp"  HorizontalAlignment="Center" Height="40" Width="40"/>
+            </Button>
             <Grid x:Name="GrdMain" Margin="10,78,10,10" Background="White">
-                <Label Content="Mã quốc gia" HorizontalAlignment="Left" Margin="405,154,0,0" VerticalAlignment="Top" FontSize="18" Height="41" Width="107" RenderTransformOrigin="0.472,1.009"/>
-                <Label Content="Tên quốc gia" HorizontalAlignment="Left" Margin="405,307,0,0" VerticalAlignment="Top" FontSize="18" Height="40" Width="107"/>
-                <TextBox x:Name="txtID" HorizontalAlignment="Left" Margin="555,129,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="141" FontSize="16" Height="50"/>
-                <TextBox x:Name="txtTenQuocGia" HorizontalAlignment="Left" Margin="556,282,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" FontSize="16" Height="50"/>
+                <Label Content="Mã quốc gia" HorizontalAlignment="Left" Margin="383,113,0,0" VerticalAlignment="Top" FontSize="20" Height="41" Width="148" RenderTransformOrigin="0.472,1.009" FontWeight="Bold"/>
+                <Label Content="Tên quốc gia" HorizontalAlignment="Left" Margin="394,287,0,0" VerticalAlignment="Top" FontSize="20" Height="40" Width="137" FontWeight="Bold"/>
+                <TextBox x:Name="txtID"  materialDesign:HintAssist.Hint="Nhập mã quốc gia" HorizontalAlignment="Left" Margin="555,104,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="157" FontSize="18" Height="50"/>
+                <TextBox x:Name="txtTenQuocGia"  materialDesign:HintAssist.Hint="Nhập tên quốc gia" HorizontalAlignment="Left" Margin="556,282,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="156" FontSize="18" Height="50"/>
                 <DataGrid x:Name="dgQuocGia"  Margin="27,22,625,58" FontSize="16" SelectionChanged="dgQuocGia_SelectionChanged"/>
                 <Button x:Name="btnAdd" Content="Add" HorizontalAlignment="Left" Margin="790,56,0,0" VerticalAlignment="Top" Width="100" Click="btnAdd_Click" Height="50" FontSize="16"/>
                 <Button x:Name="btnEdit" Content="Edit" HorizontalAlignment="Left" Margin="790,163,0,0" VerticalAlignment="Top" Width="100" Click="btnEdit_Click" Height="50" FontSize="16"/>
