@@ -39,8 +39,7 @@
             <TextBox x:Name="txtChiPhi" HorizontalAlignment="Left" Margin="450,233,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.308,0.322"/>
             <TextBox x:Name="txtThu" HorizontalAlignment="Left" Margin="450,284,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
             <TextBox x:Name="txtNoidung" HorizontalAlignment="Left" Margin="633,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="80"/>
-            <Button x:Name="btnEdit" Content="Edit" HorizontalAlignment="Left" Margin="660,245,0,0" VerticalAlignment="Top" Width="61" Click="btnEdit_Click"/>
-
+            
         </Grid>
     </Grid>
 </Window>

@@ -5,21 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QLRapChieuPhim.QLPhim.The_Loai"
         mc:Ignorable="d"
-        Title="The_loai" Height="450" Width="800" Loaded="Window_Loaded">
+        Title="The_loai" Height="600" Width="1000" Loaded="Window_Loaded">
     <Grid>
         <Grid x:Name="GrdBoder" Background="#FF030B2B" >
-            <TextBlock Text="Thể loại Phim" Foreground="White" FontSize="24" HorizontalAlignment="Center" Margin="0,10,0,337" />
+            <TextBlock Text="Thể loại Phim" Foreground="White" FontSize="28" HorizontalAlignment="Center" Margin="0,10,0,337" />
             <Grid x:Name="GrdMain" Margin="10,64,10,10" Background="White">
-                <Label Content="Mã thể loại" HorizontalAlignment="Left" Margin="311,56,0,0" VerticalAlignment="Top"/>
-                <Label Content="Tên thể loại" HorizontalAlignment="Left" Margin="311,138,0,0" VerticalAlignment="Top"/>
-                <TextBox x:Name="txtID" HorizontalAlignment="Left" Margin="421,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-                <TextBox x:Name="txtTenTheLoai" HorizontalAlignment="Left" Margin="421,137,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-                <DataGrid x:Name="dgTheLoai"  Margin="27,22,509,58" SelectionChanged="dgTheLoai_SelectionChanged"/>
-                <Button x:Name="btnAdd" Content="Add" HorizontalAlignment="Left" Margin="635,46,0,0" VerticalAlignment="Top" Width="77" Click="btnAdd_Click"/>
-                <Button x:Name="btnEdit" Content="Edit" HorizontalAlignment="Left" Margin="635,128,0,0" VerticalAlignment="Top" Width="77" Click="btnEdit_Click"/>
-                <Button x:Name="btnDelete" Content="Delete" HorizontalAlignment="Left" Margin="635,205,0,0" VerticalAlignment="Top" Width="77" Click="btnDelete_Click"/>
-                <Button x:Name="btnFind" Content="Sreach" HorizontalAlignment="Left" Margin="635,280,0,0" VerticalAlignment="Top" Width="77" Click="btnFind_Click"/>
-                <Button x:Name="btnExit" HorizontalAlignment="Left" Margin="710,-58,0,0" VerticalAlignment="Top" Background="{x:Null}" Width="66" Height="48" Click="btnExit_Click">
+                <Label Content="Mã thể loại" HorizontalAlignment="Left" Margin="405,147,0,0" VerticalAlignment="Top" FontSize="18"/>
+                <Label Content="Tên thể loại" HorizontalAlignment="Left" Margin="405,307,0,0" VerticalAlignment="Top" FontSize="18" Height="40" Width="97"/>
+                <TextBox x:Name="txtID" HorizontalAlignment="Left" Margin="555,129,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="141" FontSize="16" Height="50"/>
+                <TextBox x:Name="txtTenTheLoai" HorizontalAlignment="Left" Margin="556,282,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" FontSize="16" Height="50"/>
+                <DataGrid x:Name="dgTheLoai"  Margin="27,22,625,58" SelectionChanged="dgTheLoai_SelectionChanged" FontSize="16"/>
+                <Button x:Name="btnAdd" Content="Add" HorizontalAlignment="Left" Margin="790,56,0,0" VerticalAlignment="Top" Width="100" Click="btnAdd_Click" Height="50" FontSize="16"/>
+                <Button x:Name="btnEdit" Content="Edit" HorizontalAlignment="Left" Margin="790,163,0,0" VerticalAlignment="Top" Width="100" Click="btnEdit_Click" Height="50" FontSize="16"/>
+                <Button x:Name="btnDelete" Content="Delete" HorizontalAlignment="Left" Margin="790,295,0,0" VerticalAlignment="Top" Width="100" Click="btnDelete_Click" Height="50" FontSize="16"/>
+                <Button x:Name="btnFind" Content="Sreach" HorizontalAlignment="Left" Margin="790,402,0,0" VerticalAlignment="Top" Width="100" Click="btnFind_Click" Height="50" FontSize="16"/>
+                <Button x:Name="btnExit" HorizontalAlignment="Left" Margin="710,-58,0,0" VerticalAlignment="Top" Background="{x:Null}" Width="66" Height="48" Click="btnExit_Click" FontSize="16">
                     <Image Source="/Img/image-exit.png" Width="41" Height="32"></Image>
                 </Button>
 

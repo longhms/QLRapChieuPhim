@@ -55,7 +55,7 @@ namespace QLRapChieuPhim.QLPhim.The_Loai
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             LoadData();
-            dgTheLoai.SelectionChanged += dgTheLoai_SelectionChanged;
+            
         }
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
