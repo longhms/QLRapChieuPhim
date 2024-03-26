@@ -93,5 +93,12 @@ namespace QLRapChieuPhim
             TKPhim tkphim = new TKPhim();
             tkphim.ShowDialog();
         }
+
+
+        private void mnuRap_Click(object sender, RoutedEventArgs e)
+        {
+            ThongTinRap ttRap = new ThongTinRap();
+            ttRap.ShowDialog();
+        }
     }
 }
