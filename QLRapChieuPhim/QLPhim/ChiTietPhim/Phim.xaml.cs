@@ -33,10 +33,6 @@ namespace QLRapChieuPhim.QLPhim.ChiTietPhim
             // Gọi lại phương thức LoadData hoặc bất kỳ phương thức nào khác để tải lại dữ liệu từ cơ sở dữ liệu và cập nhật DataGrid
             LoadData();
         }
-        public void UpdateDataGrid()
-        {
-            LoadData(); // Gọi lại phương thức LoadData để cập nhật dữ liệu trên DataGrid
-        }
         private void LoadData()
         {
             try
