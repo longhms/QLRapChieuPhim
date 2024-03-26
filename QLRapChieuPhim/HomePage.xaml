@@ -16,7 +16,7 @@
         </Grid.RowDefinitions>
         <Menu x:Name="mnuHomepage" Grid.Row="0" Cursor="Hand" VerticalAlignment="Top" Background="White">
             <MenuItem x:Name="mnuQLRap" FontSize="14" Header="Quản lí rạp" Height="30">
-                <MenuItem Header="Rạp"/>
+                <MenuItem x:Name="mnuRap" Header="Rạp" Click="mnuRap_Click"/>
                 <MenuItem x:Name="mnuPhongChieu" Header="Phòng chiếu" Click="mnuPhongChieu_Click"/>
                 <MenuItem x:Name="mnuLichChieu" Header="Lịch chiếu" Click="mnuLichChieu_Click"/>
                 <MenuItem x:Name="mnuGioChieu" Header="Giờ chiếu" Click="mnuGioChieu_Click"/>
