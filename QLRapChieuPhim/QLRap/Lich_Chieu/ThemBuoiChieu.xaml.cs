@@ -86,6 +86,8 @@ namespace QLRapChieuPhim.QLRap.Lich_Chieu
                 }
 
                 dataProcessor.ChangeData($"INSERT INTO tblBuoiChieu values('{txtMaBuoiChieu.Text}','{phim}','{maRap}','{maPhong}','{ngayChieuStr}','{gioChieuStr}','{0}','{0}')");
+                MessageBox.Show("Bạn đã thêm một buổi chiếu mới thành công","Thông báo",MessageBoxButton.OK, MessageBoxImage.Information);
+                return;
             }
         }
 

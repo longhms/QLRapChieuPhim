@@ -36,9 +36,7 @@ namespace QLRapChieuPhim.QLRap.Lich_Chieu
             cboPhong.ItemsSource = data.AsDataView();
             cboPhong.DisplayMemberPath = "tenPhong";
             cboPhong.SelectedValuePath = "maPhong";
-
-            DataTable dataTable = dataProcessor.ReadData(sql);
-            dgBuoiChieu.ItemsSource = dataTable.AsDataView();
+            LoadData();
 
         }
 
@@ -106,6 +104,23 @@ namespace QLRapChieuPhim.QLRap.Lich_Chieu
 
             TTBuoiChieu tTBuoiChieu = new TTBuoiChieu(testMS);
             tTBuoiChieu.ShowDialog();
+        }
+
+        private void btnRf_Click(object sender, RoutedEventArgs e)
+        {
+            /*Lich_chieu lich_Chieu = new Lich_chieu();
+            this.Close();
+            lich_Chieu.ShowDialog();*/
+
+            LoadData();
+        }
+
+        void LoadData()
+        {
+            DataTable dataTable = dataProcessor.ReadData(sql);
+            dgBuoiChieu.ItemsSource = dataTable.AsDataView();
+            dtpNgayChieu.SelectedDate= null;
+            cboPhong.SelectedItem = null;
         }
     }
 }
