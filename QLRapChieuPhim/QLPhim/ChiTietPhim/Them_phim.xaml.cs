@@ -99,5 +99,10 @@ namespace QLRapChieuPhim.QLPhim.ChiTietPhim
                 this.Close();
             }
         }
+
+        private void btnEdit_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

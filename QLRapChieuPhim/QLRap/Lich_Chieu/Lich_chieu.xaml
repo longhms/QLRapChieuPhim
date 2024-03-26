@@ -4,9 +4,61 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QLRapChieuPhim.QLRap.Lich_Chieu"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="Lich_chieu" Height="450" Width="800">
-    <Grid>
-        
+        Title="Lich_chieu" Height="600" Width="1000">
+    <Grid Background="#FF030B2B">
+        <TextBlock Text="Lịch Chiếu" Foreground="White" FontSize="25" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0" />
+        <Grid x:Name="GrdMain" Margin="10,60,10,10" Background="White">
+            <TextBox x:Name="txtFind" HorizontalAlignment="Left" Margin="10,15,0,0" TextWrapping="Wrap" Text="Tìm kiếm" VerticalAlignment="Top" Width="214"/>
+            <Button x:Name="btnThem"  HorizontalAlignment="Left" Margin="240,15,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.013,0.001">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock>Thêm</TextBlock>
+                </StackPanel>
+            </Button>
+
+            <ComboBox x:Name="cboPhong" Width="120" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,80,0,0"/>
+
+            <DatePicker Width="140" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,10,10,0"
+                        Style="{StaticResource MaterialDesignOutlinedDatePicker}"
+                        materialDesign:HintAssist.Hint="Chọn Ngày"
+                        materialDesign:DatePickerAssist.OutlinedBorderActiveThickness="3"
+                        BorderBrush="Teal"
+                        materialDesign:DatePickerAssist.OutlinedBorderInactiveThickness="3"
+                        materialDesign:HintAssist.FloatingOffset="0,-23"/>
+            
+            <DataGrid x:Name="dgPhim" AutoGenerateColumns="False" Margin="140,80,10,10" CanUserAddRows="False">
+                  
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Mã phim" Binding="{Binding maPhim}" />
+                    <DataGridTextColumn Header="Tên phim" Binding="{Binding tenPhim}" />
+                    <DataGridTextColumn Header="Quốc gia sản xuất" Binding="{Binding maQGSanXuat}" />
+                    <DataGridTextColumn Header="Hãng sản xuất" Binding="{Binding maHangSX}" />
+                    <DataGridTextColumn Header="Đạo diễn" Binding="{Binding daoDien}" />
+                    <DataGridTextColumn Header="Thể loại" Binding="{Binding maTheloai}" />
+                    <DataGridTextColumn Header="Ngày khởi chiếu" Binding="{Binding ngayKhoiChieu}" />
+                    <DataGridTextColumn Header="Ngày kết thúc" Binding="{Binding ngayKetThuc}" />
+                    <DataGridTextColumn Header="Nữ DVC" Binding="{Binding nuDVC}" />
+                    <DataGridTextColumn Header="Nam DVC" Binding="{Binding namDVC}" />
+                    <DataGridTextColumn Header="Nội dung chính" Binding="{Binding noiDungC}" />
+                    <DataGridTextColumn Header="Tổng chi phí" Binding="{Binding tongChiPhi}" />
+                    <DataGridTextColumn Header="Tổng thu" Binding="{Binding tongThu}" />
+                    <DataGridTemplateColumn Header="Sửa">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button x:Name="btnEdit" Content="Sửa"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="Xóa">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button x:Name="btnDelete" Content="Xóa"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
     </Grid>
 </Window>
