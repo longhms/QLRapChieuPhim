@@ -127,6 +127,12 @@
     <Compile Include="QLRap\Lich_Chieu\Lich_chieu.xaml.cs">
       <DependentUpon>Lich_chieu.xaml</DependentUpon>
     </Compile>
+    <Compile Include="QLRap\Lich_Chieu\ThemBuoiChieu.xaml.cs">
+      <DependentUpon>ThemBuoiChieu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="QLRap\Lich_Chieu\TTBuoiChieu.xaml.cs">
+      <DependentUpon>TTBuoiChieu.xaml</DependentUpon>
+    </Compile>
     <Compile Include="QLRap\Phong_Chieu\Phong_chieu.xaml.cs">
       <DependentUpon>Phong_chieu.xaml</DependentUpon>
     </Compile>
@@ -187,6 +193,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="QLRap\Lich_Chieu\Lich_chieu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="QLRap\Lich_Chieu\ThemBuoiChieu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="QLRap\Lich_Chieu\TTBuoiChieu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -1,0 +1,73 @@
+﻿<Window x:Class="QLRapChieuPhim.QLRap.Lich_Chieu.TTBuoiChieu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QLRapChieuPhim.QLRap.Lich_Chieu"
+        mc:Ignorable="d"
+        Title="TTBuoiChieu" Height="450" Width="800" WindowStyle="None">
+
+    <Border Background="#FFF0F3F7"
+            CornerRadius="20"
+            BorderBrush="Gray"
+            BorderThickness="1">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="38*" />
+                    <ColumnDefinition Width="0.2*" />
+                    <ColumnDefinition Width="62*" />
+                </Grid.ColumnDefinitions>
+
+                <ProgressBar Orientation="Vertical"
+                     Height="20"
+                     IsIndeterminate="True"
+                     Grid.Column="1"
+                     Background="#FF0DB3F1"
+                     BorderBrush="#FF00A2FF"
+                     Foreground="#FFDE2121" />
+
+                <StackPanel Grid.Column="0">
+                    <Border BorderThickness="0,0,0,1"
+                        BorderBrush="Black">
+                        <Label Content="Chi tiết suất chiếu"
+                           FontWeight="Bold"
+                           FontSize="30"
+                           Margin="20,0,0,0" />
+                    </Border>
+                </StackPanel>
+
+                <Grid Grid.Column="2">
+                    <Border BorderBrush="Black"
+                            BorderThickness="0,0,0,1"
+                            Height="49"
+                            VerticalAlignment="Top">
+                        <Label Grid.Row="0"
+                               Content="Danh sách ghế"
+                               FontWeight="Bold"
+                               FontSize="30"
+                               Margin="20,0,0,0" />
+                    </Border>
+
+                    <Grid x:Name="mainGrid" VerticalAlignment="Bottom" HorizontalAlignment="Center" Height="320" Width="400" Margin="0,0,0,10">
+                        
+                    </Grid>
+                </Grid>
+                <Label Content="Tên phim" HorizontalAlignment="Left" Margin="20,60,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="lblMovieName"  HorizontalAlignment="Left" Margin="20,90,0,0" VerticalAlignment="Top"/>
+                <Label Content="Ngày chiếu" HorizontalAlignment="Left" Margin="20,130,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="lblNgayChieu"  HorizontalAlignment="Left" Margin="20,160,0,0" VerticalAlignment="Top"/>
+                <Label Content="Phòng chiếu" HorizontalAlignment="Left" Margin="20,200,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="lblPhongChieu"  HorizontalAlignment="Left" Margin="20,230,0,0" VerticalAlignment="Top"/>
+                <Label Content="Giá vé" HorizontalAlignment="Left" Margin="20,270,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="lblGiaVe"  HorizontalAlignment="Left" Margin="20,300,0,0" VerticalAlignment="Top"/>
+                <Label Content="Suất chiếu" HorizontalAlignment="Left" Margin="140,270,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="lblXuatChieu"  HorizontalAlignment="Left" Margin="140,300,0,0" VerticalAlignment="Top"/>
+                <Button x:Name="btnDeleteLC" Content="Xóa" HorizontalAlignment="Left" Margin="40,360,0,0" VerticalAlignment="Top" Width="80" 
+                        Background="LightCoral" Click="btnDeleteLC_Click"/>
+                <Button x:Name="btnExit" Content="Thoát" HorizontalAlignment="Left" Margin="180,360,0,0" VerticalAlignment="Top" Width="80"
+                        Background="DeepSkyBlue" Click="btnExit_Click"/>
+
+            </Grid>
+        </Border>
+
+</Window>

@@ -1,0 +1,66 @@
+﻿<Window x:Class="QLRapChieuPhim.QLRap.Lich_Chieu.ThemBuoiChieu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QLRapChieuPhim.QLRap.Lich_Chieu"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="ThemBuoiChieu" Height="500" Width="500" Loaded="Window_Loaded" WindowStyle="None">
+    <Grid Background="#FF030B2B">
+        <Label Content="Thêm Buổi Chiếu" Foreground="White" FontSize="25" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0"/>
+
+        <Button x:Name="btnExit"
+                Width= "50" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,10,10,0"
+                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                Style="{StaticResource MaterialDesignRaisedButton}" Click="btnExit_Click">
+            <materialDesign:PackIcon Kind="ExitToApp" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        </Button>
+
+        <Grid Background="White" Margin="10,60,10,10">
+            <Label Content="Tên phim" HorizontalAlignment="Left" Margin="50,20,0,0" VerticalAlignment="Top"/>
+            <Label Content="Ngày chiếu" HorizontalAlignment="Left" Margin="360,20,0,0" VerticalAlignment="Top"/>
+            <Label Content="Suất chiếu" HorizontalAlignment="Left" Margin="50,135,0,0" VerticalAlignment="Top"/>
+            <Label Content="Phòng chiếu" HorizontalAlignment="Left" Margin="190,135,0,0" VerticalAlignment="Top"/>
+            <Label Content="Giá vé" HorizontalAlignment="Left" Margin="360,135,0,0" VerticalAlignment="Top"/>
+            <Label Content="Mô tả:" HorizontalAlignment="Left" Margin="80,240,0,0" VerticalAlignment="Top"/>
+
+
+            
+            <ComboBox x:Name="cboMovieName" HorizontalAlignment="Left" Margin="50,0,0,310" VerticalAlignment="Bottom" Width="280"
+                      materialDesign:HintAssist.Hint="Chọn phim"/>
+
+            <DatePicker x:Name="dtpNgayCh"
+                  Width="100" Margin="360,0,0,310" VerticalAlignment="Bottom" HorizontalAlignment="Left"
+                  materialDesign:HintAssist.Hint="Chọn ngày"
+                  materialDesign:TextFieldAssist.HasClearButton="True"
+                  Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+
+            <materialDesign:TimePicker x:Name="tmpGioChieu"
+                  Width="100" Margin="50,0,0,200" VerticalAlignment="Bottom" HorizontalAlignment="Left"
+                  materialDesign:HintAssist.Hint="Chọn giờ" Is24Hours="True"
+                  Style="{StaticResource MaterialDesignFloatingHintTimePicker}" SelectedTimeChanged="tmpGioChieu_SelectedTimeChanged" />
+
+            <ComboBox x:Name="cboPhongChieu" HorizontalAlignment="Left" Margin="190,0,0,200" VerticalAlignment="Bottom" Width="120"
+                      materialDesign:HintAssist.Hint="Chọn phòng"/>
+            <TextBox x:Name="txtGiaVe" HorizontalAlignment="Left" Margin="343,0,0,200" IsEnabled="False" VerticalAlignment="Bottom" Width="120"/>
+
+            <materialDesign:Card
+                  Width="200" Margin="50,0,0,90" VerticalAlignment="Bottom" HorizontalAlignment="Left"
+                  Padding="8"
+                  
+                  Background="{DynamicResource PrimaryHueLightBrush}"
+                  Foreground="{DynamicResource PrimaryHueLightForegroundBrush}">
+                <TextBlock
+                    FontSize="14"
+                    Text="Phim Hay" />
+            </materialDesign:Card>
+            <Button x:Name="btnThemBC" Content="Thêm" HorizontalAlignment="Center" Margin="0,340,0,0" VerticalAlignment="Top" Width="120" Click="btnThemBC_Click"/>
+            <Label Content="Mã Buổi Chiếu" HorizontalAlignment="Left" Margin="360,240,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="txtMaBuoiChieu" HorizontalAlignment="Right" Margin="0,280,20,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100"
+                     materialDesign:HintAssist.Hint="Nhập mã"/>
+
+        </Grid>
+        
+    </Grid>
+</Window>
