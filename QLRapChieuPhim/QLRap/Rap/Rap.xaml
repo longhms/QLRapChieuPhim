@@ -4,9 +4,28 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QLRapChieuPhim.QLRap.Rap"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="Rap" Height="450" Width="800">
+        Title="Rap" Height="350" Width="500" WindowStyle="None">
+    <Window.Background>
+        <ImageBrush ImageSource="/Img/Premium Photo _ Flat lay composition of cinema objects.jpg"/>
+    </Window.Background>
     <Grid>
+        <Label Content="Username" HorizontalAlignment="Left" Margin="60,60,0,0" VerticalAlignment="Top"/>
+        <Label Content="Password" HorizontalAlignment="Left" Margin="60,100,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtUsername" materialDesign:HintAssist.Hint="Nhập User Name" 
+                 HorizontalAlignment="Left" Margin="140,60,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <PasswordBox x:Name="psbPass" HorizontalAlignment="Left" Margin="140,100,0,0" VerticalAlignment="Top" Width="120"
+                     materialDesign:HintAssist.Hint="Nhập Password"/>
+        <Button x:Name="btnAddAD" Content="Thêm Admin" Width="120" HorizontalAlignment="Left" Margin="40,140,0,0" VerticalAlignment="Top" Click="btnAddAD_Click"/>
+        <Button x:Name="btnDeleteAD" Content="Xóa Admin" Width="120" HorizontalAlignment="Left" Margin="180,140,0,0" VerticalAlignment="Top" Click="btnDeleteAD_Click"/>
+
+        <Button x:Name="btnExit"
+        Width= "50" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,10,10,0"
+        IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+        Style="{StaticResource MaterialDesignRaisedButton}" Click="btnExit_Click">
+            <materialDesign:PackIcon Kind="ExitToApp" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        </Button>
         
     </Grid>
 </Window>

@@ -190,7 +190,7 @@ namespace QLRapChieuPhim.QLRap
 
         private void btnDeleteRoom_Click(object sender, RoutedEventArgs e)
         {
-            if(MessageBox.Show("Bạn có chắc chắn xóa "+cS+" hay không? ", "Thông báo", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            if(MessageBox.Show("Bạn có chắc chắn xóa "+cboPhongchieu.ToString()+" hay không? ", "Thông báo", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
                 
                 dataProcessor.ChangeData("Delete from tblPhongChieu WHERE maPhong = ('" + cboPhongchieu.SelectedValue + "')");
