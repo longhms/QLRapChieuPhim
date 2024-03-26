@@ -106,6 +106,9 @@
     <Compile Include="QLPhim\ChiTietPhim\Phim.xaml.cs">
       <DependentUpon>Phim.xaml</DependentUpon>
     </Compile>
+    <Compile Include="QLPhim\ChiTietPhim\Sua_phim.xaml.cs">
+      <DependentUpon>Sua_phim.xaml</DependentUpon>
+    </Compile>
     <Compile Include="QLPhim\ChiTietPhim\Them_phim.xaml.cs">
       <DependentUpon>Them_phim.xaml</DependentUpon>
     </Compile>
@@ -156,6 +159,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="QLPhim\ChiTietPhim\Phim.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="QLPhim\ChiTietPhim\Sua_phim.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

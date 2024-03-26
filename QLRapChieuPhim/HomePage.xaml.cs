@@ -88,17 +88,16 @@ namespace QLRapChieuPhim
             phim.ShowDialog();
         }
 
-        private void mnuFind_Click(object sender, RoutedEventArgs e)
-        {
-            TKPhim tkphim = new TKPhim();
-            tkphim.ShowDialog();
-        }
-
-
         private void mnuRap_Click(object sender, RoutedEventArgs e)
         {
             ThongTinRap ttRap = new ThongTinRap();
             ttRap.ShowDialog();
+        }
+
+        private void mnuTKPhim_Click(object sender, RoutedEventArgs e)
+        {
+            TKPhim tkphim = new TKPhim();
+            tkphim.ShowDialog();
         }
     }
 }

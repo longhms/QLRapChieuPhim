@@ -84,7 +84,7 @@ namespace QLRapChieuPhim.QLPhim.The_Loai
             if (dgTheLoai.SelectedItem != null)
             {
                 DataRowView selectedRow = dgTheLoai.SelectedItem as DataRowView;
-
+                txtID.IsEnabled = false;
 
                 // Hiển thị thông tin từ dòng đã chọn lên 
                 if (selectedRow != null)
@@ -118,7 +118,7 @@ namespace QLRapChieuPhim.QLPhim.The_Loai
             {
                 if (!string.IsNullOrWhiteSpace(txtID.Text) && !string.IsNullOrWhiteSpace(txtTenTheLoai.Text))
                 {
-
+                    
                     dataProcessor.ChangeData("UPDATE tblTheLoai SET tenTheLoai = '" + txtTenTheLoai.Text + "' WHERE maTheLoai = '" + txtID.Text + "'");
                     LoadData();
                 }
@@ -143,6 +143,24 @@ namespace QLRapChieuPhim.QLPhim.The_Loai
                 LoadData();
             }
         }
-        
+
+        private void btnFind_Click(object sender, RoutedEventArgs e)
+        {
+            string sql = "";
+            if (txtID.Text.Trim() == "" && txtTenTheLoai.Text.Trim() == "")
+                sql = "Select maTheLoai, tenTheLoai from tblTheLoai";
+            else
+            {
+                sql = "Select maTheLoai, tenTheLoai from tblTheLoai where maTheLoai is not null ";
+                if (txtID.Text.Trim() != "")
+                    sql = sql + " and maTheLoai like'%" + txtID.Text + "%'";
+                if (txtTenTheLoai.Text.Trim() != "")
+                    sql = sql + " and tenTheLoai like  '%" + txtTenTheLoai.Text + "%'";
+            }
+
+            DataTable dtTimKiem = dataProcessor.ReadData(sql);
+            dgTheLoai.ItemsSource = dtTimKiem.AsDataView();
+           
+        }
     }   
 }
