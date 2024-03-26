@@ -28,7 +28,7 @@ namespace QLRapChieuPhim.TimKiem
             InitializeComponent();
         }
 
-        private void LoadData()
+        void LoadData()
         {
             DataTable dtPhim = dtBase.ReadData("Select maPhim,tenPhim,maQGSanXuat,maHangSX,daoDien,maTheloai,ngayKhoiChieu,ngayKetThuc,nuDVC,namDVC,noiDungC from tblPhim");
             dtgTKPhim.ItemsSource = dtPhim.AsDataView();
@@ -68,6 +68,7 @@ namespace QLRapChieuPhim.TimKiem
 
             DataTable dtTimKiem = dtBase.ReadData(sql);
             dtgTKPhim.ItemsSource = dtTimKiem.AsDataView();
+            LoadData();
         }
     }
 }
