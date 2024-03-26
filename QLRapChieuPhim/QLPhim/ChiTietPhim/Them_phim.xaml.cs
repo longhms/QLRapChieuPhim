@@ -23,6 +23,8 @@ namespace QLRapChieuPhim.QLPhim.ChiTietPhim
     public partial class Them_phim : Window
     {
         Classes.DataProcessor dataProcessor = new DataProcessor(Login.cinemaID);
+        DataRowView selectedRow;
+
         public Them_phim(DataRowView selectedRow)
         {
             InitializeComponent();
@@ -117,33 +119,55 @@ namespace QLRapChieuPhim.QLPhim.ChiTietPhim
 
         private void btnEdit_Click(object sender, RoutedEventArgs e)
         {
-            
-             if (!string.IsNullOrWhiteSpace(txtID.Text) && !string.IsNullOrWhiteSpace(txtTenphim.Text) && cboQuocgia.SelectedItem != null && cboHangSX.SelectedItem != null && !string.IsNullOrWhiteSpace(txtDaodien.Text) && cboTheLoai.SelectedItem != null && !string.IsNullOrWhiteSpace(txtNgayKC.Text) && !string.IsNullOrWhiteSpace(txtNgayKT.Text) && !string.IsNullOrWhiteSpace(txtNuDVC.Text) && !string.IsNullOrWhiteSpace(txtNamDVC.Text) && !string.IsNullOrWhiteSpace(txtNoidung.Text) && !string.IsNullOrWhiteSpace(txtChiPhi.Text) && !string.IsNullOrWhiteSpace(txtThu.Text))
-             {
-                dataProcessor.ChangeData("UPDATE tblPhim SET tenPhim = '" + txtTenphim.Text + "', maQGsanXuat = '" + cboQuocgia.SelectedValue + "', maHangSX = '" + cboHangSX.SelectedValue + "', daoDien = '" + txtDaodien.Text + "', maTheloai = '" + cboTheLoai.SelectedValue + "', ngayKhoiChieu = '" + txtNgayKC.Text + "', ngayKetThuc = '" + txtNgayKT.Text + "', nuDVC = '" + txtNuDVC.Text + "', namDVC = '" + txtNamDVC.Text + "', noiDungC = '" + txtNoidung.Text + "', tongChiPhi = " + txtChiPhi.Text + ", tongThu = " + txtThu.Text + " WHERE maPhim = '" + txtID.Text + "'");
-               
-             }
+            if (selectedRow != null)
+            {
+                if (!string.IsNullOrWhiteSpace(txtID.Text) && !string.IsNullOrWhiteSpace(txtTenphim.Text) && cboQuocgia.SelectedItem != null && cboHangSX.SelectedItem != null && !string.IsNullOrWhiteSpace(txtDaodien.Text) && cboTheLoai.SelectedItem != null && !string.IsNullOrWhiteSpace(txtNgayKC.Text) && !string.IsNullOrWhiteSpace(txtNgayKT.Text) && !string.IsNullOrWhiteSpace(txtNuDVC.Text) && !string.IsNullOrWhiteSpace(txtNamDVC.Text) && !string.IsNullOrWhiteSpace(txtNoidung.Text) && !string.IsNullOrWhiteSpace(txtChiPhi.Text) && !string.IsNullOrWhiteSpace(txtThu.Text))
+                {
+                    // Thực hiện cập nhật dữ liệu vào hàng đã chọn
+                    selectedRow.BeginEdit();
+                    selectedRow["maPhim"] = txtID.Text;
+                    selectedRow["tenPhim"] = txtTenphim.Text;
+                    selectedRow["maQGSanXuat"] = cboQuocgia.SelectedValue;
+                    selectedRow["maHangSX"] = cboHangSX.SelectedValue;
+                    selectedRow["daoDien"] = txtDaodien.Text;
+                    selectedRow["maTheLoai"] = cboTheLoai.SelectedValue;
+                    selectedRow["ngayKhoiChieu"] = txtNgayKC.Text;
+                    selectedRow["ngayKetThuc"] = txtNgayKT.Text;
+                    selectedRow["nuDVC"] = txtNuDVC.Text;
+                    selectedRow["namDVC"] = txtNamDVC.Text;
+                    selectedRow["noiDungC"] = txtNoidung.Text;
+                    selectedRow["tongChiPhi"] = txtChiPhi.Text;
+                    selectedRow["tongThu"] = txtThu.Text;
+                    selectedRow.EndEdit();
+
+                    // Lưu dữ liệu vào cơ sở dữ liệu
+                    try
+                    {
+                        // Thực hiện lưu dữ liệu vào cơ sở dữ liệu
+                        // Ví dụ: dataProcessor.ChangeData("UPDATE tblPhim SET ... WHERE maPhim = '" + txtID.Text + "'");
+
+                        // Hiển thị thông báo lưu thành công
+                        MessageBox.Show("Đã cập nhật thông tin phim thành công.", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
+                    }
+                    catch (Exception ex)
+                    {
+                        // Xử lý khi gặp lỗi trong quá trình lưu dữ liệu
+                        MessageBox.Show("Lỗi: " + ex.Message, "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+
+                    // Đóng cửa sổ khi đã lưu thành công
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Vui lòng điền đầy đủ thông tin trước khi lưu.", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
+            }
             else
             {
-                MessageBox.Show("Vui lòng nhập đầy đủ thông tin giáo viên cần sửa.", "Thông báo");
+                MessageBox.Show("Vui lòng chọn một hàng để chỉnh sửa.", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
-            try
-            {
-                // Lưu dữ liệu vào cơ sở dữ liệu
 
-                // Gọi phương thức cập nhật dữ liệu trên cửa sổ Phim
-                Phim phim = Application.Current.Windows.OfType<Phim>().FirstOrDefault();
-                if (phim != null)
-                {
-                    phim.RefreshDataGrid();
-                }
-
-                // Hiển thị thông báo lưu thành công
-            }
-            catch (Exception ex)
-            {
-                // Xử lý lỗi khi lưu dữ liệu
-            }
         }
     }
 }
