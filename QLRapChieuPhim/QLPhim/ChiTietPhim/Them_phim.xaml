@@ -23,11 +23,11 @@
             <Label Content="Tổng chi phí" HorizontalAlignment="Left" Margin="307,233,0,0" VerticalAlignment="Top"/>
             <Label Content="Tổng thu" HorizontalAlignment="Left" Margin="305,284,0,0" VerticalAlignment="Top"/>
             <Label Content="Hãng sản xuất" HorizontalAlignment="Left" Margin="12,187,0,0" VerticalAlignment="Top"/>
-            <Label Content="Nội dung phim" HorizontalAlignment="Left" Margin="633,40,0,0" VerticalAlignment="Top"/>
+            <Label Content="Nội dung phim" HorizontalAlignment="Left" Margin="86,40,0,0" VerticalAlignment="Top" Grid.Column="1"/>
             <ComboBox x:Name="cboQuocgia" HorizontalAlignment="Left" Margin="152,134,0,0" VerticalAlignment="Top" Width="120"/>
             <ComboBox x:Name="cboHangSX" HorizontalAlignment="Left" Margin="152,187,0,0" VerticalAlignment="Top" Width="120"/>
             <ComboBox x:Name="cboTheLoai" HorizontalAlignment="Left" Margin="152,284,0,0" VerticalAlignment="Top" Width="120"/>
-            <Button x:Name="btnSave" Content="Save" HorizontalAlignment="Left" Margin="659,213,0,0" VerticalAlignment="Top" Width="61" Click="btnSave_Click"/>
+            <Button x:Name="btnSave" Content="Save" HorizontalAlignment="Left" Margin="660,190,0,0" VerticalAlignment="Top" Width="61" Click="btnSave_Click"/>
             <Button x:Name="btnExit" Content="Exit" HorizontalAlignment="Left" Margin="659,296,0,0" VerticalAlignment="Top" Width="62" Click="btnExit_Click"/>
             <TextBox x:Name="txtID" HorizontalAlignment="Left" Margin="152,35,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
             <TextBox x:Name="txtTenphim" HorizontalAlignment="Left" Margin="152,88,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
@@ -39,6 +39,7 @@
             <TextBox x:Name="txtChiPhi" HorizontalAlignment="Left" Margin="450,233,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.308,0.322"/>
             <TextBox x:Name="txtThu" HorizontalAlignment="Left" Margin="450,284,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
             <TextBox x:Name="txtNoidung" HorizontalAlignment="Left" Margin="633,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="80"/>
+            <Button x:Name="btnEdit" Content="Edit" HorizontalAlignment="Left" Margin="660,245,0,0" VerticalAlignment="Top" Width="61" Click="btnEdit_Click"/>
 
         </Grid>
     </Grid>
