@@ -30,7 +30,6 @@ namespace QLRapChieuPhim.TimKiem
 
         void LoadData()
         {
-
             string sql = @"SELECT 
                         P.maPhim, 
                         P.tenPhim, 
