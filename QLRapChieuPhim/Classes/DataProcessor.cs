@@ -16,7 +16,7 @@ namespace QLRapChieuPhim.Classes
 
         public DataProcessor(string cinemaID)
         {
-            strConnect = "Data Source = "+ Login.cinemaID + "1QLRap.db";
+            strConnect = "Data Source = "+ Login.cinemaID + "QLRap.db";
         }
 
         void OpenConnect()

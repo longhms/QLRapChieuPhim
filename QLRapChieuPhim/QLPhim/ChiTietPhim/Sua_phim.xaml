@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QLRapChieuPhim.QLPhim.ChiTietPhim"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Title="Sua_phim" Height="450" Width="800" Loaded="Window_Loaded">
     <Grid x:Name="GrdBoder" Background="#FF030B2B" >
@@ -27,16 +28,16 @@
             <ComboBox x:Name="cboHangSX" HorizontalAlignment="Left" Margin="152,187,0,0" VerticalAlignment="Top" Width="120"/>
             <ComboBox x:Name="cboTheLoai" HorizontalAlignment="Left" Margin="152,284,0,0" VerticalAlignment="Top" Width="120"/>
             <Button x:Name="btnExit" Content="Exit" HorizontalAlignment="Left" Margin="659,296,0,0" VerticalAlignment="Top" Width="62" Click="btnExit_Click"/>
-            <TextBox x:Name="txtID" HorizontalAlignment="Left" Margin="152,35,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-            <TextBox x:Name="txtTenphim" HorizontalAlignment="Left" Margin="152,88,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-            <TextBox x:Name="txtDaodien" HorizontalAlignment="Left" Margin="152,232,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-            <TextBox x:Name="txtNgayKC" HorizontalAlignment="Left" Margin="450,28,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-            <TextBox x:Name="txtNgayKT" HorizontalAlignment="Left" Margin="450,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-            <TextBox x:Name="txtNuDVC" HorizontalAlignment="Left" Margin="450,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-            <TextBox x:Name="txtNamDVC" HorizontalAlignment="Left" Margin="450,186,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-            <TextBox x:Name="txtChiPhi" HorizontalAlignment="Left" Margin="450,233,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.308,0.322"/>
-            <TextBox x:Name="txtThu" HorizontalAlignment="Left" Margin="450,284,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-            <TextBox x:Name="txtNoidung" HorizontalAlignment="Right"  VerticalAlignment="Top" Width="120" Height="80" Margin="0,83,30,0"/>
+            <TextBox x:Name="txtID"  materialDesign:HintAssist.Hint="Nhập mã phim" HorizontalAlignment="Left" Margin="152,35,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+            <TextBox x:Name="txtTenphim"  materialDesign:HintAssist.Hint="Nhập tên phim" HorizontalAlignment="Left" Margin="152,88,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+            <TextBox x:Name="txtDaodien"  materialDesign:HintAssist.Hint="Nhập tên đạo diễn" HorizontalAlignment="Left" Margin="152,232,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+            <TextBox x:Name="txtNgayKC"  materialDesign:HintAssist.Hint="Nhập ngày khởi chiếu" HorizontalAlignment="Left" Margin="450,28,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="132"/>
+            <TextBox x:Name="txtNgayKT"  materialDesign:HintAssist.Hint="Nhập ngày kết thúc" HorizontalAlignment="Left" Margin="450,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="132"/>
+            <TextBox x:Name="txtNuDVC"  materialDesign:HintAssist.Hint="Nhập tên nữ diễn viên" HorizontalAlignment="Left" Margin="450,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="132"/>
+            <TextBox x:Name="txtNamDVC"  materialDesign:HintAssist.Hint="Nhập tên nam diễn viên" HorizontalAlignment="Left" Margin="450,186,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="132"/>
+            <TextBox x:Name="txtChiPhi"  materialDesign:HintAssist.Hint="Nhập tổng chi phí" HorizontalAlignment="Left" Margin="450,233,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="132" RenderTransformOrigin="0.308,0.322"/>
+            <TextBox x:Name="txtThu"  materialDesign:HintAssist.Hint="Nhập tổng thu" HorizontalAlignment="Left" Margin="450,284,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="132"/>
+            <TextBox x:Name="txtNoidung"  materialDesign:HintAssist.Hint="Nhập nội dung chính" HorizontalAlignment="Right"  VerticalAlignment="Top" Width="120" Height="80" Margin="0,83,30,0"/>
             <Button x:Name="btnEdit" Content="Edit" HorizontalAlignment="Left" Margin="659,213,0,0" VerticalAlignment="Top" Width="61" Click="btnEdit_Click"/>
 
         </Grid>
