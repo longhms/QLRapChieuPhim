@@ -270,6 +270,9 @@
   <ItemGroup>
     <Resource Include="QLRap\rap-metiz-dn.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="QLPhim\ChiTietPhim\d8a13e339a32faa37d69b6cab4d5ab8d_t.jpeg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

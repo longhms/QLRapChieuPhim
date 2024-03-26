@@ -8,7 +8,7 @@
         Title="The_loai" Height="600" Width="1000" Loaded="Window_Loaded">
     <Grid>
         <Grid x:Name="GrdBoder" Background="#FF030B2B" >
-            <TextBlock Text="Thể loại Phim" Foreground="White" FontSize="28" HorizontalAlignment="Center" Margin="0,10,0,337" />
+            <TextBlock Text="Thể loại Phim" Foreground="White" FontSize="28" HorizontalAlignment="Center" Margin="0,10,0,337" FontWeight="Bold" />
             <Button x:Name="btnExit"
                 Width= "60" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,10,10,0"
                 IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
@@ -16,8 +16,8 @@
                 <materialDesign:PackIcon Kind="ExitToApp"  HorizontalAlignment="Center" Height="40" Width="40"/>
             </Button>
             <Grid x:Name="GrdMain" Margin="10,64,10,10" Background="White">
-                <Label Content="Mã thể loại" HorizontalAlignment="Left" Margin="395,137,0,0" VerticalAlignment="Top" FontSize="20"/>
-                <Label Content="Tên thể loại" HorizontalAlignment="Left" Margin="393,292,0,0" VerticalAlignment="Top" FontSize="20" Height="40" Width="109"/>
+                <Label Content="Mã thể loại" HorizontalAlignment="Left" Margin="395,137,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
+                <Label Content="Tên thể loại" HorizontalAlignment="Left" Margin="393,292,0,0" VerticalAlignment="Top" FontSize="20" Height="40" Width="116" FontWeight="Bold"/>
                 <TextBox x:Name="txtID"  materialDesign:HintAssist.Hint="Nhập mã thể loại" HorizontalAlignment="Left" Margin="555,129,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="174" FontSize="20" Height="50"/>
                 <TextBox x:Name="txtTenTheLoai"  materialDesign:HintAssist.Hint="Nhập tên thể loại" HorizontalAlignment="Left" Margin="556,282,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="173" FontSize="20" Height="50"/>
                 <DataGrid x:Name="dgTheLoai"  Margin="27,22,625,58" SelectionChanged="dgTheLoai_SelectionChanged" FontSize="16"/>
