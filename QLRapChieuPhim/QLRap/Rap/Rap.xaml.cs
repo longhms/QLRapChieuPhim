@@ -34,12 +34,12 @@ namespace QLRapChieuPhim.QLRap.Rap
 
         private void btnAddAD_Click(object sender, RoutedEventArgs e)
         {
-            if(txtUsername.Text == null)
+            if(txtUsername.Text == "")
             {
                 MessageBox.Show("Hãy nhập Username!", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
                 txtUsername.Focus();
                 return;
-            } else if(psbPass.Password == null)
+            } else if(psbPass.Password == "")
             {
                 MessageBox.Show("Hãy nhập Password!", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
                 psbPass.Focus();
@@ -79,8 +79,13 @@ namespace QLRapChieuPhim.QLRap.Rap
                 return;
             } else if(txtUsername.Text == Login.userName)
             {
-                MessageBox.Show("Bạn không thể xóa tài khoản đang đăng nhập", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Bạn không thể xóa tài khoản đang đăng nhập!", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
                 
+                return;
+            } else if(txtUsername.Text == "" && psbPass.Password == "")
+            {
+                MessageBox.Show("Bạn phải nhập tài khoản để xóa!", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
+
                 return;
             }
 
