@@ -3,17 +3,23 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:QLRapChieuPhim.QLPhim.Hang_SX"
+        xmlns:local="clr-namespace:QLRapChieuPhim.QLPhim.Hang_SX" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Title="Hang_sx" Height="600" Width="1000" Loaded="Window_Loaded">
     <Grid>
         <Grid x:Name="GrdBoder" Background="#FF030B2B" >
             <TextBlock Text="Hãng sản xuất" Foreground="White" FontSize="32" HorizontalAlignment="Center" Margin="0,10,0,337" />
+            <Button x:Name="btnExit"
+                Width= "60" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,10,10,0"
+                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                Style="{StaticResource MaterialDesignRaisedButton}" Click="btnExit_Click" Height="49" RenderTransformOrigin="0.5,0.5">
+                <materialDesign:PackIcon Kind="ExitToApp"  HorizontalAlignment="Center" Height="40" Width="40"/>
+            </Button>
             <Grid x:Name="GrdMain" Margin="10,78,10,10" Background="White">
-                <Label Content="Mã hãng sản xuất" HorizontalAlignment="Left" Margin="385,147,0,0" VerticalAlignment="Top" FontSize="18" Height="41" Width="176" RenderTransformOrigin="0.472,1.009"/>
-                <Label Content="Tên hãng sản xuất" HorizontalAlignment="Left" Margin="385,284,0,0" VerticalAlignment="Top" FontSize="18" Height="40" Width="156"/>
-                <TextBox x:Name="txtID" HorizontalAlignment="Left" Margin="589,138,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="141" FontSize="16" Height="50"/>
-                <TextBox x:Name="txtTenHang" HorizontalAlignment="Left" Margin="590,270,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" FontSize="16" Height="50"/>
+                <Label Content="Mã hãng sản xuất" HorizontalAlignment="Left" Margin="385,147,0,0" VerticalAlignment="Top" FontSize="20" Height="41" Width="176" RenderTransformOrigin="0.472,1.009"/>
+                <Label Content="Tên hãng sản xuất" HorizontalAlignment="Left" Margin="385,309,0,0" VerticalAlignment="Top" FontSize="20" Height="36" Width="176"/>
+                <TextBox x:Name="txtID"  materialDesign:HintAssist.Hint="Nhập mã Hãng" HorizontalAlignment="Left" Margin="590,138,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="141" FontSize="18" Height="50"/>
+                <TextBox x:Name="txtTenHang"  materialDesign:HintAssist.Hint="Nhập tên hãng" HorizontalAlignment="Left" Margin="590,295,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" FontSize="18" Height="50" RenderTransformOrigin="0.087,0.534"/>
                 <DataGrid x:Name="dgHang" Margin="27,22,625,58" FontSize="16" SelectionChanged="dgHang_SelectionChanged" />
                 <Button x:Name="btnAdd" Content="Add" HorizontalAlignment="Left" Margin="790,56,0,0" VerticalAlignment="Top" Width="100" Click="btnAdd_Click" Height="50" FontSize="16"/>
                 <Button x:Name="btnEdit" Content="Edit" HorizontalAlignment="Left" Margin="790,163,0,0" VerticalAlignment="Top" Width="100" Click="btnEdit_Click" Height="50" FontSize="16"/>
