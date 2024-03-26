@@ -18,7 +18,7 @@
                 <Button x:Name="btnAdd" Content="Add" HorizontalAlignment="Left" Margin="635,46,0,0" VerticalAlignment="Top" Width="77" Click="btnAdd_Click"/>
                 <Button x:Name="btnEdit" Content="Edit" HorizontalAlignment="Left" Margin="635,128,0,0" VerticalAlignment="Top" Width="77" Click="btnEdit_Click"/>
                 <Button x:Name="btnDelete" Content="Delete" HorizontalAlignment="Left" Margin="635,205,0,0" VerticalAlignment="Top" Width="77" Click="btnDelete_Click"/>
-                <Button x:Name="btnFind" Content="Sreach" HorizontalAlignment="Left" Margin="635,280,0,0" VerticalAlignment="Top" Width="77"/>
+                <Button x:Name="btnFind" Content="Sreach" HorizontalAlignment="Left" Margin="635,280,0,0" VerticalAlignment="Top" Width="77" Click="btnFind_Click"/>
                 <Button x:Name="btnExit" HorizontalAlignment="Left" Margin="710,-58,0,0" VerticalAlignment="Top" Background="{x:Null}" Width="66" Height="48" Click="btnExit_Click">
                     <Image Source="/Img/image-exit.png" Width="41" Height="32"></Image>
                 </Button>

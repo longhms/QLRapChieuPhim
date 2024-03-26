@@ -52,6 +52,7 @@ namespace QLRapChieuPhim.QLPhim.ChiTietPhim
             them_Phim.ShowDialog();
         }
 
+
         private void btnSua_Click(object sender, RoutedEventArgs e)
         {
             if (dgPhim.SelectedItem != null)
@@ -60,8 +61,8 @@ namespace QLRapChieuPhim.QLPhim.ChiTietPhim
                 DataRowView selectedRow = dgPhim.SelectedItem as DataRowView;
 
                 // Khởi tạo cửa sổ Them_phim và truyền dữ liệu từ hàng được chọn
-                Them_phim themPhim = new Them_phim(selectedRow);
-                themPhim.ShowDialog();
+                Sua_phim suaPhim = new Sua_phim(selectedRow);
+                suaPhim.ShowDialog();
 
                 // Cập nhật lại DataGrid sau khi chỉnh sửa
                 RefreshDataGrid();
@@ -72,6 +73,7 @@ namespace QLRapChieuPhim.QLPhim.ChiTietPhim
             }
         }
     
+
 
         private void btnXoa_Click(object sender, RoutedEventArgs e)
         {
@@ -92,6 +94,8 @@ namespace QLRapChieuPhim.QLPhim.ChiTietPhim
             }
 
         }
+
+
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             LoadData();
