@@ -108,6 +108,7 @@ namespace QLRapChieuPhim.QLPhim.ChiTietPhim
                 this.Close();
             }
         }
+
     }
 
 }
