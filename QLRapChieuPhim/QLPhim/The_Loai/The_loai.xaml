@@ -21,10 +21,10 @@
                 <TextBox x:Name="txtID"  materialDesign:HintAssist.Hint="Nhập mã thể loại" HorizontalAlignment="Left" Margin="555,129,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="174" FontSize="20" Height="50"/>
                 <TextBox x:Name="txtTenTheLoai"  materialDesign:HintAssist.Hint="Nhập tên thể loại" HorizontalAlignment="Left" Margin="556,282,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="173" FontSize="20" Height="50"/>
                 <DataGrid x:Name="dgTheLoai"  Margin="27,22,625,58" SelectionChanged="dgTheLoai_SelectionChanged" FontSize="16"/>
-                <Button x:Name="btnAdd" Content="Add" HorizontalAlignment="Left" Margin="790,56,0,0" VerticalAlignment="Top" Width="100" Click="btnAdd_Click" Height="50" FontSize="16"/>
-                <Button x:Name="btnEdit" Content="Edit" HorizontalAlignment="Left" Margin="790,163,0,0" VerticalAlignment="Top" Width="100" Click="btnEdit_Click" Height="50" FontSize="16"/>
-                <Button x:Name="btnDelete" Content="Delete" HorizontalAlignment="Left" Margin="790,295,0,0" VerticalAlignment="Top" Width="100" Click="btnDelete_Click" Height="50" FontSize="16"/>
-                <Button x:Name="btnFind" Content="Sreach" HorizontalAlignment="Left" Margin="790,402,0,0" VerticalAlignment="Top" Width="100" Click="btnFind_Click" Height="50" FontSize="16"/>
+                <Button x:Name="btnAdd" Content="Thêm" HorizontalAlignment="Left" Margin="790,56,0,0" VerticalAlignment="Top" Width="100" Click="btnAdd_Click" Height="50" FontSize="16"/>
+                <Button x:Name="btnEdit" Content="Sửa" HorizontalAlignment="Left" Margin="790,163,0,0" VerticalAlignment="Top" Width="100" Click="btnEdit_Click" Height="50" FontSize="16"/>
+                <Button x:Name="btnDelete" Content="Xóa" HorizontalAlignment="Left" Margin="790,295,0,0" VerticalAlignment="Top" Width="100" Click="btnDelete_Click" Height="50" FontSize="16"/>
+                <Button x:Name="btnFind" Content="Tìm kiếm" HorizontalAlignment="Left" Margin="790,402,0,0" VerticalAlignment="Top" Width="100" Click="btnFind_Click" Height="50" FontSize="16"/>
                 
 
             </Grid>

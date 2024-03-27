@@ -28,8 +28,8 @@
             <ComboBox x:Name="cboQuocgia" HorizontalAlignment="Left" Margin="152,134,0,0" VerticalAlignment="Top" Width="120"/>
             <ComboBox x:Name="cboHangSX" HorizontalAlignment="Left" Margin="152,187,0,0" VerticalAlignment="Top" Width="120"/>
             <ComboBox x:Name="cboTheLoai" HorizontalAlignment="Left" Margin="152,284,0,0" VerticalAlignment="Top" Width="120"/>
-            <Button x:Name="btnSave" Content="Save" HorizontalAlignment="Left" Margin="660,190,0,0" VerticalAlignment="Top" Width="61" Click="btnSave_Click"/>
-            <Button x:Name="btnExit" Content="Exit" HorizontalAlignment="Left" Margin="659,296,0,0" VerticalAlignment="Top" Width="62" Click="btnExit_Click"/>
+            <Button x:Name="btnSave" Content="Lưu" HorizontalAlignment="Left" Margin="659,190,0,0" VerticalAlignment="Top" Width="80" Click="btnSave_Click" Height="35"/>
+            <Button x:Name="btnExit" Content="Thoát" HorizontalAlignment="Left" Margin="659,296,0,0" VerticalAlignment="Top" Width="80" Click="btnExit_Click"/>
             <TextBox x:Name="txtID" materialDesign:HintAssist.Hint="Nhập mã phim" HorizontalAlignment="Left" Margin="152,35,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
             <TextBox x:Name="txtTenphim"  materialDesign:HintAssist.Hint="Nhập tên phim" HorizontalAlignment="Left" Margin="152,88,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
             <TextBox x:Name="txtDaodien" materialDesign:HintAssist.Hint="Nhập tên đạo diễn" HorizontalAlignment="Left" Margin="152,232,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>

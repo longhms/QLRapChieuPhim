@@ -15,10 +15,7 @@
                 Style="{StaticResource MaterialDesignRaisedButton}" Click="btnExit_Click" Height="49" RenderTransformOrigin="0.5,0.5">
                 <materialDesign:PackIcon Kind="ExitToApp"  HorizontalAlignment="Center" Height="40" Width="40"/>
             </Button>
-            <Grid x:Name="GrdMain" Margin="10,81,10,10">
-                <Grid.Background>
-                    <ImageBrush ImageSource="/QLPhim/ChiTietPhim/d8a13e339a32faa37d69b6cab4d5ab8d_t.jpeg"/>
-                </Grid.Background>
+            <Grid x:Name="GrdMain" Margin="10,81,10,10" Background="White">
                 <TextBox x:Name="txtFind" HorizontalAlignment="Left" Margin="61,14,0,0" TextWrapping="Wrap" Text="Tìm kiếm" VerticalAlignment="Top" Width="260" Height="52" FontSize="20" FontWeight="Bold"/>
                 <Button x:Name="btnThem"  HorizontalAlignment="Left" Margin="361,14,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.013,0.001" Click="btnThem_Click" Height="52" Width="100" FontSize="20" FontWeight="Bold">
                     <StackPanel Orientation="Horizontal">
