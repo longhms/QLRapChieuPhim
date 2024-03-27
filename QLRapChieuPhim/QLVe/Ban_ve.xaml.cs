@@ -19,11 +19,23 @@ namespace QLRapChieuPhim.QLVe
     /// </summary>
     public partial class Ban_ve : Window
     {
+        Classes.DataProcessor dataProcessor = new Classes.DataProcessor(Login.cinemaID);
         public Ban_ve()
         {
             InitializeComponent();
         }
+        void LoadData()
+        {
 
+        }
+      
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            cboMaGG.Items.Add("Mã giảm giá 5%");
+            cboMaGG.Items.Add("Mã giảm giá 10%");
+            cboMaGG.Items.Add("Mã giảm giá 15%");
+        }
         private void btnExit_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult result = MessageBox.Show("Bạn có chắc chắn muốn thoát?", "Xác nhận", MessageBoxButton.YesNo, MessageBoxImage.Question);

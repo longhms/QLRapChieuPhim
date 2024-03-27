@@ -5,41 +5,41 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QLRapChieuPhim.QLVe" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="Ban_ve" Height="800" Width="1200">
+        Title="Ban_ve" Height="700" Width="1200" Loaded="Window_Loaded">
     <Grid>
         <Grid x:Name="GrdBoder" Background="#FF030B2B" >
-            <TextBlock Text="Bán vé" Foreground="White" FontSize="32" HorizontalAlignment="Center" Margin="0,10,0,644" FontWeight="Bold" />
+            <TextBlock Text="Bán vé" Foreground="White" FontSize="32" HorizontalAlignment="Center" Margin="0,10,0,614" FontWeight="Bold" />
             <Button x:Name="btnExit"
                 Width= "60" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,10,10,0"
                 IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                 Style="{StaticResource MaterialDesignRaisedButton}" Click="btnExit_Click" Height="49" RenderTransformOrigin="0.5,0.5">
                 <materialDesign:PackIcon Kind="ExitToApp"  HorizontalAlignment="Center" Height="40" Width="40"/>
             </Button>
-            <Grid x:Name="GrdMain" Margin="20,70,20,20" Background="White">
-                <Grid x:Name="GrdTitle" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="60,20,0,0" Width="800" Height="50" Background="#FF2CB8CA">
-                    <Label Content="Màn chiếu" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="26" FontWeight="Medium" Height="50" ></Label>
+            <Grid x:Name="GrdMain" Margin="20,75,20,20" Background="White">
+                <Grid x:Name="GrdTitle" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="60,20,0,0" Width="720" Height="40" Background="#FF2CB8CA">
+                    <Label Content="Màn chiếu" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" FontWeight="Medium" Height="40" ></Label>
                 </Grid>
                 
                 
                 
                 
-                <Grid x:Name="GrdKhungVe" Width="1100" Height="220" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,20">
+                <Grid x:Name="GrdKhungVe" Width="1100" Height="180" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,20">
                     <StackPanel Orientation="Horizontal">
                         <Border BorderBrush="Black" BorderThickness="2" >
                             <Grid x:Name="GrdLoaiVe" Width="360" >
                                 <Label Content="Loại vé: " FontSize="20" FontWeight="Bold" ></Label>
-                                <RadioButton x:Name="rdoNguoiLon" Content="Người lớn" Margin="10,0,0,60" FontSize="20"></RadioButton>
-                                <RadioButton x:Name="rdoSinhVien" Content="Sinh viên" Margin="200,0,0,60" FontSize="20"></RadioButton>
-                                <RadioButton x:Name="rdoTreEm" Content="Trẻ em(Dưới 12 tuổi)" Margin="60,80,0,30" FontSize="20"></RadioButton>
-                                <Label Content="Giá vé: " FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="20,0,0,10"></Label>
-                                <TextBlock Name="txbGiaVe" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,40,10" FontSize="20" Width="200"></TextBlock>
+                                <RadioButton x:Name="rdoNguoiLon" Content="Người lớn" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40,40,0,0" FontSize="18"></RadioButton>
+                                <RadioButton x:Name="rdoSinhVien" Content="Sinh viên" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,40,40,0" FontSize="18"></RadioButton>
+                                <RadioButton x:Name="rdoTreEm" Content="Trẻ em(Dưới 12 tuổi)" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,30,0,0" FontSize="18"></RadioButton>
+                                <Label Content="Giá vé: " FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="20,0,0,10"></Label>
+                                <TextBlock Name="txbGiaVe" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,40,10" FontSize="18" Width="200"></TextBlock>
                             </Grid>
                         </Border>
                         <Border BorderBrush="Black" BorderThickness="2" >
                             <Grid x:Name="GrdVouvher" Width="290">
                                 <Label Content="Mã giảm giá:" FontSize="20" FontWeight="Bold" Margin="10,0,0,0"></Label>
-                                <Label Content="Chọn mã giảm giá:" FontSize="20" Margin="30,40,0,0"></Label>
-                                <ComboBox Name="cboMaGG" Width="200" HorizontalAlignment="Left" Margin="50,100,0,0" VerticalAlignment="Top"></ComboBox>
+                                <Label Content="Chọn mã giảm giá:" FontSize="18" Margin="30,40,0,0"></Label>
+                                <ComboBox Name="cboMaGG" Width="180" HorizontalAlignment="Left" Margin="50,80,0,0" VerticalAlignment="Top" FontSize="16"></ComboBox>
                                 
                             
                             </Grid>
@@ -47,12 +47,12 @@
                         <Border BorderBrush="Black" BorderThickness="2">
                             <Grid x:Name="GrdTinhTien" Width="420" >
                                 <Label Content="Thanh toán:" HorizontalAlignment="Left" FontSize="20" FontWeight="Bold"></Label>
-                                <Label Content="Tổng tiền:" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="20"  Margin="20,40,0,0"></Label>
-                                <Label Content="Mã giảm giá:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,85,0,0" FontSize="20"></Label>
-                                <Label Content="Số tiền thanh toán:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,125,0,0" FontSize="20"></Label>
-                                <TextBlock x:Name="txbTongTien" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="20" Margin="0,40,20,0" Width="170"></TextBlock>
-                                <TextBlock x:Name="txbMaGG" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="20" Margin="0,85,20,0" Width="170"></TextBlock>
-                                <TextBlock x:Name="txbThanhToan" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="20" Margin="0,125,20,0" Width="170"></TextBlock>
+                                <Label Content="Tổng tiền:" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="18"  Margin="20,25,0,0"></Label>
+                                <Label Content="Mã giảm giá:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,60,0,0" FontSize="18"></Label>
+                                <Label Content="Số tiền thanh toán:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,95,0,0" FontSize="18"></Label>
+                                <TextBlock x:Name="txbTongTien" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="20" Margin="0,25,20,0" Width="170"></TextBlock>
+                                <TextBlock x:Name="txbMaGG" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="18" Margin="0,60,20,0" Width="170"></TextBlock>
+                                <TextBlock x:Name="txbThanhToan" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="18" Margin="0,95,20,0" Width="170"></TextBlock>
                                 <Button x:Name="btnXacNhan" Content="Thanh toán" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="60,0,0,10" FontSize="18" Width="125"></Button>
                                 <Button x:Name="btnHuy" Content="Hủy bỏ" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,60,10" FontSize="18" Width="125"></Button>
                             </Grid>

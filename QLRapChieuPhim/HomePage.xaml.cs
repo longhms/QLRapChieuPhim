@@ -6,6 +6,7 @@ using QLRapChieuPhim.QLPhim.The_Loai;
 using QLRapChieuPhim.QLRap;
 using QLRapChieuPhim.QLRap.Gio_Chieu;
 using QLRapChieuPhim.QLRap.Lich_Chieu;
+using QLRapChieuPhim.QLVe;
 using QLRapChieuPhim.TimKiem;
 using System;
 using System.Collections.Generic;
@@ -98,6 +99,12 @@ namespace QLRapChieuPhim
         {
             TKPhim tkphim = new TKPhim();
             tkphim.ShowDialog();
+        }
+
+        private void mnuBanVe_Click(object sender, RoutedEventArgs e)
+        {
+            Ban_ve ban_Ve = new Ban_ve();
+            ban_Ve.ShowDialog();
         }
     }
 }
