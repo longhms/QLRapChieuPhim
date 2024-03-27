@@ -19,7 +19,7 @@
                 <Grid x:Name="GrdTitle" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="60,20,0,0" Width="720" Height="40" Background="#FF2CB8CA">
                     <Label Content="Màn chiếu" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" FontWeight="Medium" Height="40" ></Label>
                 </Grid>
-                
+               
                 
                 
                 
