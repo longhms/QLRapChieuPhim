@@ -15,22 +15,22 @@
 
 
 
-            <DatePicker x:Name="dtpNgayChieu2" Width="140" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,43,0,0"
+            <DatePicker x:Name="dtpNC2" Width="140" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,43,0,0"
             Style="{StaticResource MaterialDesignOutlinedDatePicker}"
             materialDesign:HintAssist.Hint="Chọn Ngày"
             materialDesign:DatePickerAssist.OutlinedBorderActiveThickness="3"
             BorderBrush="Teal"
             materialDesign:DatePickerAssist.OutlinedBorderInactiveThickness="3"
-            materialDesign:HintAssist.FloatingOffset="0,-23"/>
-            <DatePicker x:Name="dtpNgayChieu1" Width="140" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,43,697,0"
+            materialDesign:HintAssist.FloatingOffset="0,-23" SelectedDateChanged="dtpNC2_SelectedDateChanged"/>
+            <DatePicker x:Name="dtpNC" Width="140" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,43,697,0"
                 Style="{StaticResource MaterialDesignOutlinedDatePicker}"
                 materialDesign:HintAssist.Hint="Chọn Ngày"
                 materialDesign:DatePickerAssist.OutlinedBorderActiveThickness="3"
                 BorderBrush="Teal"
                 materialDesign:DatePickerAssist.OutlinedBorderInactiveThickness="3"
-                materialDesign:HintAssist.FloatingOffset="0,-23"/>
+                materialDesign:HintAssist.FloatingOffset="0,-23" SelectedDateChanged="dtpNC_SelectedDateChanged"/>
             <DataGrid x:Name="dtgDTPhim" Margin="0,119,0,93" SelectionChanged="dtgDTPhim_SelectionChanged"/>
-            <Button x:Name="btnIn" Content="In" HorizontalAlignment="Left" Margin="631,53,0,0" VerticalAlignment="Top" Click="btnIn_Click"/>
+            <Button x:Name="btnIn" Content="In Doanh Thu" HorizontalAlignment="Left" Margin="628,43,0,0" VerticalAlignment="Top" Click="btnIn_Click" Height="54" Width="120"/>
             <Label Content="Tổng Doanh Thu:" HorizontalAlignment="Left" Margin="451,424,0,0" VerticalAlignment="Top"/>
             <TextBox x:Name="txtTongThu" HorizontalAlignment="Left" Margin="568,424,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
 
