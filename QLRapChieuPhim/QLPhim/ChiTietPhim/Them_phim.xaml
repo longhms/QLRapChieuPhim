@@ -39,7 +39,14 @@
             <TextBox x:Name="txtNamDVC" materialDesign:HintAssist.Hint="Nhập tên nam diễn viên" HorizontalAlignment="Left" Margin="450,186,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="132"/>
             <TextBox x:Name="txtChiPhi" materialDesign:HintAssist.Hint="Nhập tổng chi phí" HorizontalAlignment="Left" Margin="450,233,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="132" RenderTransformOrigin="0.308,0.322"/>
             <TextBox x:Name="txtThu" materialDesign:HintAssist.Hint="Nhập tổng thu" HorizontalAlignment="Left" Margin="450,284,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="132"/>
-            <TextBox x:Name="txtNoidung" materialDesign:HintAssist.Hint="Nhập nội dung chính" HorizontalAlignment="Left" Margin="630,71,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="80"/>
+            <TextBox x:Name="txtNoidung" materialDesign:HintAssist.Hint="Nhập nội dung chính" HorizontalAlignment="Left" Margin="630,71,0,0" VerticalAlignment="Top" Width="120" Height="80">
+                <TextBox.TextWrapping>
+                    <TextWrapping>Wrap</TextWrapping>
+                </TextBox.TextWrapping>
+                <TextBox.VerticalScrollBarVisibility>
+                    <ScrollBarVisibility>Auto</ScrollBarVisibility>
+                </TextBox.VerticalScrollBarVisibility>
+            </TextBox>
 
         </Grid>
     </Grid>

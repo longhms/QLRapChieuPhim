@@ -16,7 +16,7 @@
                 <materialDesign:PackIcon Kind="ExitToApp"  HorizontalAlignment="Center" Height="40" Width="40"/>
             </Button>
             <Grid x:Name="GrdMain" Margin="10,81,10,10" Background="White">
-                <TextBox x:Name="txtFind" HorizontalAlignment="Left" Margin="61,14,0,0" TextWrapping="Wrap" Text="Tìm kiếm" VerticalAlignment="Top" Width="260" Height="52" FontSize="20" FontWeight="Bold"/>
+                <TextBox x:Name="txtFind"  materialDesign:HintAssist.Hint="Tìm kiếm" HorizontalAlignment="Left" Margin="61,14,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260" Height="52" FontSize="20" FontWeight="Bold" TextChanged="txtFind_TextChanged"/>
                 <Button x:Name="btnThem"  HorizontalAlignment="Left" Margin="361,14,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.013,0.001" Click="btnThem_Click" Height="52" Width="100" FontSize="20" FontWeight="Bold">
                     <StackPanel Orientation="Horizontal">
                         <TextBlock FontSize="20" FontWeight="Normal">Thêm</TextBlock>
@@ -26,14 +26,14 @@
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Mã phim" Binding="{Binding maPhim}" />
                         <DataGridTextColumn Header="Tên phim" Binding="{Binding tenPhim}" />
-                        <DataGridTextColumn Header="Mã quốc gia sản xuất" Binding="{Binding maQGSanXuat}" />
-                        <DataGridTextColumn Header="Mã hãng sản xuất" Binding="{Binding maHangSX}" />
+                        <DataGridTextColumn Header="Quốc gia sản xuất" Binding="{Binding maQGSanXuat}" />
+                        <DataGridTextColumn Header="Hãng sản xuất" Binding="{Binding maHangSX}" />
                         <DataGridTextColumn Header="Đạo diễn" Binding="{Binding daoDien}" />
-                        <DataGridTextColumn Header="Mã thể loại" Binding="{Binding maTheloai}" />
+                        <DataGridTextColumn Header="Thể loại" Binding="{Binding maTheloai}" />
                         <DataGridTextColumn Header="Ngày khởi chiếu" Binding="{Binding ngayKhoiChieu}" />
                         <DataGridTextColumn Header="Ngày kết thúc" Binding="{Binding ngayKetThuc}" />
-                        <DataGridTextColumn Header="Nữ DVC" Binding="{Binding nuDVC}" />
-                        <DataGridTextColumn Header="Năm DVC" Binding="{Binding namDVC}" />
+                        <DataGridTextColumn Header="Nữ diễn viên chính" Binding="{Binding nuDVC}" />
+                        <DataGridTextColumn Header="Nam diễn viễn chính" Binding="{Binding namDVC}" />
                         <DataGridTextColumn Header="Nội dung chính" Binding="{Binding noiDungC}" />
                         <DataGridTextColumn Header="Tổng chi phí" Binding="{Binding tongChiPhi}" />
                         <DataGridTextColumn Header="Tổng thu" Binding="{Binding tongThu}" />

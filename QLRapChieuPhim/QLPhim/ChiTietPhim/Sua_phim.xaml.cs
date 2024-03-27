@@ -32,21 +32,43 @@ namespace QLRapChieuPhim.QLPhim.ChiTietPhim
         public Sua_phim(DataRowView selectedRow)
         {
             InitializeComponent();
-            txtID.Text = selectedRow["maPhim"].ToString();
-            txtTenphim.Text = selectedRow["tenPhim"].ToString();
-            cboQuocgia.SelectedItem = selectedRow["maQGSanXuat"].ToString();
-            cboHangSX.SelectedItem = selectedRow["maHangSX"].ToString();
-            txtDaodien.Text = selectedRow["daoDien"].ToString();
-            cboTheLoai.SelectedItem = selectedRow["maTheloai"].ToString();
-            txtNgayKC.Text = selectedRow["ngayKhoiChieu"].ToString();
-            txtNgayKT.Text = selectedRow["ngayKetThuc"].ToString();
-            txtNuDVC.Text = selectedRow["nuDVC"].ToString();
-            txtNamDVC.Text = selectedRow["namDVC"].ToString();
-            txtNoidung.Text = selectedRow["noiDungC"].ToString();
-            txtChiPhi.Text = selectedRow["tongChiPhi"].ToString();
-            txtThu.Text = selectedRow["tongThu"].ToString();
-            txtThu.IsReadOnly = true;
-
+            if (selectedRow != null)
+            {
+                txtID.Text = selectedRow["maPhim"].ToString();
+                txtTenphim.Text = selectedRow["tenPhim"].ToString();
+                cboQuocgia.SelectedItem = selectedRow["maQGSanXuat"].ToString();
+                cboHangSX.SelectedItem = selectedRow["maHangSX"].ToString();
+                txtDaodien.Text = selectedRow["daoDien"].ToString();
+                cboTheLoai.SelectedItem = selectedRow["maTheLoai"].ToString();
+                txtNgayKC.Text = selectedRow["ngayKhoiChieu"].ToString();
+                txtNgayKT.Text = selectedRow["ngayKetThuc"].ToString();
+                txtNuDVC.Text = selectedRow["nuDVC"].ToString();
+                txtNamDVC.Text = selectedRow["namDVC"].ToString();
+                txtNoidung.Text = selectedRow["noiDungC"].ToString();
+                txtChiPhi.Text = selectedRow["tongChiPhi"].ToString();
+                txtThu.Text = selectedRow["tongThu"].ToString();
+            }
+            else
+            {
+                ClearFields();
+                txtID.IsEnabled = true;
+            }
+            void ClearFields()
+            {
+                txtID.Text = "";
+                txtTenphim.Text = "";
+                cboQuocgia.SelectedItem = null;
+                cboHangSX.SelectedItem = null;
+                txtDaodien.Text = "";
+                cboTheLoai.SelectedItem = null;
+                txtNgayKC.Text = "";
+                txtNgayKT.Text = "";
+                txtNuDVC.Text = "";
+                txtNamDVC.Text = "";
+                txtNoidung.Text = "";
+                txtChiPhi.Text = "";
+                txtThu.Text = "";
+            }
         }
 
         private void btnExit_Click(object sender, RoutedEventArgs e)
