@@ -24,10 +24,13 @@ namespace QLRapChieuPhim.QLPhim.ChiTietPhim
     public partial class Them_phim : Window
     {
         Classes.DataProcessor dataProcessor = new DataProcessor(Login.cinemaID);
+        private int tongThu;
 
         public Them_phim()
         {
             InitializeComponent();
+            txtThu.Text = tongThu.ToString();
+            txtThu.IsReadOnly = true;
         }
 
 
@@ -69,7 +72,7 @@ namespace QLRapChieuPhim.QLPhim.ChiTietPhim
                 txtID.Focus();
                 return;
             }
-            dataProcessor.ChangeData("insert into tblPhim values('" + txtID.Text + "','" + txtTenphim.Text + "','" + cboQuocgia.SelectedItem.ToString() + "','" + cboHangSX.SelectedItem.ToString() + "','" + txtDaodien.Text + "','" + cboTheLoai.SelectedItem.ToString() + "','" + txtNgayKC.Text + "','" + txtNgayKT.Text + "','" + txtNuDVC.Text + "','" + txtNamDVC.Text + "','" + txtNoidung.Text + "','" + txtChiPhi + "','" + txtThu.Text + "') ");
+            dataProcessor.ChangeData("insert into tblPhim values('" + txtID.Text + "','" + txtTenphim.Text + "','" + cboQuocgia.SelectedItem.ToString() + "','" + cboHangSX.SelectedItem.ToString() + "','" + txtDaodien.Text + "','" + cboTheLoai.SelectedItem.ToString() + "','" + txtNgayKC.Text + "','" + txtNgayKT.Text + "','" + txtNuDVC.Text + "','" + txtNamDVC.Text + "','" + txtNoidung.Text + "','" + txtChiPhi.Text + "','" + txtThu.Text + "') ");
             MessageBox.Show("Thêm thành công");
 
             try
@@ -98,11 +101,6 @@ namespace QLRapChieuPhim.QLPhim.ChiTietPhim
             {
                 this.Close();
             }
-        }
-
-        private void btnEdit_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

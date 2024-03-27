@@ -45,6 +45,7 @@ namespace QLRapChieuPhim.QLPhim.ChiTietPhim
             txtNoidung.Text = selectedRow["noiDungC"].ToString();
             txtChiPhi.Text = selectedRow["tongChiPhi"].ToString();
             txtThu.Text = selectedRow["tongThu"].ToString();
+            txtThu.IsReadOnly = true;
 
         }
 
