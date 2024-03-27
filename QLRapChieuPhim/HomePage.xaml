@@ -32,7 +32,7 @@
                 <MenuItem  Header="Lịch chiếu"/>
             </MenuItem>
             <MenuItem x:Name="mnuBaoCao" FontSize="14" Header="Báo cáo" Height="30">
-                <MenuItem Header="Doanh thu">
+                <MenuItem x:Name="mnuDTPhim" Header="Doanh thu" Click="mnuDTPhim_Click">
                     <MenuItem Header="Phim"/>
                     <MenuItem Header="Rạp"/>
                 </MenuItem>

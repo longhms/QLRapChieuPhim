@@ -1,4 +1,5 @@
-﻿using QLRapChieuPhim.QLPhim;
+﻿using QLRapChieuPhim.Doanhthu;
+using QLRapChieuPhim.QLPhim;
 using QLRapChieuPhim.QLPhim.ChiTietPhim;
 using QLRapChieuPhim.QLPhim.Hang_SX;
 using QLRapChieuPhim.QLPhim.QuocGia_Sx;
@@ -105,6 +106,12 @@ namespace QLRapChieuPhim
         {
             Ban_ve ban_Ve = new Ban_ve();
             ban_Ve.ShowDialog();
+        }
+
+        private void mnuDTPhim_Click(object sender, RoutedEventArgs e)
+        {
+            DThuPhim dtphim = new DThuPhim();
+            dtphim.ShowDialog();
         }
     }
 }
