@@ -113,5 +113,13 @@ namespace QLRapChieuPhim
             DThuPhim dtphim = new DThuPhim();
             dtphim.ShowDialog();
         }
+
+        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+            {
+                this.DragMove();
+            }
+        }
     }
 }

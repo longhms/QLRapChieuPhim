@@ -87,5 +87,13 @@ namespace QLRapChieuPhim.QLRap
             btnSDT.Content = sdt;
             txtDiaChi.Text = dchi;
         }
+
+        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+            {
+                this.DragMove();
+            }
+        }
     }
 }

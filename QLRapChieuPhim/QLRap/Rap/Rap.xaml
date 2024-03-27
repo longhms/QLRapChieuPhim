@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:QLRapChieuPhim.QLRap.Rap"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="Rap" Height="350" Width="500" WindowStyle="None">
+        Title="Rap" Height="350" Width="500" WindowStyle="None" MouseLeftButtonDown="Window_MouseLeftButtonDown">
     <Window.Background>
         <ImageBrush ImageSource="/Img/Premium Photo _ Flat lay composition of cinema objects.jpg"/>
     </Window.Background>

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QLRapChieuPhim.QLRap.Lich_Chieu"
         mc:Ignorable="d"
-        Title="TTBuoiChieu" Height="450" Width="800" WindowStyle="None">
+        Title="TTBuoiChieu" Height="450" Width="800" WindowStyle="None" MouseLeftButtonDown="Window_MouseLeftButtonDown">
 
     <Border Background="#FFF0F3F7"
             CornerRadius="20"

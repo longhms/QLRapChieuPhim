@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:QLRapChieuPhim.QLPhim.ChiTietPhim"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="Them_phim" Height="450" Width="800" Loaded="Window_Loaded">
+        Title="Them_phim" Height="450" Width="800" Loaded="Window_Loaded" WindowStyle="None" MouseLeftButtonDown="Window_MouseLeftButtonDown">
 
     <Grid x:Name="GrdBoder" Background="#FF030B2B" >
         <TextBlock Text="Thêm Phim" Foreground="White" FontSize="24" HorizontalAlignment="Center" Margin="0,10,0,337" FontWeight="Bold" />

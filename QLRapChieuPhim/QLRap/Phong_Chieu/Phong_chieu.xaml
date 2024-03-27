@@ -6,7 +6,7 @@
 		xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:QLRapChieuPhim.QLRap"
         mc:Ignorable="d"
-        Title="Phong_chieu" Height="500" Width="800" Loaded="Window_Loaded" WindowStyle="None">
+        Title="Phong_chieu" Height="500" Width="800" Loaded="Window_Loaded" WindowStyle="None" MouseLeftButtonDown="Window_MouseLeftButtonDown">
     <Grid>
         <Grid x:Name="mainGrid" Margin="20,60,0,0" Height="400" Width="600" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <ComboBox x:Name="cboPhongchieu"

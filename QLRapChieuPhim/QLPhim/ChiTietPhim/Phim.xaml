@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QLRapChieuPhim.QLPhim.ChiTietPhim" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="Phim" Height="600" Width="1000" Loaded="Window_Loaded">
+        Title="Phim" Height="600" Width="1000" Loaded="Window_Loaded" WindowStyle="None" MouseLeftButtonDown="Window_MouseLeftButtonDown">
     <Grid>
         <Grid x:Name="GrdBoder" Background="#FF030B2B" >
             <TextBlock Text="Danh Sách Phim" Foreground="White" FontSize="32" HorizontalAlignment="Center" Margin="0,10,0,337" />

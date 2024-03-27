@@ -176,5 +176,13 @@ namespace QLRapChieuPhim.QLRap.Lich_Chieu
             MessageBox.Show("Bạn không thể xóa lịch chiếu đã thêm!","Thông báo",MessageBoxButton.OK,MessageBoxImage.Error);
             return;
         }
+
+        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+            {
+                this.DragMove();
+            }
+        }
     }
 }

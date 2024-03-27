@@ -2,7 +2,9 @@
 using QLRapChieuPhim.Classes;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +16,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using static MaterialDesignThemes.Wpf.Theme;
 
 namespace QLRapChieuPhim.QLRap.Lich_Chieu
 {
@@ -25,9 +28,12 @@ namespace QLRapChieuPhim.QLRap.Lich_Chieu
         Classes.DataProcessor dataProcessor = new DataProcessor(Login.cinemaID);
         string sql = $"SELECT maShow,tP.tenPhim,maPhong,ngayChieu,maGioChieu FROM tblBuoiChieu tB INNER JOIN tblPhim tP ON tP.maPhim = tB.maPhim";
         string testMS;
+
+        private ICollectionView dataView;
         public Lich_chieu()
         {
             InitializeComponent();
+            dataView = CollectionViewSource.GetDefaultView(dgBuoiChieu.ItemsSource);
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -36,7 +42,7 @@ namespace QLRapChieuPhim.QLRap.Lich_Chieu
             cboPhong.ItemsSource = data.AsDataView();
             cboPhong.DisplayMemberPath = "tenPhong";
             cboPhong.SelectedValuePath = "maPhong";
-            LoadData();
+            LoadData(sql);
 
         }
 
@@ -55,19 +61,27 @@ namespace QLRapChieuPhim.QLRap.Lich_Chieu
 
         private void dtpNgayChieu_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
-            
+            string phongChieu = cboPhong.SelectedValue?.ToString();
+
             DateTime ngayChieu = dtpNgayChieu.SelectedDate ?? DateTime.MinValue;
 
             string ngayChieuStr = ngayChieu.ToString("yyyy/MM/dd");
 
             string sqlNC = sql + " AND ngayChieu LIKE '%" + ngayChieuStr + "%'";
 
-            DataTable dataTable = dataProcessor.ReadData(sqlNC);
+            if(phongChieu != null)
+            {
+                sqlNC = sqlNC + " AND maPhong LIKE '%" + phongChieu + "%'";
+            }
+
+            /*DataTable dataTable = dataProcessor.ReadData(sqlNC);
             dgBuoiChieu.ItemsSource = dataTable.AsDataView();
 
             cboPhong.SelectedItem = null;
 
-            dataTable = dataProcessor.ReadData(sql);
+            dataTable = dataProcessor.ReadData(sql);*/
+
+            LoadData(sqlNC);
         }
 
         private void btnExit_Click(object sender, RoutedEventArgs e)
@@ -79,14 +93,26 @@ namespace QLRapChieuPhim.QLRap.Lich_Chieu
         {
             
             string phongChieu = cboPhong.SelectedValue?.ToString();
+            DateTime ngayChieu = dtpNgayChieu.SelectedDate ?? DateTime.MinValue;
+
+            string ngayChieuStr = ngayChieu.ToString("yyyy/MM/dd");
+
             string sqlP = sql + " AND maPhong LIKE '%" + phongChieu + "%'";
 
-            DataTable dataTable = dataProcessor.ReadData(sqlP);
+            if(ngayChieu != DateTime.MinValue)
+            {
+                sqlP = sqlP + " AND ngayChieu LIKE '%" + ngayChieuStr + "%'";
+            }
+
+            
+            /*DataTable dataTable = dataProcessor.ReadData(sqlP);
             dgBuoiChieu.ItemsSource = dataTable.AsDataView();
 
             dtpNgayChieu.SelectedDate = null;
 
-            dataTable = dataProcessor.ReadData(sql);
+            dataTable = dataProcessor.ReadData(sql);*/
+
+            LoadData(sqlP);
         }
 
         private void btnThem_Click(object sender, RoutedEventArgs e)
@@ -115,12 +141,51 @@ namespace QLRapChieuPhim.QLRap.Lich_Chieu
             LoadData();
         }
 
+        void LoadData(string sql )
+        {
+            DataTable dataTable = dataProcessor.ReadData(sql);
+            dgBuoiChieu.ItemsSource = dataTable.AsDataView();
+            
+        }
+
         void LoadData()
         {
             DataTable dataTable = dataProcessor.ReadData(sql);
             dgBuoiChieu.ItemsSource = dataTable.AsDataView();
-            dtpNgayChieu.SelectedDate= null;
+            dtpNgayChieu.SelectedDate = null;
             cboPhong.SelectedItem = null;
+            txtFind.Text = null;
+        }
+
+        private void btnFind_Click(object sender, RoutedEventArgs e)
+        {
+            string sql1 = $"SELECT maShow,tP.tenPhim,maPhong,ngayChieu,maGioChieu FROM tblBuoiChieu tB INNER JOIN tblPhim tP ON tP.maPhim = tB.maPhim";
+
+            if (!string.IsNullOrEmpty(txtFind.Text.Trim()))
+            {
+                sql1 += " AND (tB.maShow LIKE '%" + txtFind.Text + "%' OR ";
+                sql1 += "tP.tenPhim LIKE '%" + txtFind.Text + "%' OR ";
+                sql1 += "tB.maPhong LIKE '%" + txtFind.Text + "%' OR ";
+                sql1 += "tB.ngayChieu LIKE '%" + txtFind.Text + "%' OR ";
+                sql1 += "tB.maGioChieu LIKE '%" + txtFind.Text + "%') ";
+                
+            }
+
+            LoadData(sql1);
+        }
+
+        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+            {
+                this.DragMove();
+            }
+        }
+
+        private void Window_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            string test = dtpNgayChieu.SelectedDate?.ToString();
+
         }
     }
 }

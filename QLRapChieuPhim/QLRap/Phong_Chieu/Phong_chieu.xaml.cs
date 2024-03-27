@@ -26,29 +26,29 @@ namespace QLRapChieuPhim.QLRap
         Classes.DataProcessor dataProcessor = new DataProcessor(Login.cinemaID);
         
         
-        int numRows;
+        int numRows = 5;
         int numSeatsPerRow = 6;
         string cS = "";
         public Phong_chieu()
         {
             InitializeComponent();
+            DrawSeats();
         }
 
         private void DrawSeats()
         {
             DataTable dt = dataProcessor.ReadData("SELECT * FROM tblChair");
-            int recordCount = dataProcessor.CountRecords("tblChair");
-            numRows = recordCount / 6;
+
             int x = 65;
             char y = (char)x;
 
             if (dt.Rows.Count != numRows * numSeatsPerRow)
             {
-                MessageBox.Show("Data from database doesn't match the expected number of seats.");
+                MessageBox.Show("Dữ liệu từ cơ sở dữ liệu không khớp với số lượng ghế dự kiến.");
                 return;
             }
 
-            // Create a Grid to hold the seats
+ 
             Grid grid = new Grid();
             for (int i = 0; i < numRows; i++)
             {
@@ -68,7 +68,7 @@ namespace QLRapChieuPhim.QLRap
                 {
                     
                     DataRow row = dt.Rows[i * numSeatsPerRow + j];
-                    string chairStatus = row[cS].ToString();
+
                     string chairID = row["ID"].ToString();
 
                     StackPanel stackPanel = new StackPanel();
@@ -82,13 +82,9 @@ namespace QLRapChieuPhim.QLRap
                     seatIcon.Height = 50;
                     seatIcon.Margin = new Thickness(5);
                     /*seatIcon.Content = chairID;*/
-                    seatIcon.Tag = chairID; // Set Tag to chair ID for later reference
+                    seatIcon.Tag = chairID; 
 
-                    // Set color based on chairStatus
-                    if (chairStatus == "empty")
-                        seatIcon.Background = Brushes.LawnGreen;
-                    else if (chairStatus == "booked")
-                        seatIcon.Background = Brushes.OrangeRed;
+                    seatIcon.Background = Brushes.OrangeRed;
 
                     TextBlock textBlock = new TextBlock();
                     textBlock.Text = chairID;
@@ -119,8 +115,8 @@ namespace QLRapChieuPhim.QLRap
 
         private void cboPhongchieu_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            btnRefreshRoom.IsEnabled = true;
-            btnDeleteRoom.IsEnabled = true;
+            /*btnRefreshRoom.IsEnabled = true;*/
+            /*btnDeleteRoom.IsEnabled = true;*/
             cS = cboPhongchieu.SelectedValue.ToString() + "chairStatus";
             DrawSeats();
         }
@@ -173,24 +169,17 @@ namespace QLRapChieuPhim.QLRap
 
         private void btnRf_Click(object sender, RoutedEventArgs e)
         {
-            Phong_chieu phong_Chieu = new Phong_chieu();
-            this.Close();
-            phong_Chieu.ShowDialog();
+            DrawSeats();
         }
 
         private void btnRefreshRoom_Click(object sender, RoutedEventArgs e)
         {
-            if(MessageBox.Show("Bạn có muốn làm mới phòng?","Thông báo",MessageBoxButton.YesNo,MessageBoxImage.Question) == MessageBoxResult.Yes)
-            {
-                string statusColumn = $"UPDATE tblChair SET [{cS}] = 'empty'";
-                dataProcessor.ChangeData(statusColumn);
-                DrawSeats();
-            }
+            
         }
 
         private void btnDeleteRoom_Click(object sender, RoutedEventArgs e)
         {
-            if(MessageBox.Show("Bạn có chắc chắn xóa "+cboPhongchieu.ToString()+" hay không? ", "Thông báo", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            /*if(MessageBox.Show("Bạn có chắc chắn xóa "+cboPhongchieu.ToString()+" hay không? ", "Thông báo", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
                 
                 dataProcessor.ChangeData("Delete from tblPhongChieu WHERE maPhong = ('" + cboPhongchieu.SelectedValue + "')");
@@ -198,16 +187,21 @@ namespace QLRapChieuPhim.QLRap
                 dataProcessor.ChangeData($"UPDATE tblRap SET soPhong = soPhong - {1}");
                 dataProcessor.ChangeData($"UPDATE tblRap SET tongSoGhe = tongSoGhe - {30}");
 
-                this.Close();
-                Phong_chieu phong_Chieu = new Phong_chieu();
-                phong_Chieu.ShowDialog();
 
-            }
+            }*/
         }
 
         private void btnExit_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+            {
+                this.DragMove();
+            }
         }
     }
 }

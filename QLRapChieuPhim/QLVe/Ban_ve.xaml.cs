@@ -87,7 +87,7 @@ namespace QLRapChieuPhim.QLVe
 
             string[] test = null;
 
-            MessageBox.Show(data.Rows.Count.ToString());
+            
 
             if (maShow != "" && data.Rows.Count > 0)
             {
@@ -343,6 +343,14 @@ namespace QLRapChieuPhim.QLVe
         private void btnRf_Click(object sender, RoutedEventArgs e)
         {
             Refresh();
+        }
+
+        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+            {
+                this.DragMove();
+            }
         }
     }
 }

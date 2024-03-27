@@ -6,7 +6,7 @@
 		xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:QLRapChieuPhim.QLRap"
         mc:Ignorable="d"
-        Title="ThongTinRap" Height="500" Width="800" WindowStyle="None">
+        Title="ThongTinRap" Height="500" Width="800" WindowStyle="None" MouseLeftButtonDown="Window_MouseLeftButtonDown">
     <Window.Background>
         <ImageBrush ImageSource="/QLRap/Premium Photo _ Flat lay composition of cinema objects.jpg"/>
     </Window.Background>

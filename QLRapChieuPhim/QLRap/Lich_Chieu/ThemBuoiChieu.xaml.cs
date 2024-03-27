@@ -31,7 +31,16 @@ namespace QLRapChieuPhim.QLRap.Lich_Chieu
 
         private void btnThemBC_Click(object sender, RoutedEventArgs e)
         {
-            
+
+            DataTable dataTable = dataProcessor.ReadData("SELECT maShow FROM tblBuoiChieu");
+            for(int i = 0;i < dataTable.Rows.Count; i++)
+            {
+                if(txtMaBuoiChieu.Text == dataTable.Rows[i]["maShow"].ToString())
+                {
+                    MessageBox.Show("Mã buổi chiếu đã tồn tại","Thông báo", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+            }
 
             DateTime ngayChieu = dtpNgayCh.SelectedDate ?? DateTime.MinValue;
 
@@ -137,6 +146,14 @@ namespace QLRapChieuPhim.QLRap.Lich_Chieu
                     txtGiaVe.Text = dt.Rows[i]["donGia"].ToString();
                     return;
                 }
+            }
+        }
+
+        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+            {
+                this.DragMove();
             }
         }
     }

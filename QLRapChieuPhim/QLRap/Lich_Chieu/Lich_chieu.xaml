@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:QLRapChieuPhim.QLRap.Lich_Chieu"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="Lich_chieu" Height="600" Width="1000" Loaded="Window_Loaded" WindowStyle="None">
+        Title="Lich_chieu" Height="600" Width="1000" Loaded="Window_Loaded" WindowStyle="None" MouseLeftButtonDown="Window_MouseLeftButtonDown" DataContextChanged="Window_DataContextChanged"
+        >
     <Grid Background="#FF030B2B">
         <TextBlock Text="Lịch Chiếu" Foreground="White" FontSize="25" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0" />
         
@@ -18,8 +19,9 @@
         </Button>
         
         <Grid x:Name="GrdMain" Margin="10,60,10,10" Background="White">
-            <TextBox x:Name="txtFind" HorizontalAlignment="Left" Margin="10,15,0,0" TextWrapping="Wrap" Text="Tìm kiếm" VerticalAlignment="Top" Width="214"/>
-            <Button x:Name="btnFind" HorizontalAlignment="Left" Margin="240,15,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.013,0.001">
+            <TextBox x:Name="txtFind" HorizontalAlignment="Left" Margin="10,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="214"
+                     materialDesign:HintAssist.Hint="Tìm kiếm"/>
+            <Button x:Name="btnFind" HorizontalAlignment="Left" Margin="240,15,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.013,0.001" Click="btnFind_Click">
                 <StackPanel Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="Magnify"/>
                 </StackPanel>
@@ -48,7 +50,8 @@
                         materialDesign:DatePickerAssist.OutlinedBorderInactiveThickness="3"
                         materialDesign:HintAssist.FloatingOffset="0,-23" SelectedDateChanged="dtpNgayChieu_SelectedDateChanged"/>
             
-            <DataGrid x:Name="dgBuoiChieu" AutoGenerateColumns="False" Margin="140,80,10,10" CanUserAddRows="False">
+            <DataGrid x:Name="dgBuoiChieu" AutoGenerateColumns="False" Margin="140,80,10,10" CanUserAddRows="False"
+                      IsReadOnly="True">
                   
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Mã Buổi chiếu" Binding="{Binding maShow}" />

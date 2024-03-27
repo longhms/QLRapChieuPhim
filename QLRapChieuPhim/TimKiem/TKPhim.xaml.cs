@@ -214,5 +214,18 @@ namespace QLRapChieuPhim.TimKiem
             cboHangSX.DisplayMemberPath = "tenHangSX";
             cboHangSX.ItemsSource = dtHangSX.DefaultView;
         }
+
+        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+            {
+                this.DragMove();
+            }
+        }
+
+        private void btnExit_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }
