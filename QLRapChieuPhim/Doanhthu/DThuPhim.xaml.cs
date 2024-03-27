@@ -38,18 +38,17 @@ namespace QLRapChieuPhim.Doanhthu
 
         private void ExportToExcel(DataGrid dataGrid, string filePath)
         {
-            ExcelPackage.LicenseContext = LicenseContext.NonCommercial; // Thiết lập loại giấy phép EPPlus
+            ExcelPackage.LicenseContext = LicenseContext.NonCommercial; 
             ExcelPackage excelPackage = new ExcelPackage();
-
             ExcelWorksheet worksheet = excelPackage.Workbook.Worksheets.Add("Sheet1");
 
-            // Copy header
+           
             for (int i = 1; i <= dataGrid.Columns.Count; i++)
             {
                 worksheet.Cells[1, i].Value = dataGrid.Columns[i - 1].Header;
             }
 
-            // Copy data
+            
             for (int row = 0; row < dataGrid.Items.Count; row++)
             {
                 if (dataGrid.Items[row] is DataRowView dataRowView)
@@ -62,12 +61,10 @@ namespace QLRapChieuPhim.Doanhthu
                 }
             }
 
-            // Save to file
+            
             FileInfo excelFile = new FileInfo(filePath);
             excelPackage.SaveAs(excelFile);
         }
-
-
 
         private void btnIn_Click(object sender, RoutedEventArgs e)
         {
@@ -82,10 +79,11 @@ namespace QLRapChieuPhim.Doanhthu
                     COMExcel.Workbook exBook;
                     COMExcel.Worksheet exSheet;
                     COMExcel.Range exRange;
+
                     exBook = exApp.Workbooks.Add(COMExcel.XlWBATemplate.xlWBATWorksheet);
                     exSheet = exBook.Worksheets[1];
 
-                    // Định dạng chung 
+                    
                     exRange = exSheet.Cells[1, 1];
                     exRange.Font.Size = 10;
                     exRange.Font.Name = "Times New Roman";
@@ -110,10 +108,10 @@ namespace QLRapChieuPhim.Doanhthu
                     exRange.HorizontalAlignment = COMExcel.XlHAlign.xlHAlignCenter;
                     exRange.Value = "BÁO CÁO DOANH THU PHIM";
 
-                    // Gọi phương thức ExportToExcel để ghi dữ liệu từ DataGrid vào workbook
+                    
                     ExportToExcel(dtgDTPhim, exSheet);
                     ExportToExcel(dtgDTPhim, exSheet);
-                    // Lưu workbook và đóng ứng dụng Excel
+                    
                     exBook.SaveAs(saveFileDialog.FileName);
                     exApp.Quit();
                 }
@@ -121,17 +119,16 @@ namespace QLRapChieuPhim.Doanhthu
         }
         private void ExportToExcel(DataGrid dg, COMExcel.Worksheet exSheet)
         {
-            // Lấy số dòng và số cột trong DataGrid
+            
             int rowCount = dg.Items.Count;
             int columnCount = dg.Columns.Count;
 
-            // Ghi tiêu đề cột vào Excel
             for (int j = 0; j < columnCount; j++)
             {
                 exSheet.Cells[4, j + 1] = dg.Columns[j].Header;
             }
 
-            // Ghi dữ liệu từ DataGrid vào Excel
+            
             for (int i = 0; i < rowCount; i++)
             {
                 for (int j = 0; j < columnCount; j++)
@@ -140,14 +137,13 @@ namespace QLRapChieuPhim.Doanhthu
                     exSheet.Cells[i + 5, j + 1] = cellValue;
                 }
             }
-            // Lấy giá trị tổng doanh thu từ ô text
+            
             int totalRevenue = 0;
             if (!string.IsNullOrEmpty(txtTongThu.Text))
             {
                 totalRevenue = int.Parse(txtTongThu.Text);
             }
-
-            // Ghi giá trị tổng doanh thu vào ô text trong tập tin Excel
+            
             exSheet.Cells[rowCount + 7, columnCount - 1] = "Tổng doanh thu:";
             exSheet.Cells[rowCount + 7, columnCount] = totalRevenue;
         }
@@ -175,10 +171,10 @@ namespace QLRapChieuPhim.Doanhthu
             BC.ngayChieu AS NgayKhoiChieu, -- Sử dụng ngày chiếu từ bảng BuoiChieu thay cho ngày khởi chiếu từ bảng Phim
             P.tongChiPhi,
             P.tongThu 
-        FROM tblPhim AS P
-        LEFT JOIN tblTheLoai AS T ON P.maTheLoai = T.maTheLoai
-        LEFT JOIN tblHangSX AS H ON P.maHangSX = H.maHangSX
-        LEFT JOIN tblBuoiChieu AS BC ON P.maPhim = BC.maPhim";
+            FROM tblPhim AS P
+            LEFT JOIN tblTheLoai AS T ON P.maTheLoai = T.maTheLoai
+            LEFT JOIN tblHangSX AS H ON P.maHangSX = H.maHangSX
+            LEFT JOIN tblBuoiChieu AS BC ON P.maPhim = BC.maPhim";
 
 
             DataTable dtPhim = dtBase.ReadData(sql);
@@ -239,25 +235,25 @@ namespace QLRapChieuPhim.Doanhthu
         }
         private void SearchByDateRange(DateTime fromDate, DateTime toDate)
         {
-            // Format ngày bắt đầu và ngày kết thúc thành chuỗi theo định dạng yyyy/MM/dd
+            
             string fromDateStr = fromDate.ToString("yyyy/MM/dd");
             string toDateStr = toDate.ToString("yyyy/MM/dd");
 
-            // Tạo câu truy vấn SQL để lấy dữ liệu từ khoảng thời gian đã chọn
+            
             string sql = @"
-        SELECT 
+            SELECT 
             P.maPhim, 
             P.tenPhim,  
             T.tenTheLoai AS TenTheLoai, 
             BC.ngayChieu AS NgayChieu,
             P.tongChiPhi,
             P.tongThu 
-        FROM tblPhim AS P
-        LEFT JOIN tblBuoiChieu AS BC ON P.maPhim = BC.maPhim
-        LEFT JOIN tblTheLoai AS T ON P.maTheLoai = T.maTheLoai
-        WHERE BC.ngayChieu BETWEEN '" + fromDateStr + "' AND '" + toDateStr + "'";
+            FROM tblPhim AS P
+            LEFT JOIN tblBuoiChieu AS BC ON P.maPhim = BC.maPhim
+            LEFT JOIN tblTheLoai AS T ON P.maTheLoai = T.maTheLoai
+            WHERE BC.ngayChieu BETWEEN '" + fromDateStr + "' AND '" + toDateStr + "'";
 
-            // Đọc dữ liệu từ cơ sở dữ liệu và gán vào DataGrid
+            
             DataTable dataTable = dtBase.ReadData(sql);
             dtgDTPhim.ItemsSource = dataTable.AsDataView();
             CalculateTotalRevenueWithinDateRange(dataTable);

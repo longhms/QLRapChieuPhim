@@ -57,10 +57,10 @@ namespace QLRapChieuPhim.TimKiem
                     P.nuDVC, 
                     P.namDVC, 
                     P.noiDungC 
-                FROM tblPhim AS P
-                LEFT JOIN tblTheLoai AS T ON P.maTheLoai = T.maTheLoai
-                LEFT JOIN tblQGsanXuat AS Q ON P.maQGSanXuat = Q.maQGSanXuat
-                LEFT JOIN tblHangSX AS H ON P.maHangSX = H.maHangSX";
+                    FROM tblPhim AS P
+                    LEFT JOIN tblTheLoai AS T ON P.maTheLoai = T.maTheLoai
+                    LEFT JOIN tblQGsanXuat AS Q ON P.maQGSanXuat = Q.maQGSanXuat
+                    LEFT JOIN tblHangSX AS H ON P.maHangSX = H.maHangSX";
 
             DataTable dtPhim = dtBase.ReadData(sql);
             dtgTKPhim.ItemsSource = dtPhim.AsDataView();
@@ -81,11 +81,11 @@ namespace QLRapChieuPhim.TimKiem
                   P.nuDVC, 
                   P.namDVC, 
                   P.noiDungC 
-               FROM tblPhim AS P
-               LEFT JOIN tblTheLoai AS T ON P.maTheLoai = T.maTheLoai
-               LEFT JOIN tblQGsanXuat AS Q ON P.maQGSanXuat = Q.maQGsanXuat
-               LEFT JOIN tblHangSX AS H ON P.maHangSX = H.maHangSX
-               WHERE 1=1";
+                   FROM tblPhim AS P
+                   LEFT JOIN tblTheLoai AS T ON P.maTheLoai = T.maTheLoai
+                   LEFT JOIN tblQGsanXuat AS Q ON P.maQGSanXuat = Q.maQGsanXuat
+                   LEFT JOIN tblHangSX AS H ON P.maHangSX = H.maHangSX
+                   WHERE 1=1";
 
             if (!string.IsNullOrEmpty(txtFindAll.Text.Trim()))
             {
@@ -139,11 +139,11 @@ namespace QLRapChieuPhim.TimKiem
                   P.nuDVC, 
                   P.namDVC, 
                   P.noiDungC 
-           FROM tblPhim AS P
-           LEFT JOIN tblTheLoai AS T ON P.maTheLoai = T.maTheLoai
-           LEFT JOIN tblQGsanXuat AS Q ON P.maQGSanXuat = Q.maQGsanXuat
-           LEFT JOIN tblHangSX AS H ON P.maHangSX = H.maHangSX
-           WHERE 1=1";
+                   FROM tblPhim AS P
+                   LEFT JOIN tblTheLoai AS T ON P.maTheLoai = T.maTheLoai
+                   LEFT JOIN tblQGsanXuat AS Q ON P.maQGSanXuat = Q.maQGsanXuat
+                   LEFT JOIN tblHangSX AS H ON P.maHangSX = H.maHangSX
+                   WHERE 1=1";
 
             if (!string.IsNullOrEmpty(tenTheLoai))
             {
@@ -193,11 +193,11 @@ namespace QLRapChieuPhim.TimKiem
                   P.nuDVC, 
                   P.namDVC, 
                   P.noiDungC 
-           FROM tblPhim AS P
-           LEFT JOIN tblTheLoai AS T ON P.maTheLoai = T.maTheLoai
-           LEFT JOIN tblQGsanXuat AS Q ON P.maQGSanXuat = Q.maQGsanXuat
-           LEFT JOIN tblHangSX AS H ON P.maHangSX = H.maHangSX
-           WHERE 1=1";
+                   FROM tblPhim AS P
+                   LEFT JOIN tblTheLoai AS T ON P.maTheLoai = T.maTheLoai
+                   LEFT JOIN tblQGsanXuat AS Q ON P.maQGSanXuat = Q.maQGsanXuat
+                   LEFT JOIN tblHangSX AS H ON P.maHangSX = H.maHangSX
+                   WHERE 1=1";
 
             if (!string.IsNullOrEmpty(tenHangSX))
             {
