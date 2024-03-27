@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QLRapChieuPhim.QLVe" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="Ban_ve" Height="700" Width="1200" Loaded="Window_Loaded">
+        Title="Ban_ve" Height="700" Width="1200" Loaded="Window_Loaded" WindowStyle="None">
     <Grid>
         <Grid x:Name="GrdBoder" Background="#FF030B2B" >
             <TextBlock Text="Bán vé" Foreground="White" FontSize="32" HorizontalAlignment="Center" Margin="0,10,0,614" FontWeight="Bold" />
@@ -16,11 +16,46 @@
                 <materialDesign:PackIcon Kind="ExitToApp"  HorizontalAlignment="Center" Height="40" Width="40"/>
             </Button>
             <Grid x:Name="GrdMain" Margin="20,75,20,20" Background="White">
-                <Grid x:Name="GrdTitle" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="60,20,0,0" Width="720" Height="40" Background="#FF2CB8CA">
+
+                <Button x:Name="btnRf"
+                    IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                    Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
+                    ToolTip="MaterialDesignFloatingActionMiniButton"
+                    HorizontalAlignment="Right" Margin="0,40,10,0" VerticalAlignment="Top" Click="btnRf_Click">
+                                <materialDesign:PackIcon Kind="Refresh"/>
+                </Button>
+
+                <Grid x:Name="GrdTitle" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40,20,0,0" Width="540" Height="40" Background="#FF2CB8CA">
                     <Label Content="Màn chiếu" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" FontWeight="Medium" Height="40" ></Label>
                 </Grid>
-               
-                
+
+                <Grid x:Name="mainGrid" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40,85,0,0" Height="270" Width="540">
+                    
+                </Grid>
+
+                <Border BorderThickness="2" BorderBrush="Black"
+                        HorizontalAlignment="Left" VerticalAlignment="Top" Margin="600,20,0,0" Height="340" Width="250">
+                    <Grid>
+                        <Label Content="Chọn Lịch chiếu" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                        <Label Content="Phim:" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top"/>
+                        <Label x:Name="lblPhim"  HorizontalAlignment="Left" Margin="60,50,0,0" VerticalAlignment="Top"/>
+                        <Label Content="Phòng chiếu:" HorizontalAlignment="Left" Margin="10,90,0,0" VerticalAlignment="Top"/>
+                        <Label x:Name="lblPhongChieu"  HorizontalAlignment="Left" Margin="100,90,0,0" VerticalAlignment="Top"/>
+                        <Label Content="Ngày chiếu:" HorizontalAlignment="Left" Margin="10,130,0,0" VerticalAlignment="Top"/>
+                        <Label x:Name="lblNgayChieu"  HorizontalAlignment="Left" Margin="100,130,0,0" VerticalAlignment="Top"/>
+                        <Label Content="Giờ chiếu:" HorizontalAlignment="Left" Margin="10,170,0,0" VerticalAlignment="Top"/>
+                        <Label x:Name="lblGioChieu"  HorizontalAlignment="Left" Margin="100,170,0,0" VerticalAlignment="Top"/>
+
+                        <Label Content="Chọn hàng ghế" HorizontalAlignment="Left" Margin="20,210,0,0" VerticalAlignment="Top"/>
+                        <Label Content="Chọn số ghế" HorizontalAlignment="Left" Margin="140,210,0,0" VerticalAlignment="Top"/>
+
+                        <ComboBox x:Name="cboLichChieu" HorizontalAlignment="Left" Margin="130,10,0,0" VerticalAlignment="Top" Width="80" SelectionChanged="cboLichChieu_SelectionChanged"/>
+                        <ComboBox x:Name="cboHangGhe" HorizontalAlignment="Left" Margin="20,250,0,0" VerticalAlignment="Top" Width="80"/>
+                        <ComboBox x:Name="cboSoGhe" HorizontalAlignment="Left" Margin="140,250,0,0" VerticalAlignment="Top" Width="80"/>
+
+
+                    </Grid>
+                </Border>
                 
                 
                 <Grid x:Name="GrdKhungVe" Width="1100" Height="180" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,20">
@@ -28,9 +63,9 @@
                         <Border BorderBrush="Black" BorderThickness="2" >
                             <Grid x:Name="GrdLoaiVe" Width="360" >
                                 <Label Content="Loại vé: " FontSize="20" FontWeight="Bold" ></Label>
-                                <RadioButton x:Name="rdoNguoiLon" Content="Người lớn" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40,40,0,0" FontSize="18"></RadioButton>
-                                <RadioButton x:Name="rdoSinhVien" Content="Sinh viên" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,40,40,0" FontSize="18"></RadioButton>
-                                <RadioButton x:Name="rdoTreEm" Content="Trẻ em(Dưới 12 tuổi)" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,30,0,0" FontSize="18"></RadioButton>
+                                <RadioButton x:Name="rdoNguoiLon" Content="Người lớn" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40,40,0,0" FontSize="18" Checked="rdo_Checked"></RadioButton>
+                                <RadioButton x:Name="rdoSinhVien" Content="Sinh viên" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,40,40,0" FontSize="18" Checked="rdo_Checked"></RadioButton>
+                                <RadioButton x:Name="rdoTreEm" Content="Trẻ em(Dưới 12 tuổi)" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,30,0,0" FontSize="18" Checked="rdo_Checked"></RadioButton>
                                 <Label Content="Giá vé: " FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="20,0,0,10"></Label>
                                 <TextBlock Name="txbGiaVe" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,40,10" FontSize="18" Width="200"></TextBlock>
                             </Grid>
@@ -53,12 +88,13 @@
                                 <TextBlock x:Name="txbTongTien" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="20" Margin="0,25,20,0" Width="170"></TextBlock>
                                 <TextBlock x:Name="txbMaGG" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="18" Margin="0,60,20,0" Width="170"></TextBlock>
                                 <TextBlock x:Name="txbThanhToan" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="18" Margin="0,95,20,0" Width="170"></TextBlock>
-                                <Button x:Name="btnXacNhan" Content="Thanh toán" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="60,0,0,10" FontSize="18" Width="125"></Button>
-                                <Button x:Name="btnHuy" Content="Hủy bỏ" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,60,10" FontSize="18" Width="125"></Button>
+                                <Button x:Name="btnXacNhan" IsEnabled="False" Content="Thanh toán" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="60,0,0,10" FontSize="18" Width="125" Click="btnXacNhan_Click"></Button>
+                                <Button x:Name="btnThanhTien" Content="Thành tiền" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,60,10" FontSize="18" Width="125" Click="btnThanhTien_Click"></Button>
                             </Grid>
                         </Border>
                     </StackPanel>                    
                 </Grid>
+                
 
             </Grid>
 
