@@ -143,7 +143,7 @@ namespace QLRapChieuPhim.Doanhthu
                     totalRevenue += Convert.ToInt32(row["tongThu"]);
                 }
             }
-
+            txtTongThu.IsReadOnly = true;
             txtTongThu.Text = totalRevenue.ToString();
         }
 
