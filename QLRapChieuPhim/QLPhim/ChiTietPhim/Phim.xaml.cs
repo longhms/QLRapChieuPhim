@@ -30,31 +30,20 @@ namespace QLRapChieuPhim.QLPhim.ChiTietPhim
         }
         public void RefreshDataGrid()
         {
-            // Gọi lại phương thức LoadData hoặc bất kỳ phương thức nào khác để tải lại dữ liệu từ cơ sở dữ liệu và cập nhật DataGrid
             LoadData();
         }
         private void LoadData()
         {
-            string sql = @"SELECT 
-            P.maPhim, 
-            P.tenPhim, 
-            Q.tenQGSanXuat AS TenQuocGia, 
-            H.tenHangSX AS TenHangSX, 
-            P.daoDien, 
-            T.tenTheLoai AS TenTheLoai, 
-            P.ngayKhoiChieu, 
-            P.ngayKetThuc, 
-            P.nuDVC, 
-            P.namDVC, 
-            P.noiDungC 
-            FROM tblPhim AS P
-            LEFT JOIN tblTheLoai AS T ON P.maTheLoai = T.maTheLoai
-            LEFT JOIN tblQGsanXuat AS Q ON P.maQGSanXuat = Q.maQGSanXuat
-            LEFT JOIN tblHangSX AS H ON P.maHangSX = H.maHangSX";
-
-            DataTable dtPhim = dataProcessor.ReadData(sql);
-            dgPhim.ItemsSource = dtPhim.AsDataView();
-            Header();
+            try
+            {
+                DataTable dt = dataProcessor.ReadData("SELECT * FROM tblPhim");
+                dgPhim.ItemsSource = dt.AsDataView();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi tải dữ liệu từ cơ sở dữ liệu: " + ex.Message);
+            }
+            
 
         }
 
@@ -67,19 +56,17 @@ namespace QLRapChieuPhim.QLPhim.ChiTietPhim
 
         private void btnSua_Click(object sender, RoutedEventArgs e)
         {
-            if (dgPhim.SelectedItem != null)
-            {
-                // Lấy hàng được chọn từ DataGrid
+            if(dgPhim.SelectedItem != null)
+    {
                 DataRowView selectedRow = dgPhim.SelectedItem as DataRowView;
-
-                // Khởi tạo cửa sổ Them_phim và truyền dữ liệu từ hàng được chọn
-                Sua_phim suaPhim = new Sua_phim(selectedRow);
-                suaPhim.ShowDialog();
-
-                // Cập nhật lại DataGrid sau khi chỉnh sửa
-                RefreshDataGrid();
+                if (selectedRow != null)
+                {
+                    Sua_phim suaPhim = new Sua_phim(selectedRow);
+                    suaPhim.ShowDialog();
+                    RefreshDataGrid();
+                }
             }
-            else
+    else
             {
                 MessageBox.Show("Vui lòng chọn một phim để sửa.", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
             }
@@ -119,61 +106,6 @@ namespace QLRapChieuPhim.QLPhim.ChiTietPhim
             {
                 this.Close();
             }
-        }
-
-        void Header()
-        {
-            dgPhim.Columns[0].Header = "Mã Phim";
-            dgPhim.Columns[1].Header = "Tên Phim";
-            dgPhim.Columns[2].Header = "Quốc gia sản xuất";
-            dgPhim.Columns[3].Header = "Hãng sản xuất";
-            dgPhim.Columns[4].Header = "Đạo diễn";
-            dgPhim.Columns[5].Header = "Thể loại";
-            dgPhim.Columns[6].Header = "Ngày khởi chiếu";
-            dgPhim.Columns[7].Header = "Ngày kết thúc ";
-            dgPhim.Columns[8].Header = "Nữ diễn viên chính";
-            dgPhim.Columns[9].Header = "Nam diễn viên chính";
-            dgPhim.Columns[10].Header = "Nội dung chính";
-        }
-
-        private void txtFind_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            LoadData();
-            string sql = @"SELECT P.maPhim, 
-                 P.tenPhim, 
-                 Q.tenQGSanXuat AS TenQuocGia, 
-                 H.tenHangSX AS TenHangSX, 
-                 P.daoDien, 
-                 T.tenTheLoai AS TenTheLoai, 
-                 P.ngayKhoiChieu, 
-                 P.ngayKetThuc, 
-                 P.nuDVC, 
-                 P.namDVC, 
-                 P.noiDungC 
-                 FROM tblPhim AS P
-                 LEFT JOIN tblTheLoai AS T ON P.maTheLoai = T.maTheLoai
-                 LEFT JOIN tblQGsanXuat AS Q ON P.maQGSanXuat = Q.maQGsanXuat
-                 LEFT JOIN tblHangSX AS H ON P.maHangSX = H.maHangSX
-                 WHERE 1=1";
-
-            if (!string.IsNullOrEmpty(txtFind.Text.Trim()))
-            {
-                sql += " AND (P.maPhim LIKE '%" + txtFind.Text + "%' OR ";
-                sql += "P.tenPhim LIKE '%" + txtFind.Text + "%' OR ";
-                sql += "Q.tenQGSanXuat LIKE '%" + txtFind.Text + "%' OR ";
-                sql += "H.tenHangSX LIKE '%" + txtFind.Text + "%' OR ";
-                sql += "P.daoDien LIKE '%" + txtFind.Text + "%' OR ";
-                sql += "T.tenTheLoai LIKE '%" + txtFind.Text + "%' OR ";
-                sql += "P.ngayKhoiChieu LIKE '%" + txtFind.Text + "%' OR ";
-                sql += "P.ngayKetThuc LIKE '%" + txtFind.Text + "%' OR ";
-                sql += "P.nuDVC LIKE '%" + txtFind.Text + "%' OR ";
-                sql += "P.namDVC LIKE '%" + txtFind.Text + "%')";
-            }
-
-            DataTable dtTimKiem = dataProcessor.ReadData(sql);
-            dgPhim.ItemsSource = dtTimKiem.AsDataView();
-            Header();
-
         }
 
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)

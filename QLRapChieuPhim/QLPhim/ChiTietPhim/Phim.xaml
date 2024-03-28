@@ -16,16 +16,15 @@
                 <materialDesign:PackIcon Kind="ExitToApp"  HorizontalAlignment="Center" Height="40" Width="40"/>
             </Button>
             <Grid x:Name="GrdMain" Margin="10,81,10,10" Background="White">
-                <TextBox x:Name="txtFind"  materialDesign:HintAssist.Hint="Tìm kiếm" HorizontalAlignment="Left" Margin="61,14,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260" Height="52" FontSize="20" FontWeight="Bold" TextChanged="txtFind_TextChanged"/>
-                <Button x:Name="btnThem"  HorizontalAlignment="Left" Margin="361,14,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.013,0.001" Click="btnThem_Click" Height="52" Width="100" FontSize="20" FontWeight="Bold">
+                <Button x:Name="btnThem"  HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.013,0.001" Click="btnThem_Click" Height="56" Width="112" FontSize="20" FontWeight="Bold" Margin="858,10,0,0">
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock FontSize="20" FontWeight="Normal">Thêm</TextBlock>
+                        <TextBlock FontSize="20" FontWeight="Bold">Thêm</TextBlock>
                     </StackPanel>
                 </Button>
-                <DataGrid x:Name="dgPhim" AutoGenerateColumns="False" Margin="10,86,10,10" CanUserAddRows="False" FontSize="18" FontWeight="Bold">
+                <DataGrid x:Name="dgPhim" AutoGenerateColumns="False" Margin="10,82,10,10" ItemsSource="{Binding}" IsReadOnly="True" FontSize="16">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Mã phim" Binding="{Binding maPhim}" />
-                        <DataGridTextColumn Header="Tên phim" Binding="{Binding tenPhim}" />
+                        <DataGridTextColumn Header="Mã Phim" Binding="{Binding maPhim}" />
+                        <DataGridTextColumn Header="Tên Phim" Binding="{Binding tenPhim}" />
                         <DataGridTextColumn Header="Quốc gia sản xuất" Binding="{Binding maQGSanXuat}" />
                         <DataGridTextColumn Header="Hãng sản xuất" Binding="{Binding maHangSX}" />
                         <DataGridTextColumn Header="Đạo diễn" Binding="{Binding daoDien}" />
@@ -33,21 +32,25 @@
                         <DataGridTextColumn Header="Ngày khởi chiếu" Binding="{Binding ngayKhoiChieu}" />
                         <DataGridTextColumn Header="Ngày kết thúc" Binding="{Binding ngayKetThuc}" />
                         <DataGridTextColumn Header="Nữ diễn viên chính" Binding="{Binding nuDVC}" />
-                        <DataGridTextColumn Header="Nam diễn viễn chính" Binding="{Binding namDVC}" />
+                        <DataGridTextColumn Header="Nam diễn viên chính" Binding="{Binding namDVC}" />
                         <DataGridTextColumn Header="Nội dung chính" Binding="{Binding noiDungC}" />
                         <DataGridTextColumn Header="Tổng chi phí" Binding="{Binding tongChiPhi}" />
                         <DataGridTextColumn Header="Tổng thu" Binding="{Binding tongThu}" />
+
+                        <!-- Nút Sửa -->
                         <DataGridTemplateColumn Header="Sửa">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Button x:Name="btnEdit" Content="Sửa" Click="btnSua_Click"/>
+                                    <Button Content="Sửa" Click="btnSua_Click" CommandParameter="{Binding}"/>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
+
+                        <!-- Nút Xóa -->
                         <DataGridTemplateColumn Header="Xóa">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Button x:Name="btnDelete" Content="Xóa" Click="btnXoa_Click"/>
+                                    <Button Content="Xóa" Click="btnXoa_Click" CommandParameter="{Binding}"/>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
