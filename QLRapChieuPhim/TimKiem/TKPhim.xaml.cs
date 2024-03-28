@@ -178,6 +178,7 @@ namespace QLRapChieuPhim.TimKiem
             LoadData();
             cboHangSX.Text = "";
             cboTheloai.Text = "";
+            txtFindAll.Text = "";
         }
     }
 }
