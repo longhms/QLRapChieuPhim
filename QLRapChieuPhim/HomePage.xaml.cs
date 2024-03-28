@@ -118,5 +118,16 @@ namespace QLRapChieuPhim
             DThuPhim dtphim = new DThuPhim();
             dtphim.ShowDialog();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+           
+            if(MessageBox.Show("Bạn có chắc chắn muốn đăng xuất?","Thông báo",MessageBoxButton.YesNo,MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                Login login = new Login();
+                this.Close();
+                login.ShowDialog();
+            } 
+        }
     }
 }
