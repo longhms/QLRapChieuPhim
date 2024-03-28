@@ -157,7 +157,7 @@ namespace QLRapChieuPhim.Doanhthu
                 dtgDTPhim.Columns[2].Header = "Thể loại";
                 dtgDTPhim.Columns[3].Header = "Ngày chiếu";
                 dtgDTPhim.Columns[4].Header = "Tổng chi phí";
-                dtgDTPhim.Columns[5].Header = "Tổng thu";
+                dtgDTPhim.Columns[5].Header = "Lợi nhuận";
                 
             }
         }
@@ -170,7 +170,7 @@ namespace QLRapChieuPhim.Doanhthu
             T.tenTheLoai AS TenTheLoai, 
             BC.ngayChieu AS NgayKhoiChieu, -- Sử dụng ngày chiếu từ bảng BuoiChieu thay cho ngày khởi chiếu từ bảng Phim
             P.tongChiPhi,
-            P.tongThu 
+            BC.tongTien 
             FROM tblPhim AS P
             LEFT JOIN tblTheLoai AS T ON P.maTheLoai = T.maTheLoai
             LEFT JOIN tblHangSX AS H ON P.maHangSX = H.maHangSX
@@ -196,7 +196,7 @@ namespace QLRapChieuPhim.Doanhthu
             T.tenTheLoai AS TenTheLoai,
             BC.ngayChieu AS NgayKhoiChieu, -- Sử dụng ngày chiếu từ bảng BuoiChieu thay cho ngày khởi chiếu từ bảng Phim
             P.tongChiPhi,
-            P.tongThu 
+            BC.tongTien 
             FROM tblPhim AS P
             LEFT JOIN tblTheLoai AS T ON P.maTheLoai = T.maTheLoai
             LEFT JOIN tblHangSX AS H ON P.maHangSX = H.maHangSX
@@ -211,9 +211,9 @@ namespace QLRapChieuPhim.Doanhthu
             int totalRevenue = 0;
             foreach (DataRow row in dataTable.Rows)
             {
-                if (row["tongThu"] != DBNull.Value)
+                if (row["tongTien"] != DBNull.Value)
                 {
-                    totalRevenue += Convert.ToInt32(row["tongThu"]);
+                    totalRevenue += Convert.ToInt32(row["tongTien"]);
                 }
             }
             txtTongThu.IsReadOnly = true;
@@ -225,9 +225,9 @@ namespace QLRapChieuPhim.Doanhthu
             int totalRevenue = 0;
             foreach (DataRow row in dataTable.Rows)
             {
-                if (row["tongThu"] != DBNull.Value)
+                if (row["tongTien"] != DBNull.Value)
                 {
-                    totalRevenue += Convert.ToInt32(row["tongThu"]);
+                    totalRevenue += Convert.ToInt32(row["tongTien"]);
                 }
             }
             txtTongThu.IsReadOnly = true;
@@ -247,7 +247,7 @@ namespace QLRapChieuPhim.Doanhthu
             T.tenTheLoai AS TenTheLoai, 
             BC.ngayChieu AS NgayChieu,
             P.tongChiPhi,
-            P.tongThu 
+            BC.tongTien 
             FROM tblPhim AS P
             LEFT JOIN tblBuoiChieu AS BC ON P.maPhim = BC.maPhim
             LEFT JOIN tblTheLoai AS T ON P.maTheLoai = T.maTheLoai

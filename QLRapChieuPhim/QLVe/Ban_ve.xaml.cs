@@ -318,6 +318,9 @@ namespace QLRapChieuPhim.QLVe
             rdoSinhVien.IsChecked = false;
             rdoTreEm.IsChecked = false;
             btnXacNhan.IsEnabled = false;
+            txbMaGG.Text = "";
+            txbThanhToan.Text = "";
+            txbTongTien.Text = "";
         }
 
         private void btnThanhTien_Click(object sender, RoutedEventArgs e)
