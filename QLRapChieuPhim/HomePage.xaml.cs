@@ -108,11 +108,7 @@ namespace QLRapChieuPhim
             ban_Ve.ShowDialog();
         }
 
-        private void mnuDTPhim_Click(object sender, RoutedEventArgs e)
-        {
-            DThuPhim dtphim = new DThuPhim();
-            dtphim.ShowDialog();
-        }
+
 
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
@@ -120,6 +116,12 @@ namespace QLRapChieuPhim
             {
                 this.DragMove();
             }
+        }
+
+        private void mnuDTRap_Click(object sender, RoutedEventArgs e)
+        {
+            DThuPhim dtphim = new DThuPhim();
+            dtphim.ShowDialog();
         }
     }
 }

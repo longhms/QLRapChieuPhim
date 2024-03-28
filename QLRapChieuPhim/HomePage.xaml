@@ -33,8 +33,8 @@
             </MenuItem>
             <MenuItem x:Name="mnuBaoCao" FontSize="14" Header="Báo cáo" Height="30">
                 <MenuItem Header="Doanh thu">
-                    <MenuItem x:Name="mnuDTPhim" Header="Phim" Click="mnuDTPhim_Click"/>
-                    <MenuItem x:Name="mnuDTRap" Header="Rạp"/>
+                    <MenuItem x:Name="mnuDTRap" Header="Rạp" Click="mnuDTRap_Click"/>
+                    <MenuItem x:Name="mnuDTPhim" Header="Phim"/>
                 </MenuItem>
                 <MenuItem Header="Phim đang chiếu"/>
             </MenuItem>
