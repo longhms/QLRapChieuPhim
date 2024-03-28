@@ -72,14 +72,11 @@ namespace QLRapChieuPhim.QLPhim.ChiTietPhim
                 txtID.Focus();
                 return;
             }
-            dataProcessor.ChangeData("insert into tblPhim values('" + txtID.Text + "','" + txtTenphim.Text + "','" + cboQuocgia.SelectedItem.ToString() + "','" + cboHangSX.SelectedItem.ToString() + "','" + txtDaodien.Text + "','" + cboTheLoai.SelectedItem.ToString() + "','" + txtNgayKC.Text + "','" + txtNgayKT.Text + "','" + txtNuDVC.Text + "','" + txtNamDVC.Text + "','" + txtNoidung.Text + "','" + txtChiPhi.Text + "','" + txtThu.Text + "') ");
+            dataProcessor.ChangeData("insert into tblPhim values('" + txtID.Text + "','" + txtTenphim.Text + "','" + cboQuocgia.SelectedValue.ToString()+ "','" + cboHangSX.SelectedValue.ToString() + "','" + txtDaodien.Text + "','" + cboTheLoai.SelectedValue.ToString() + "','" + txtNgayKC.Text + "','" + txtNgayKT.Text + "','" + txtNuDVC.Text + "','" + txtNamDVC.Text + "','" + txtNoidung.Text + "','" + txtChiPhi.Text + "','" + txtThu.Text + "') ");
             MessageBox.Show("Thêm thành công");
 
             try
             {
-                // Lưu dữ liệu vào cơ sở dữ liệu
-
-                // Gọi phương thức cập nhật dữ liệu trên cửa sổ Phim
                 Phim phim = Application.Current.Windows.OfType<Phim>().FirstOrDefault();
                 if (phim != null)
                 {

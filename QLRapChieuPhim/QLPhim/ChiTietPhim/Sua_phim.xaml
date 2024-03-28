@@ -6,38 +6,37 @@
         xmlns:local="clr-namespace:QLRapChieuPhim.QLPhim.ChiTietPhim"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="Sua_phim" Height="450" Width="800" Loaded="Window_Loaded" WindowStyle="None" MouseLeftButtonDown="Window_MouseLeftButtonDown">
+        Title="Sua_phim" Height="600" Width="1000" Loaded="Window_Loaded" WindowStyle="None" MouseLeftButtonDown="Window_MouseLeftButtonDown">
     <Grid x:Name="GrdBoder" Background="#FF030B2B" >
         <TextBlock Text="Sửa thông tin Phim" Foreground="White" FontSize="24" HorizontalAlignment="Center" Margin="0,10,0,337" />
-        <Grid  x:Name="GrdMain" Margin="10,54,10,10" Background="White">
-            <Label Content="Mã Phim"  HorizontalAlignment="Left" Margin="16,36,0,0" VerticalAlignment="Top"  FontWeight="Bold" />
-            <Label Content="Tên Phim" HorizontalAlignment="Left" Margin="14,89,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-            <Label Content="Quốc gia" HorizontalAlignment="Left" Margin="12,139,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-            <Label Content="" HorizontalAlignment="Left" Margin="28,180,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-            <Label Content="Đạo diễn" HorizontalAlignment="Left" Margin="14,233,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-            <Label Content="Thể loại" HorizontalAlignment="Left" Margin="15,284,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.972,0.377" FontWeight="Bold"/>
-            <Label Content="Ngày khởi chiếu" HorizontalAlignment="Left" Margin="305,36,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-            <Label Content="Ngày kết thúc" HorizontalAlignment="Left" Margin="306,84,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-            <Label Content="Nữ diễn viên" HorizontalAlignment="Left" Margin="305,139,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-            <Label Content="Nam diễn viên" HorizontalAlignment="Left" Margin="305,187,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-            <Label Content="Tổng chi phí" HorizontalAlignment="Left" Margin="307,233,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-            <Label Content="Tổng thu" HorizontalAlignment="Left" Margin="305,284,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-            <Label Content="Hãng sản xuất" HorizontalAlignment="Left" Margin="12,187,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-            <Label Content="Nội dung phim" HorizontalAlignment="Right" Margin="0,38,46,0" VerticalAlignment="Top" FontWeight="Bold"/>
-            <ComboBox x:Name="cboQuocgia" HorizontalAlignment="Left" Margin="152,134,0,0" VerticalAlignment="Top" Width="120" FontWeight="Bold"/>
-            <ComboBox x:Name="cboHangSX" HorizontalAlignment="Left" Margin="152,187,0,0" VerticalAlignment="Top" Width="120" FontWeight="Bold"/>
-            <ComboBox x:Name="cboTheLoai" HorizontalAlignment="Left" Margin="152,284,0,0" VerticalAlignment="Top" Width="120" FontWeight="Bold"/>
-            <Button x:Name="btnExit" Content="Thoát" HorizontalAlignment="Left" Margin="659,296,0,0" VerticalAlignment="Top" Width="75" Click="btnExit_Click" FontWeight="Bold"/>
-            <TextBox x:Name="txtID"  materialDesign:HintAssist.Hint="Nhập mã phim" HorizontalAlignment="Left" Margin="152,35,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-            <TextBox x:Name="txtTenphim"  materialDesign:HintAssist.Hint="Nhập tên phim" HorizontalAlignment="Left" Margin="152,88,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-            <TextBox x:Name="txtDaodien"  materialDesign:HintAssist.Hint="Nhập tên đạo diễn" HorizontalAlignment="Left" Margin="152,232,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-            <TextBox x:Name="txtNgayKC"  materialDesign:HintAssist.Hint="Nhập ngày khởi chiếu" HorizontalAlignment="Left" Margin="450,28,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="132"/>
-            <TextBox x:Name="txtNgayKT"  materialDesign:HintAssist.Hint="Nhập ngày kết thúc" HorizontalAlignment="Left" Margin="450,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="132"/>
-            <TextBox x:Name="txtNuDVC"  materialDesign:HintAssist.Hint="Nhập tên nữ diễn viên" HorizontalAlignment="Left" Margin="450,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="132"/>
-            <TextBox x:Name="txtNamDVC"  materialDesign:HintAssist.Hint="Nhập tên nam diễn viên" HorizontalAlignment="Left" Margin="450,186,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="132"/>
-            <TextBox x:Name="txtChiPhi"  materialDesign:HintAssist.Hint="Nhập tổng chi phí" HorizontalAlignment="Left" Margin="450,233,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="132" RenderTransformOrigin="0.308,0.322"/>
-            <TextBox x:Name="txtThu"  materialDesign:HintAssist.Hint="Nhập tổng thu" HorizontalAlignment="Left" Margin="450,284,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="132"/>
-            <TextBox x:Name="txtNoidung"  materialDesign:HintAssist.Hint="Nhập nội dung chính" HorizontalAlignment="Right"  VerticalAlignment="Top" Width="120" Height="80" Margin="0,83,30,0">
+        <Grid  x:Name="GrdMain" Margin="10,63,10,10" Background="White">
+            <Label Content="Mã Phim"  HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"  FontWeight="Bold" FontSize="14" />
+            <Label Content="Tên Phim" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
+            <Label Content="Quốc gia" HorizontalAlignment="Left" Margin="10,100,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
+            <Label Content="Hãng sản xuất" HorizontalAlignment="Left" Margin="10,150,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
+            <Label Content="Đạo diễn" HorizontalAlignment="Right" Margin="0,20,194,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
+            <Label Content="Thể loại" HorizontalAlignment="Left" Margin="10,200,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.972,0.377" FontWeight="Bold" FontSize="14"/>
+            <Label Content="Ngày khởi chiếu" HorizontalAlignment="Left" Margin="350,10,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
+            <Label Content="Ngày kết thúc" HorizontalAlignment="Left" Margin="350,50,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
+            <Label Content="Nữ diễn viên" HorizontalAlignment="Left" Margin="350,100,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
+            <Label Content="Nam diễn viên" HorizontalAlignment="Left" Margin="350,150,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
+            <Label Content="Tổng chi phí" HorizontalAlignment="Left" Margin="350,200,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
+            <Label Content="Tổng thu" HorizontalAlignment="Right" Margin="0,70,194,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
+            <Label Content="Nội dung phim" HorizontalAlignment="Right" Margin="0,120,150,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
+            <ComboBox x:Name="cboQuocgia" HorizontalAlignment="Left" Margin="150,100,0,0" VerticalAlignment="Top" Width="120" FontWeight="Bold" FontSize="14"/>
+            <ComboBox x:Name="cboHangSX" HorizontalAlignment="Left" Margin="150,150,0,0" VerticalAlignment="Top" Width="120" FontWeight="Bold" FontSize="14"/>
+            <ComboBox x:Name="cboTheLoai" HorizontalAlignment="Left" Margin="150,200,0,0" VerticalAlignment="Top" Width="120" FontWeight="Bold" FontSize="14"/>
+            <Button x:Name="btnExit" Content="Thoát" HorizontalAlignment="Left" Margin="854,419,0,0" VerticalAlignment="Top" Width="72" Click="btnExit_Click" FontWeight="Bold" Height="47" FontSize="14"/>
+            <TextBox x:Name="txtID"  materialDesign:HintAssist.Hint="Nhập mã phim" HorizontalAlignment="Left" Margin="150,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="14"/>
+            <TextBox x:Name="txtTenphim"  materialDesign:HintAssist.Hint="Nhập tên phim" HorizontalAlignment="Left" Margin="150,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="14"/>
+            <TextBox x:Name="txtDaodien"  materialDesign:HintAssist.Hint="Nhập tên đạo diễn" HorizontalAlignment="Right" Margin="0,20,20,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" FontSize="14"/>
+            <TextBox x:Name="txtNgayKC"  materialDesign:HintAssist.Hint="Nhập ngày khởi chiếu" HorizontalAlignment="Left" Margin="500,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="156" FontSize="14"/>
+            <TextBox x:Name="txtNgayKT"  materialDesign:HintAssist.Hint="Nhập ngày kết thúc" HorizontalAlignment="Left" Margin="500,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="156" FontSize="14"/>
+            <TextBox x:Name="txtNuDVC"  materialDesign:HintAssist.Hint="Nhập tên nữ diễn viên" HorizontalAlignment="Left" Margin="500,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="156" FontSize="14"/>
+            <TextBox x:Name="txtNamDVC"  materialDesign:HintAssist.Hint="Nhập tên nam diễn viên" HorizontalAlignment="Left" Margin="500,150,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="156" FontSize="14"/>
+            <TextBox x:Name="txtChiPhi"  materialDesign:HintAssist.Hint="Nhập tổng chi phí" HorizontalAlignment="Left" Margin="500,200,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="156" RenderTransformOrigin="0.308,0.322" FontSize="14"/>
+            <TextBox x:Name="txtThu"  materialDesign:HintAssist.Hint="Nhập tổng thu" HorizontalAlignment="Right" Margin="0,70,20,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" FontSize="14"/>
+            <TextBox x:Name="txtNoidung"  materialDesign:HintAssist.Hint="Nhập nội dung chính" HorizontalAlignment="Right"  VerticalAlignment="Top" Width="171" Height="64" Margin="0,163,72,0" FontSize="14">
                 <TextBox.TextWrapping>
                     <TextWrapping>Wrap</TextWrapping>
                 </TextBox.TextWrapping>
@@ -45,8 +44,10 @@
                     <ScrollBarVisibility>Auto</ScrollBarVisibility>
                 </TextBox.VerticalScrollBarVisibility>
             </TextBox>
-            <Button x:Name="btnEdit" Content="Lưu" HorizontalAlignment="Left" Margin="659,213,0,0" VerticalAlignment="Top" Width="75" Click="btnEdit_Click" FontWeight="Bold"></Button>
+            <Button x:Name="btnEdit" Content="Lưu" HorizontalAlignment="Left" Margin="854,294,0,0" VerticalAlignment="Top" Width="72" Click="btnEdit_Click" FontWeight="Bold" Height="43" FontSize="14"></Button>
+            <DataGrid x:Name="dgPhim" HorizontalAlignment="Left" VerticalAlignment="Bottom"  Width="769" Height="253" Margin="20,0,0,10" SelectionChanged="dgPhim_SelectionChanged" FontSize="14" >
 
+            </DataGrid>
         </Grid>
     </Grid>
 </Window>

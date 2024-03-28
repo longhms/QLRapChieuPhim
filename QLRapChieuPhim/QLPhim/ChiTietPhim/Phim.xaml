@@ -16,56 +16,49 @@
                 <materialDesign:PackIcon Kind="ExitToApp"  HorizontalAlignment="Center" Height="40" Width="40"/>
             </Button>
             <Grid x:Name="GrdMain" Margin="10,81,10,10" Background="White">
-                <Button x:Name="btnThem"  HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.013,0.001" Click="btnThem_Click" Height="56" Width="121" FontSize="20" FontWeight="Bold" Margin="829,10,0,0">
+                <TextBox x:Name="txtFind" HorizontalAlignment="Left" Margin="25,27,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="443" Height="37" TextChanged="txtFind_TextChanged">
+                    <TextBox.Style>
+                        <Style TargetType="TextBox">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="TextBox">
+                                        <Grid>
+                                            <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="5"/>
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                </Grid.ColumnDefinitions>
+                                                <materialDesign:PackIcon Grid.Column="0" Kind="Magnify" VerticalAlignment="Center" Margin="5,0,0,0" Height="38" Width="21" />
+                                                <ScrollViewer x:Name="PART_ContentHost" Grid.Column="1" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden" VerticalAlignment="Center"/>
+                                            </Grid>
+                                        </Grid>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </TextBox.Style>
+                </TextBox>
+                <Button x:Name="btnThem"  HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.013,0.001" Click="btnThem_Click" Height="56" Width="121" FontSize="20" FontWeight="Bold" Margin="828,106,0,0">
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="PlusCircleOutline" Height="30" Width="30" />
                         <TextBlock FontSize="20" FontWeight="Bold">Thêm</TextBlock>
                     </StackPanel>
                 </Button>
-                <DataGrid x:Name="dgPhim" AutoGenerateColumns="False" Margin="10,82,10,10" ItemsSource="{Binding}" IsReadOnly="True" FontSize="16">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Mã Phim" Binding="{Binding maPhim}" />
-                        <DataGridTextColumn Header="Tên Phim" Binding="{Binding tenPhim}" />
-                        <DataGridTextColumn Header="Quốc gia sản xuất" Binding="{Binding maQGSanXuat}" />
-                        <DataGridTextColumn Header="Hãng sản xuất" Binding="{Binding maHangSX}" />
-                        <DataGridTextColumn Header="Đạo diễn" Binding="{Binding daoDien}" />
-                        <DataGridTextColumn Header="Thể loại" Binding="{Binding maTheloai}" />
-                        <DataGridTextColumn Header="Ngày khởi chiếu" Binding="{Binding ngayKhoiChieu}" />
-                        <DataGridTextColumn Header="Ngày kết thúc" Binding="{Binding ngayKetThuc}" />
-                        <DataGridTextColumn Header="Nữ diễn viên chính" Binding="{Binding nuDVC}" />
-                        <DataGridTextColumn Header="Nam diễn viên chính" Binding="{Binding namDVC}" />
-                        <DataGridTextColumn Header="Nội dung chính" Binding="{Binding noiDungC}" />
-                        <DataGridTextColumn Header="Tổng chi phí" Binding="{Binding tongChiPhi}" />
-                        <DataGridTextColumn Header="Tổng thu" Binding="{Binding tongThu}" />
-
-                        <!-- Nút Sửa -->
-                        <DataGridTemplateColumn Header="Sửa">
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <Button Click="btnSua_Click" Height="40" CommandParameter="{Binding}">
-                                        <StackPanel>
-                                            <materialDesign:PackIcon Kind="PencilCircleOutline" Width="30" Height="30" />
-                                        </StackPanel>
-                                    </Button>
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
-
-                        <!-- Nút Xóa -->
-                        <DataGridTemplateColumn Header="Xóa">
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <Button  Click="btnXoa_Click" Height="40" CommandParameter="{Binding}">
-                                        <StackPanel>
-                                            <materialDesign:PackIcon Kind="DeleteCircleOutline" Width="30" Height="30" />
-                                        </StackPanel>
-                                    </Button>
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
-                    </DataGrid.Columns>
+                <Button Click="btnSua_Click"  HorizontalAlignment="Left" VerticalAlignment="Top"  Height="56" Width="120" FontSize="20" FontWeight="Bold" Margin="826,254,0,0" >
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="PencilCircleOutline" Width="42" Height="30" />
+                        <TextBlock FontSize="20" FontWeight="Bold">Sửa</TextBlock>
+                    </StackPanel>
+                </Button>
+                <Button  Click="btnXoa_Click"  HorizontalAlignment="Left" VerticalAlignment="Top"  Height="56" Width="122" FontSize="20" FontWeight="Bold" Margin="827,406,0,0">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="DeleteCircleOutline" Width="30" Height="30" />
+                        <TextBlock  FontSize="20" FontWeight="Bold">Xóa</TextBlock>
+                    </StackPanel>
+                </Button>
+                <DataGrid x:Name="dgPhim"  Margin="10,106,178,10" >
                 </DataGrid>
-
             </Grid>
         </Grid>
     </Grid>
