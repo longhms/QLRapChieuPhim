@@ -27,7 +27,6 @@ namespace QLRapChieuPhim.TimKiem
         {
             InitializeComponent();
         }
-
         void Header()
         {
             dtgTKPhim.Columns[0].Header = "Mã Phim";
@@ -42,6 +41,7 @@ namespace QLRapChieuPhim.TimKiem
             dtgTKPhim.Columns[9].Header = "Nam diễn viên chính";
             dtgTKPhim.Columns[10].Header = "Nội dung chính";
         }
+
         void LoadData()
         {
 
@@ -69,41 +69,8 @@ namespace QLRapChieuPhim.TimKiem
 
         private void txtFindAll_TextChanged(object sender, TextChangedEventArgs e)
         {
-
-            string sql = @"SELECT P.maPhim, 
-                  P.tenPhim, 
-                  Q.tenQGSanXuat AS TenQuocGia, 
-                  H.tenHangSX AS TenHangSX, 
-                  P.daoDien, 
-                  T.tenTheLoai AS TenTheLoai, 
-                  P.ngayKhoiChieu, 
-                  P.ngayKetThuc, 
-                  P.nuDVC, 
-                  P.namDVC, 
-                  P.noiDungC 
-                   FROM tblPhim AS P
-                   LEFT JOIN tblTheLoai AS T ON P.maTheLoai = T.maTheLoai
-                   LEFT JOIN tblQGsanXuat AS Q ON P.maQGSanXuat = Q.maQGsanXuat
-                   LEFT JOIN tblHangSX AS H ON P.maHangSX = H.maHangSX
-                   WHERE 1=1";
-
-            if (!string.IsNullOrEmpty(txtFindAll.Text.Trim()))
-            {
-                sql += " AND (P.maPhim LIKE '%" + txtFindAll.Text + "%' OR ";
-                sql += "P.tenPhim LIKE '%" + txtFindAll.Text + "%' OR ";
-                sql += "Q.tenQGSanXuat LIKE '%" + txtFindAll.Text + "%' OR ";
-                sql += "H.tenHangSX LIKE '%" + txtFindAll.Text + "%' OR ";
-                sql += "P.daoDien LIKE '%" + txtFindAll.Text + "%' OR ";
-                sql += "T.tenTheLoai LIKE '%" + txtFindAll.Text + "%' OR ";
-                sql += "P.ngayKhoiChieu LIKE '%" + txtFindAll.Text + "%' OR ";
-                sql += "P.ngayKetThuc LIKE '%" + txtFindAll.Text + "%' OR ";
-                sql += "P.nuDVC LIKE '%" + txtFindAll.Text + "%' OR ";
-                sql += "P.namDVC LIKE '%" + txtFindAll.Text + "%')";
-            }
-
-            DataTable dtTimKiem = dtBase.ReadData(sql);
-            dtgTKPhim.ItemsSource = dtTimKiem.AsDataView();
-            Header();
+            Search();
+            
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -118,42 +85,9 @@ namespace QLRapChieuPhim.TimKiem
 
         private void cboTheloai_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (cboTheloai.SelectedItem != null)
-            {
-                DataRowView selectedRow = cboTheloai.SelectedItem as DataRowView;
-                string selectedTheLoai = selectedRow["tenTheLoai"].ToString();
-                SearchByTheLoai(selectedTheLoai);
-            }
+            Search();
         }
 
-        private void SearchByTheLoai(string tenTheLoai)
-        {
-            string sql = @"SELECT P.maPhim, 
-                  P.tenPhim, 
-                  Q.tenQGSanXuat AS TenQuocGia, 
-                  H.tenHangSX AS TenHangSX, 
-                  P.daoDien, 
-                  T.tenTheLoai AS TenTheLoai, 
-                  P.ngayKhoiChieu, 
-                  P.ngayKetThuc, 
-                  P.nuDVC, 
-                  P.namDVC, 
-                  P.noiDungC 
-                   FROM tblPhim AS P
-                   LEFT JOIN tblTheLoai AS T ON P.maTheLoai = T.maTheLoai
-                   LEFT JOIN tblQGsanXuat AS Q ON P.maQGSanXuat = Q.maQGsanXuat
-                   LEFT JOIN tblHangSX AS H ON P.maHangSX = H.maHangSX
-                   WHERE 1=1";
-
-            if (!string.IsNullOrEmpty(tenTheLoai))
-            {
-                sql += " AND tenTheLoai LIKE '%" + tenTheLoai + "%'";
-            }
-
-            DataTable dtTimKiem = dtBase.ReadData(sql);
-            dtgTKPhim.ItemsSource = dtTimKiem.AsDataView();
-            Header();
-        }
 
         private void LoadDataAndSetupComboBox()
         {
@@ -173,41 +107,9 @@ namespace QLRapChieuPhim.TimKiem
 
         private void cboHangSX_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (cboHangSX.SelectedItem != null)
-            {
-                DataRowView selectedRow = cboHangSX.SelectedItem as DataRowView;
-                string selectedHangSX = selectedRow["tenHangSX"].ToString();
-                SearchByHangSX(selectedHangSX);
-            }
+            Search();
         }
-        private void SearchByHangSX(string tenHangSX)
-        {
-            string sql = @"SELECT P.maPhim, 
-                  P.tenPhim, 
-                  Q.tenQGSanXuat AS TenQuocGia, 
-                  H.tenHangSX AS TenHangSX, 
-                  P.daoDien, 
-                  T.tenTheLoai AS TenTheLoai, 
-                  P.ngayKhoiChieu, 
-                  P.ngayKetThuc, 
-                  P.nuDVC, 
-                  P.namDVC, 
-                  P.noiDungC 
-                   FROM tblPhim AS P
-                   LEFT JOIN tblTheLoai AS T ON P.maTheLoai = T.maTheLoai
-                   LEFT JOIN tblQGsanXuat AS Q ON P.maQGSanXuat = Q.maQGsanXuat
-                   LEFT JOIN tblHangSX AS H ON P.maHangSX = H.maHangSX
-                   WHERE 1=1";
-
-            if (!string.IsNullOrEmpty(tenHangSX))
-            {
-                sql += " AND tenHangSX LIKE '%" + tenHangSX + "%'";
-            }
-
-            DataTable dtTimKiem = dtBase.ReadData(sql);
-            dtgTKPhim.ItemsSource = dtTimKiem.AsDataView();
-            Header();
-        }
+        
         private void LoadHangSXComboBox()
         {
             DataTable dtHangSX = dtBase.ReadData("SELECT * FROM tblHangSX");
@@ -226,6 +128,49 @@ namespace QLRapChieuPhim.TimKiem
         private void btnExit_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+        private void Search()
+        {
+            string sql = @"SELECT P.maPhim, 
+          P.tenPhim, 
+          Q.tenQGSanXuat AS TenQuocGia, 
+          H.tenHangSX AS TenHangSX, 
+          P.daoDien, 
+          T.tenTheLoai AS TenTheLoai, 
+          P.ngayKhoiChieu, 
+          P.ngayKetThuc, 
+          P.nuDVC, 
+          P.namDVC, 
+          P.noiDungC 
+           FROM tblPhim AS P
+           LEFT JOIN tblTheLoai AS T ON P.maTheLoai = T.maTheLoai
+           LEFT JOIN tblQGsanXuat AS Q ON P.maQGSanXuat = Q.maQGsanXuat
+           LEFT JOIN tblHangSX AS H ON P.maHangSX = H.maHangSX
+           WHERE 1=1";
+
+            if (!string.IsNullOrEmpty(txtFindAll.Text.Trim()))
+            {
+                sql += " AND (P.maPhim LIKE '%" + txtFindAll.Text + "%' OR ";
+                sql += "P.tenPhim LIKE '%" + txtFindAll.Text + "%')";
+            }
+
+            if (cboTheloai.SelectedItem != null)
+            {
+                DataRowView selectedRow = cboTheloai.SelectedItem as DataRowView;
+                string selectedTheLoai = selectedRow["tenTheLoai"].ToString();
+                sql += " AND T.tenTheLoai LIKE '%" + selectedTheLoai + "%'";
+            }
+
+            if (cboHangSX.SelectedItem != null)
+            {
+                DataRowView selectedRow = cboHangSX.SelectedItem as DataRowView;
+                string selectedHangSX = selectedRow["tenHangSX"].ToString();
+                sql += " AND H.tenHangSX LIKE '%" + selectedHangSX + "%'";
+            }
+
+            DataTable dtTimKiem = dtBase.ReadData(sql);
+            dtgTKPhim.ItemsSource = dtTimKiem.AsDataView();
+            Header();
         }
     }
 }
