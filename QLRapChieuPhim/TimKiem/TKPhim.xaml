@@ -45,6 +45,15 @@
             <DataGrid x:Name="dtgTKPhim" Margin="0,75,0,0" IsReadOnly="True"/>
             <ComboBox materialDesign:HintAssist.Hint="Thể Loại" x:Name="cboTheloai" HorizontalAlignment="Left" Margin="306,30,0,0" VerticalAlignment="Top" Width="150" SelectionChanged="cboTheloai_SelectionChanged"/>
             <ComboBox materialDesign:HintAssist.Hint="Hãng sản xuất" x:Name="cboHangSX" HorizontalAlignment="Left" Margin="514,30,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cboHangSX_SelectionChanged"/>
+
+            <Button x:Name="btnRf"
+                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
+                ToolTip="MaterialDesignFloatingActionMiniButton"
+                HorizontalAlignment="Left" Margin="700,20,0,0" VerticalAlignment="Top" Click="btnRf_Click">
+                        <materialDesign:PackIcon Kind="Refresh"/>
+            </Button>
+
         </Grid>
 
     </Grid>

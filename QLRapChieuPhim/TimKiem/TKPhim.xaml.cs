@@ -172,5 +172,12 @@ namespace QLRapChieuPhim.TimKiem
             dtgTKPhim.ItemsSource = dtTimKiem.AsDataView();
             Header();
         }
+
+        private void btnRf_Click(object sender, RoutedEventArgs e)
+        {
+            LoadData();
+            cboHangSX.Text = "";
+            cboTheloai.Text = "";
+        }
     }
 }
