@@ -22,10 +22,30 @@
                 <TextBox x:Name="txtID"  materialDesign:HintAssist.Hint="Nhập mã Hãng" HorizontalAlignment="Left" Margin="590,138,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="141" FontSize="18" Height="50"/>
                 <TextBox x:Name="txtTenHang"  materialDesign:HintAssist.Hint="Nhập tên hãng" HorizontalAlignment="Left" Margin="590,295,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" FontSize="18" Height="50" RenderTransformOrigin="0.087,0.534"/>
                 <DataGrid x:Name="dgHang" Margin="27,22,625,58" FontSize="16" SelectionChanged="dgHang_SelectionChanged" />
-                <Button x:Name="btnAdd" Content="Thêm" HorizontalAlignment="Left" Margin="790,56,0,0" VerticalAlignment="Top" Width="100" Click="btnAdd_Click" Height="50" FontSize="16"/>
-                <Button x:Name="btnEdit" Content="Sửa" HorizontalAlignment="Left" Margin="790,163,0,0" VerticalAlignment="Top" Width="100" Click="btnEdit_Click" Height="50" FontSize="16"/>
-                <Button x:Name="btnDelete" Content="Xóa" HorizontalAlignment="Left" Margin="790,295,0,0" VerticalAlignment="Top" Width="100" Click="btnDelete_Click" Height="50" FontSize="16"/>
-                <Button x:Name="btnFind" Content="Tìm kiếm" HorizontalAlignment="Left" Margin="790,402,0,0" VerticalAlignment="Top" Width="100" Click="btnFind_Click" Height="50" FontSize="16"/>
+                <Button x:Name="btnAdd"  HorizontalAlignment="Left" Margin="790,56,0,0" VerticalAlignment="Top" Width="120" Click="btnAdd_Click" Height="50" FontSize="16">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="PlusCircleOutline" Height="25" Width="25"/>
+                        <TextBlock Text="Thêm" FontSize="20"></TextBlock>
+                    </StackPanel>
+                </Button>
+                <Button x:Name="btnEdit" HorizontalAlignment="Left" Margin="790,163,0,0" VerticalAlignment="Top" Width="120" Click="btnEdit_Click" Height="50" FontSize="16">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="PencilCircleOutline" Height="25" Width="25"/>
+                        <TextBlock Text="Sửa" FontSize="20" FontWeight="Bold"></TextBlock>
+                    </StackPanel>
+                </Button>
+                <Button x:Name="btnDelete" HorizontalAlignment="Left" Margin="790,295,0,0" VerticalAlignment="Top" Width="120" Click="btnDelete_Click" Height="50" FontSize="16">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="DeleteCircleOutline" Width="25" Height="25" />
+                        <TextBlock Text="Xóa" FontSize="20" FontWeight="Bold"></TextBlock>
+                    </StackPanel>
+                </Button>
+                <Button x:Name="btnFind" HorizontalAlignment="Left" Margin="790,402,0,0" VerticalAlignment="Top" Width="120" Click="btnFind_Click" Height="50" FontSize="16">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="LocationExit"  Width="25" Height="25"/>
+                        <TextBlock Text="Thoát" FontSize="20" FontWeight="Bold"></TextBlock>
+                    </StackPanel>
+                </Button>
 
             </Grid>
 

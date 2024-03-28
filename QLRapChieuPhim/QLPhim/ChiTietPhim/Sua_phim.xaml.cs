@@ -32,45 +32,39 @@ namespace QLRapChieuPhim.QLPhim.ChiTietPhim
         public Sua_phim(DataRowView selectedRow)
         {
             InitializeComponent();
-            if (selectedRow != null)
+            txtID.Text = selectedRow["maPhim"].ToString();
+            txtTenphim.Text = selectedRow["tenPhim"].ToString();
+            txtDaodien.Text = selectedRow["daoDien"].ToString();
+            txtNgayKC.Text = selectedRow["ngayKhoiChieu"].ToString();
+            txtNgayKT.Text = selectedRow["ngayKetThuc"].ToString();
+            txtNuDVC.Text = selectedRow["nuDVC"].ToString();
+            txtNamDVC.Text = selectedRow["namDVC"].ToString();
+            txtNoidung.Text = selectedRow["noiDungC"].ToString();
+            txtChiPhi.Text = selectedRow["tongChiPhi"].ToString();
+            txtThu.Text = selectedRow["tongThu"].ToString();
+
+            // Gọi hàm để gán giá trị cho ComboBox Quocgia
+            GanGiaTriComboBox(cboQuocgia, selectedRow["maQGSanXuat"].ToString());
+
+            // Gọi hàm để gán giá trị cho ComboBox HangSX
+            GanGiaTriComboBox(cboHangSX, selectedRow["maHangSX"].ToString());
+
+            // Gọi hàm để gán giá trị cho ComboBox TheLoai
+            GanGiaTriComboBox(cboTheLoai, selectedRow["maTheLoai"].ToString());
+
+
+        }
+        private void GanGiaTriComboBox(ComboBox comboBox, string maGiaTri)
+        {
+            foreach (ComboBoxItem item in comboBox.Items)
             {
-                txtID.Text = selectedRow["maPhim"].ToString();
-                txtTenphim.Text = selectedRow["tenPhim"].ToString();
-                cboQuocgia.SelectedItem = selectedRow["maQGSanXuat"].ToString();
-                cboHangSX.SelectedItem = selectedRow["maHangSX"].ToString();
-                txtDaodien.Text = selectedRow["daoDien"].ToString();
-                cboTheLoai.SelectedItem = selectedRow["maTheLoai"].ToString();
-                txtNgayKC.Text = selectedRow["ngayKhoiChieu"].ToString();
-                txtNgayKT.Text = selectedRow["ngayKetThuc"].ToString();
-                txtNuDVC.Text = selectedRow["nuDVC"].ToString();
-                txtNamDVC.Text = selectedRow["namDVC"].ToString();
-                txtNoidung.Text = selectedRow["noiDungC"].ToString();
-                txtChiPhi.Text = selectedRow["tongChiPhi"].ToString();
-                txtThu.Text = selectedRow["tongThu"].ToString();
-            }
-            else
-            {
-                ClearFields();
-                txtID.IsEnabled = true;
-            }
-            void ClearFields()
-            {
-                txtID.Text = "";
-                txtTenphim.Text = "";
-                cboQuocgia.SelectedItem = null;
-                cboHangSX.SelectedItem = null;
-                txtDaodien.Text = "";
-                cboTheLoai.SelectedItem = null;
-                txtNgayKC.Text = "";
-                txtNgayKT.Text = "";
-                txtNuDVC.Text = "";
-                txtNamDVC.Text = "";
-                txtNoidung.Text = "";
-                txtChiPhi.Text = "";
-                txtThu.Text = "";
+                if (item.Tag.ToString() == maGiaTri)
+                {
+                    comboBox.SelectedItem = item;
+                    break;
+                }
             }
         }
-
         private void btnExit_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult result = MessageBox.Show("Bạn có chắc chắn muốn thoát?", "Xác nhận", MessageBoxButton.YesNo, MessageBoxImage.Question);
@@ -83,22 +77,19 @@ namespace QLRapChieuPhim.QLPhim.ChiTietPhim
 
         private void btnEdit_Click(object sender, RoutedEventArgs e)
         {
-            // Lưu dữ liệu vào cơ sở dữ liệu
             try
             {
                 if (!string.IsNullOrWhiteSpace(txtID.Text) && !string.IsNullOrWhiteSpace(txtTenphim.Text) && cboQuocgia.SelectedItem != null && cboHangSX.SelectedItem != null && !string.IsNullOrWhiteSpace(txtDaodien.Text) && cboTheLoai.SelectedItem != null && !string.IsNullOrWhiteSpace(txtNgayKC.Text) && !string.IsNullOrWhiteSpace(txtNgayKT.Text) && !string.IsNullOrWhiteSpace(txtNuDVC.Text) && !string.IsNullOrWhiteSpace(txtNamDVC.Text) && !string.IsNullOrWhiteSpace(txtNoidung.Text) && !string.IsNullOrWhiteSpace(txtChiPhi.Text) && !string.IsNullOrWhiteSpace(txtThu.Text))
                 {
-                    dataProcessor.ChangeData("UPDATE tblPhim SET tenPhim = '" + txtTenphim.Text + "',maQGsanXuat = '" + cboQuocgia.SelectedValue + "', maHangSX = '" + cboHangSX.SelectedValue + "', daoDien = '" + txtDaodien.Text + "',maTheLoai = '" + cboTheLoai.SelectedValue + "',ngayKhoiChieu = '" + txtNgayKC.Text + "', ngayKetThuc = '" + txtNgayKT.Text + "', nuDVC = '" + txtNuDVC.Text + "', namDVC = '" + txtNamDVC.Text + "', noiDungC = '" + txtNoidung.Text + "',tongChiPhi = '" + int.Parse(txtChiPhi.Text) + "', tongThu = '" + int.Parse(txtThu.Text) + "'WHERE maPhim = '" + txtID.Text + "'");
+                    dataProcessor.ChangeData("UPDATE tblPhim SET tenPhim = '" + txtTenphim.Text + "',maQGSanXuat = '" + cboQuocgia.SelectedValue + "', maHangSX = '" + cboHangSX.SelectedValue + "', daoDien = '" + txtDaodien.Text + "',maTheLoai = '" + cboTheLoai.SelectedValue + "',ngayKhoiChieu = '" + txtNgayKC.Text + "', ngayKetThuc = '" + txtNgayKT.Text + "', nuDVC = '" + txtNuDVC.Text + "', namDVC = '" + txtNamDVC.Text + "', noiDungC = '" + txtNoidung.Text + "',tongChiPhi = '" + int.Parse(txtChiPhi.Text) + "', tongThu = '" + int.Parse(txtThu.Text) + "'WHERE maPhim = '" + txtID.Text + "'");
 
                 }
                 MessageBox.Show("Đã cập nhật thông tin phim thành công.", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             catch (Exception ex)
             {
-                // Xử lý khi gặp lỗi trong quá trình lưu dữ liệu
                 MessageBox.Show("Lỗi: " + ex.Message, "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-            // Đóng cửa sổ khi đã lưu thành công
             this.Close();
 
         }
