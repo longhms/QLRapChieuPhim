@@ -22,7 +22,7 @@
                     Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
                     ToolTip="MaterialDesignFloatingActionMiniButton"
                     HorizontalAlignment="Right" Margin="0,40,10,0" VerticalAlignment="Top" Click="btnRf_Click">
-                                <materialDesign:PackIcon Kind="Refresh"/>
+                    <materialDesign:PackIcon Kind="Refresh"/>
                 </Button>
 
                 <Grid x:Name="GrdTitle" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40,20,0,0" Width="540" Height="40" Background="#FF2CB8CA">
@@ -30,7 +30,7 @@
                 </Grid>
 
                 <Grid x:Name="mainGrid" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40,85,0,0" Height="270" Width="540">
-                    
+
                 </Grid>
 
                 <Border BorderThickness="2" BorderBrush="Black"
@@ -49,15 +49,18 @@
                         <Label Content="Chọn hàng ghế" HorizontalAlignment="Left" Margin="20,210,0,0" VerticalAlignment="Top"/>
                         <Label Content="Chọn số ghế" HorizontalAlignment="Left" Margin="140,210,0,0" VerticalAlignment="Top"/>
 
-                        <ComboBox x:Name="cboLichChieu" HorizontalAlignment="Left" Margin="130,10,0,0" VerticalAlignment="Top" Width="80" SelectionChanged="cboLichChieu_SelectionChanged"/>
-                        <ComboBox x:Name="cboHangGhe" HorizontalAlignment="Left" Margin="20,250,0,0" VerticalAlignment="Top" Width="80"/>
-                        <ComboBox x:Name="cboSoGhe" HorizontalAlignment="Left" Margin="140,250,0,0" VerticalAlignment="Top" Width="80"/>
+                        <ComboBox x:Name="cboLichChieu" HorizontalAlignment="Left" Margin="130,10,0,0" VerticalAlignment="Top" Width="80" SelectionChanged="cboLichChieu_SelectionChanged"
+                                  materialDesign:HintAssist.Hint="Lịch chiếu"/>
+                        <ComboBox x:Name="cboHangGhe" HorizontalAlignment="Left" Margin="20,250,0,0" VerticalAlignment="Top" Width="80"
+                                  materialDesign:HintAssist.Hint="Hàng ghế"/>
+                        <ComboBox x:Name="cboSoGhe" HorizontalAlignment="Left" Margin="140,250,0,0" VerticalAlignment="Top" Width="80"
+                                  materialDesign:HintAssist.Hint="Số ghế"/>
 
 
                     </Grid>
                 </Border>
-                
-                
+
+
                 <Grid x:Name="GrdKhungVe" Width="1100" Height="180" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,20">
                     <StackPanel Orientation="Horizontal">
                         <Border BorderBrush="Black" BorderThickness="2" >
@@ -74,9 +77,10 @@
                             <Grid x:Name="GrdVouvher" Width="290">
                                 <Label Content="Mã giảm giá:" FontSize="20" FontWeight="Bold" Margin="10,0,0,0"></Label>
                                 <Label Content="Chọn mã giảm giá:" FontSize="18" Margin="30,40,0,0"></Label>
-                                <ComboBox Name="cboMaGG" Width="180" HorizontalAlignment="Left" Margin="50,80,0,0" VerticalAlignment="Top" FontSize="16"></ComboBox>
-                                
-                            
+                                <ComboBox Name="cboMaGG" Width="180" HorizontalAlignment="Left" Margin="50,80,0,0" VerticalAlignment="Top" FontSize="16"
+                                          materialDesign:HintAssist.Hint="Mã giảm giá"></ComboBox>
+
+
                             </Grid>
                         </Border>
                         <Border BorderBrush="Black" BorderThickness="2">
@@ -92,9 +96,10 @@
                                 <Button x:Name="btnThanhTien" Content="Thành tiền" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,60,10" FontSize="18" Width="125" Click="btnThanhTien_Click"></Button>
                             </Grid>
                         </Border>
-                    </StackPanel>                    
+                    </StackPanel>
                 </Grid>
-                
+                <materialDesign:PackIcon Kind="Cinema" Foreground="OrangeRed" Height="200" Width="200" Margin="880,100,0,0"/>
+
 
             </Grid>
 

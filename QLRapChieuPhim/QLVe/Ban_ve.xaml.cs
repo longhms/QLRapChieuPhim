@@ -279,7 +279,7 @@ namespace QLRapChieuPhim.QLVe
 
             DataTable data = dataProcessor.ReadData("SELECT maShow,tB.maPhim,tP.tongThu,soVedaban,tongTien FROM tblBuoiChieu tB INNER JOIN tblPhim tP ON tP.maPhim = tB.maPhim WHERE maShow = ('" + lichChieu + "')");
             int tongThu = int.Parse(data.Rows[0]["tongThu"].ToString());
-            int soVedaban = int.Parse(data.Rows[0]["tongThu"].ToString());
+            int soVedaban = int.Parse(data.Rows[0]["soVedaban"].ToString());
             int tongTien = int.Parse(data.Rows[0]["tongTien"].ToString());
             string maPhim = data.Rows[0]["maPhim"].ToString();
 

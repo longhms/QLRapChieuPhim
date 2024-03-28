@@ -59,11 +59,6 @@ namespace QLRapChieuPhim
             Lich_chieu.ShowDialog();
         }
 
-        private void mnuGioChieu_Click(object sender, RoutedEventArgs e)
-        {
-            Gio_chieu Gio_chieu = new Gio_chieu();
-            Gio_chieu.ShowDialog();
-        }
 
 
         private void mnuTheLoai_Click(object sender, RoutedEventArgs e)

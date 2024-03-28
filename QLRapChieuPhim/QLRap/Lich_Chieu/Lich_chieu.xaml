@@ -42,7 +42,7 @@
 
             <ComboBox x:Name="cboPhong" Width="120" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,80,0,0" SelectionChanged="cboPhong_SelectionChanged"/>
 
-            <DatePicker x:Name="dtpNgayChieu" Width="140" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,10,10,0"
+            <DatePicker x:Name="dtpNgayChieu" Width="140" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,10,200,0"
                         Style="{StaticResource MaterialDesignOutlinedDatePicker}"
                         materialDesign:HintAssist.Hint="Chọn Ngày"
                         materialDesign:DatePickerAssist.OutlinedBorderActiveThickness="3"
@@ -50,7 +50,7 @@
                         materialDesign:DatePickerAssist.OutlinedBorderInactiveThickness="3"
                         materialDesign:HintAssist.FloatingOffset="0,-23" SelectedDateChanged="dtpNgayChieu_SelectedDateChanged"/>
             
-            <DataGrid x:Name="dgBuoiChieu" AutoGenerateColumns="False" Margin="140,80,10,10" CanUserAddRows="False"
+            <DataGrid x:Name="dgBuoiChieu" AutoGenerateColumns="False" Margin="140,80,160,10" CanUserAddRows="False"
                       IsReadOnly="True">
                   
                 <DataGrid.Columns>
@@ -72,6 +72,10 @@
                     </DataGridTemplateColumn>
                 </DataGrid.Columns>
             </DataGrid>
+
+            <materialDesign:PackIcon Kind="MovieOpenPlay" Foreground="LightCoral" Height="100" Width="100" Margin="860,240,0,0"  />
+            <materialDesign:PackIcon Kind="MovieRoll" Foreground="Coral" Height="100" Width="100" Margin="20,420,0,0" />
+            
         </Grid>
     </Grid>
 </Window>

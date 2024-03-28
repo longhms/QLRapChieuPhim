@@ -26,15 +26,18 @@ namespace QLRapChieuPhim.QLRap.Lich_Chieu
         int numSeatsPerRow = 6;
         string testMS1;
         string sql ;
+        Lich_chieu lich;
         public TTBuoiChieu()
         {
             InitializeComponent();
+            
         }
 
-        public TTBuoiChieu(string testMS)
+        public TTBuoiChieu(string testMS, Lich_chieu lich)
         {
             InitializeComponent();
             testMS1 = testMS;
+            this.lich = lich;
             DrawSeats();
             LoadData();
         }
@@ -173,8 +176,18 @@ namespace QLRapChieuPhim.QLRap.Lich_Chieu
 
         private void btnDeleteLC_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Bạn không thể xóa lịch chiếu đã thêm!","Thông báo",MessageBoxButton.OK,MessageBoxImage.Error);
+            /*MessageBox.Show("Bạn không thể xóa lịch chiếu đã thêm!","Thông báo",MessageBoxButton.OK,MessageBoxImage.Error);
             return;
+*/
+            if(MessageBox.Show("Bạn có muốn xóa lịch chiếu đã thêm?","Thông báo",MessageBoxButton.YesNo,MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                dataProcessor.ChangeData("DELETE FROM tblBuoiChieu WHERE maShow = ('" + testMS1 + "')");
+                MessageBox.Show("Đã xóa thành công!","Thông báo",MessageBoxButton.OK,MessageBoxImage.Information);
+                lich.btnRf_Click(sender, e);
+                this.Close();
+            }
+
+            
         }
 
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)

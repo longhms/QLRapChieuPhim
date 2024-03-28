@@ -117,7 +117,7 @@ namespace QLRapChieuPhim.QLRap.Lich_Chieu
 
         private void btnThem_Click(object sender, RoutedEventArgs e)
         {
-            ThemBuoiChieu themBuoiChieu = new ThemBuoiChieu();
+            ThemBuoiChieu themBuoiChieu = new ThemBuoiChieu(this);
             themBuoiChieu.ShowDialog();
         }
 
@@ -128,11 +128,11 @@ namespace QLRapChieuPhim.QLRap.Lich_Chieu
 
             testMS = selectedRow["maShow"].ToString();
 
-            TTBuoiChieu tTBuoiChieu = new TTBuoiChieu(testMS);
+            TTBuoiChieu tTBuoiChieu = new TTBuoiChieu(testMS, this);
             tTBuoiChieu.ShowDialog();
         }
 
-        private void btnRf_Click(object sender, RoutedEventArgs e)
+        public void btnRf_Click(object sender, RoutedEventArgs e)
         {
             /*Lich_chieu lich_Chieu = new Lich_chieu();
             this.Close();

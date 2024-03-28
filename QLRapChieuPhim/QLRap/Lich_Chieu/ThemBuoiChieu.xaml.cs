@@ -23,10 +23,12 @@ namespace QLRapChieuPhim.QLRap.Lich_Chieu
     public partial class ThemBuoiChieu : Window
     {
         Classes.DataProcessor dataProcessor = new DataProcessor(Login.cinemaID);
-        public ThemBuoiChieu()
+        Lich_chieu lich;
+        public ThemBuoiChieu(Lich_chieu lich)
         {
             InitializeComponent();
             LoadData();
+            this.lich = lich;
         }
 
         private void btnThemBC_Click(object sender, RoutedEventArgs e)
@@ -81,7 +83,7 @@ namespace QLRapChieuPhim.QLRap.Lich_Chieu
                 return;
             }
 
-            if (cboMovieName.Text == "" || ngayChieuStr == null || gioChieuStr == null || cboPhongChieu.Text == "" || txtMaBuoiChieu.Text =="")
+            if (cboMovieName.Text == "" || ngayChieuStr == null || gioChieuStr == "0001/01/01" || cboPhongChieu.Text == "" || txtMaBuoiChieu.Text =="")
             {
                 MessageBox.Show("Hãy nhập đủ thông tin để thêm!", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
@@ -96,6 +98,8 @@ namespace QLRapChieuPhim.QLRap.Lich_Chieu
 
                 dataProcessor.ChangeData($"INSERT INTO tblBuoiChieu values('{txtMaBuoiChieu.Text}','{phim}','{maRap}','{maPhong}','{ngayChieuStr}','{gioChieuStr}','{0}','{0}')");
                 MessageBox.Show("Bạn đã thêm một buổi chiếu mới thành công","Thông báo",MessageBoxButton.OK, MessageBoxImage.Information);
+                lich.btnRf_Click(sender, e);
+                this.Close();
                 return;
             }
         }
